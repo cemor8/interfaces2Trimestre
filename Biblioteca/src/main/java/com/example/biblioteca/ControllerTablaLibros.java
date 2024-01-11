@@ -3,6 +3,8 @@ package com.example.biblioteca;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXCheckbox;
 import javafx.fxml.FXML;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 
 public class ControllerTablaLibros {
@@ -15,6 +17,19 @@ public class ControllerTablaLibros {
 
     @FXML
     private MFXCheckbox filtrar;
+    @FXML
+    private TableColumn<Libro, String> columnaAutor;
+
+    @FXML
+    private TableColumn<Libro, String> columnaFecha;
+
+    @FXML
+    private TableColumn<Libro, String> columnaISBN;
+
+    @FXML
+    private TableColumn<Libro, String> columnaTitulo;
+    @FXML
+    private TableView<Libro> tabla;
     private Data data;
 
     @FXML
@@ -33,6 +48,7 @@ public class ControllerTablaLibros {
     }
     public void recibirData(Data data){
         this.data = data;
+
     }
 
 }

@@ -37,7 +37,7 @@ public class ControllerLogin {
         this.data.setCurrentUser(new Usuario(this.introducirUsuario.getText()));
         Button btn = (Button) event.getSource();
         Stage stageLogin= (Stage) btn.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("panel-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("panel_principal.fxml"));
         Parent root =null;
         try {
              root = fxmlLoader.load();

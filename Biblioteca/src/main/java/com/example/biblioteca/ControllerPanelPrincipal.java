@@ -71,6 +71,7 @@ public class ControllerPanelPrincipal {
     }
     public void establecerDatos(Data data){
         this.data = data;
+        this.labelMostrarNombre.setText("Hola, "+this.data.getCurrentUser().getNombreUsuario());
     }
 
 }
