@@ -17,7 +17,7 @@ public class Data {
     private ObservableList<Libro> libros = FXCollections.observableArrayList();
     private ObservableList<Libro> librosFiltrados;
     private String vistaAnterior;
-    private Locale locale = new Locale("es","ES");
+    private Locale locale = new Locale("es");
     private ResourceBundle bundle;
     private boolean filtrar = false;
     private boolean oscuro = true;

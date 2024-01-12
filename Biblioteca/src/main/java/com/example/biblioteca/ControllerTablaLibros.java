@@ -97,6 +97,7 @@ public class ControllerTablaLibros implements Initializable {
     }
     public void recibirData(Data data){
         this.data = data;
+        this.traducir();
         if(this.data.isFiltrar()){
             this.filtrar.setSelected(true);
             this.tablaLibros.setItems(this.data.getLibrosFiltrados());
@@ -130,6 +131,27 @@ public class ControllerTablaLibros implements Initializable {
         this.columnaISBN.setCellValueFactory(new PropertyValueFactory<>("isbn"));
         this.columnaFecha.setCellValueFactory(new PropertyValueFactory<>("fecha"));
         this.tablaLibros.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
+    }
+
+    public void traducir(){
+        this.data.setBundle(ResourceBundle.getBundle("bundles.MessagesBundle",this.data.getLocale()));
+        ResourceBundle bundle = this.data.getBundle();
+        if(this.data.getLocale().getLanguage().equalsIgnoreCase("en")){
+            this.btnBorrar.setText(bundle.getString("detailded.delete"));
+            this.btnVer.setText(bundle.getString("detailed.see"));
+            this.filtrar.setText(bundle.getString("detailed.filter"));
+            this.columnaAutor.setText(bundle.getString("detailed.author"));
+            this.columnaFecha.setText(bundle.getString("detailed.date"));
+            this.columnaTitulo.setText(bundle.getString("detailed.title"));
+
+        }else{
+            this.btnBorrar.setText(bundle.getString("detallada.borrar"));
+            this.btnVer.setText(bundle.getString("detallada.ver"));
+            this.filtrar.setText(bundle.getString("detallada.filtrar"));
+            this.columnaAutor.setText(bundle.getString("detallada.autor"));
+            this.columnaFecha.setText(bundle.getString("detallada.fecha"));
+            this.columnaTitulo.setText(bundle.getString("detallada.titulo"));
+        }
     }
 }
 

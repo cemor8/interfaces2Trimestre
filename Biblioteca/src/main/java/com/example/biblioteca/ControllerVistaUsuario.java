@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -97,6 +98,7 @@ public class ControllerVistaUsuario {
     }
     public void recibirData(Data data){
         this.data = data;
+        this.traducir();
     }
     /**
      * Método que devuelve true si se cumple una expresion regular en una string
@@ -108,6 +110,25 @@ public class ControllerVistaUsuario {
         Pattern patronValidar = Pattern.compile(patron);
         Matcher matcher = patronValidar.matcher(texto_buscar);
         return matcher.matches();
+    }
+    public void traducir(){
+        this.data.setBundle(ResourceBundle.getBundle("bundles.MessagesBundle",this.data.getLocale()));
+        ResourceBundle bundle = this.data.getBundle();
+        if(this.data.getLocale().getLanguage().equalsIgnoreCase("en")){
+            this.btnGuardar.setText(bundle.getString("user.save"));
+            this.btnSalir.setText(bundle.getString("user.logout"));
+            this.labelApellido.setText(bundle.getString("user.surname"));
+            this.labelEdad.setText(bundle.getString("user.age"));
+            this.labelEmail.setText(bundle.getString("user.email"));
+            this.labelNombre.setText(bundle.getString("user.new"));
+        }else{
+            this.btnGuardar.setText(bundle.getString("usuario.guardar"));
+            this.btnSalir.setText(bundle.getString("usuario.salir"));
+            this.labelApellido.setText(bundle.getString("usuario.apellido"));
+            this.labelEdad.setText(bundle.getString("usuario.edad"));
+            this.labelEmail.setText(bundle.getString("usuario.email"));
+            this.labelNombre.setText(bundle.getString("usuario.nombre"));
+        }
     }
 
 }

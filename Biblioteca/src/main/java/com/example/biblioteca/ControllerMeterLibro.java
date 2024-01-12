@@ -8,6 +8,7 @@ import javafx.scene.input.MouseEvent;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -77,7 +78,28 @@ public class ControllerMeterLibro {
     }
     public void recibirData(Data data){
         this.data = data;
+        this.traducir();
     }
+    public void traducir(){
+        this.data.setBundle(ResourceBundle.getBundle("bundles.MessagesBundle",this.data.getLocale()));
+        ResourceBundle bundle = this.data.getBundle();
+        if(this.data.getLocale().getLanguage().equalsIgnoreCase("en")){
+            this.btnEnviar.setText(bundle.getString("add.send"));
+            this.labelAutor.setText(bundle.getString("add.author"));
+            this.labelAño.setText(bundle.getString("add.year"));
+            this.labelNombre.setText(bundle.getString("add.title"));
+        }else{
+            this.btnEnviar.setText(bundle.getString("añadir.enviar"));
+            this.labelAutor.setText(bundle.getString("añadir.autor"));
+            this.labelAño.setText(bundle.getString("añadir.año"));
+            this.labelNombre.setText(bundle.getString("añadir.nombre"));
+
+
+        }
+    }
+
+
+
     /**
      * Método que devuelve true si se cumple una expresion regular en una string
      *

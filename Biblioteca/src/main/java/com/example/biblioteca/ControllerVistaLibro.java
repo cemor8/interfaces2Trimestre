@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
+import java.util.ResourceBundle;
 
 public class ControllerVistaLibro {
 
@@ -45,8 +46,18 @@ public class ControllerVistaLibro {
     }
     public void establecerDatos(Data data){
         this.data = data;
+        this.traducir();
         this.labelAutor.setText(this.data.getLibroSeleccionado().getAutor());
         this.labelTitulo.setText(this.data.getLibroSeleccionado().getTitulo());
+    }
+    public void traducir(){
+        this.data.setBundle(ResourceBundle.getBundle("bundles.MessagesBundle",this.data.getLocale()));
+        ResourceBundle bundle = this.data.getBundle();
+        if(this.data.getLocale().getLanguage().equalsIgnoreCase("en")){
+            this.btnVolver.setText(bundle.getString("see.back"));
+        }else{
+            this.btnVolver.setText(bundle.getString("ver.volver"));
+        }
     }
 
 }
