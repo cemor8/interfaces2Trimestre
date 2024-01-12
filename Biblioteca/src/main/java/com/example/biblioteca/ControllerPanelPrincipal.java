@@ -28,7 +28,7 @@ public class ControllerPanelPrincipal {
     void meterLibro(MouseEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("meter_libro.fxml"));
         Parent root = fxmlLoader.load();
-        ControllerMeterLibro controllerMeterLibro = new ControllerMeterLibro();
+        ControllerMeterLibro controllerMeterLibro = fxmlLoader.getController();
         controllerMeterLibro.recibirData(this.data);
         this.rellenarContenido.getChildren().setAll(root);
 
@@ -38,7 +38,7 @@ public class ControllerPanelPrincipal {
     void verConfiguracion(MouseEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("configuracion.fxml"));
         Parent root = fxmlLoader.load();
-        ControllerConfiguracion controllerConfiguracion = new ControllerConfiguracion();
+        ControllerConfiguracion controllerConfiguracion = fxmlLoader.getController();
         controllerConfiguracion.recibirData(this.data);
         this.rellenarContenido.getChildren().setAll(root);
     }
@@ -47,8 +47,9 @@ public class ControllerPanelPrincipal {
     void verLibros(MouseEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("lista_libros.fxml"));
         Parent root = fxmlLoader.load();
-        ControllerListaLibros controllerListaLibros = new ControllerListaLibros();
-        //controllerListaLibros.recibirData(this.data);
+        ControllerListaLibros controllerListaLibros = fxmlLoader.getController();
+        this.data.setControllerPanelPrincipal(this);
+        controllerListaLibros.establecerDatos(this.data);
         this.rellenarContenido.getChildren().setAll(root);
     }
 
@@ -56,7 +57,8 @@ public class ControllerPanelPrincipal {
     void verTabla(MouseEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("tabla_libros.fxml"));
         Parent root = fxmlLoader.load();
-        ControllerTablaLibros controllerTablaLibros = new ControllerTablaLibros();
+        ControllerTablaLibros controllerTablaLibros = fxmlLoader.getController();
+        this.data.setControllerPanelPrincipal(this);
         controllerTablaLibros.recibirData(this.data);
         this.rellenarContenido.getChildren().setAll(root);
     }
@@ -65,8 +67,11 @@ public class ControllerPanelPrincipal {
     void verUsuario(MouseEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("vista_usuario.fxml"));
         Parent root = fxmlLoader.load();
-        ControllerVistaUsuario controllerVistaUsuario = new ControllerVistaUsuario();
+        ControllerVistaUsuario controllerVistaUsuario = fxmlLoader.getController();
         controllerVistaUsuario.recibirData(this.data);
+        this.rellenarContenido.getChildren().setAll(root);
+    }
+    public void cambiarContenido(Parent root){
         this.rellenarContenido.getChildren().setAll(root);
     }
     public void establecerDatos(Data data){

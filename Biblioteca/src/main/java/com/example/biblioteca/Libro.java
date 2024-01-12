@@ -3,13 +3,13 @@ package com.example.biblioteca;
 public class Libro {
     private String titulo;
     private String autor;
-    private String Isbn;
+    private String isbn;
     private String fecha;
 
-    public Libro(String titulo, String autor, String isbn, String fecha) {
+    public Libro(String titulo, String autor, String isbn2, String fecha) {
         this.titulo = titulo;
         this.autor = autor;
-        Isbn = isbn;
+        isbn = isbn2;
         this.fecha = fecha;
     }
 
@@ -22,7 +22,7 @@ public class Libro {
     }
 
     public String getIsbn() {
-        return Isbn;
+        return isbn;
     }
 
     public String getFecha() {
@@ -37,8 +37,8 @@ public class Libro {
         this.autor = autor;
     }
 
-    public void setIsbn(String isbn) {
-        Isbn = isbn;
+    public void setIsbn(String isbn2) {
+        isbn = isbn2;
     }
 
     public void setFecha(String fecha) {

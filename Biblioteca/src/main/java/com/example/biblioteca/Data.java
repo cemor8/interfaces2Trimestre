@@ -9,16 +9,20 @@ import java.util.ResourceBundle;
 
 public class Data {
     public Data() {
-
+        this.libros.add(new Libro("Libro1","Autor1","9898231741798","19/02/1967"));
+        this.libros.add(new Libro("Libro2","Autor2","9898231741798","19/02/2003"));
     }
 
     private Usuario currentUser;
     private ObservableList<Libro> libros = FXCollections.observableArrayList();
+    private ObservableList<Libro> librosFiltrados;
     private String vistaAnterior;
     private Locale locale = new Locale("es","ES");
     private ResourceBundle bundle;
     private boolean filtrar = false;
     private boolean oscuro = true;
+    private Libro libroSeleccionado;
+    ControllerPanelPrincipal controllerPanelPrincipal;
 
     public void setCurrentUser(Usuario currentUser) {
         this.currentUser = currentUser;
@@ -74,5 +78,29 @@ public class Data {
 
     public void setOscuro(boolean oscuro) {
         this.oscuro = oscuro;
+    }
+
+    public Libro getLibroSeleccionado() {
+        return libroSeleccionado;
+    }
+
+    public void setLibroSeleccionado(Libro libroSeleccionado) {
+        this.libroSeleccionado = libroSeleccionado;
+    }
+
+    public ControllerPanelPrincipal getControllerPanelPrincipal() {
+        return controllerPanelPrincipal;
+    }
+
+    public void setControllerPanelPrincipal(ControllerPanelPrincipal controllerPanelPrincipal) {
+        this.controllerPanelPrincipal = controllerPanelPrincipal;
+    }
+
+    public ObservableList<Libro> getLibrosFiltrados() {
+        return librosFiltrados;
+    }
+
+    public void setLibrosFiltrados(ObservableList<Libro> librosFiltrados) {
+        this.librosFiltrados = librosFiltrados;
     }
 }
