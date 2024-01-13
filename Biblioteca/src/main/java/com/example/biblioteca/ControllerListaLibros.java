@@ -38,8 +38,9 @@ public class ControllerListaLibros {
         for(int i = 0; i<this.data.getLibros().size() ; i++){
             AnchorPane anchorPane = new AnchorPane();
             anchorPane.setId(this.data.getLibros().get(i).getTitulo());
-            anchorPane.setMinWidth(250);
-            anchorPane.setMinHeight(300);
+            anchorPane.setMinWidth(200);
+            anchorPane.setMinHeight(250);
+            anchorPane.getStyleClass().add("cadaAnchor");
             //anchorPane.getStyleClass().add("test");
 
 
@@ -62,14 +63,25 @@ public class ControllerListaLibros {
 
             Label titulo = new Label(this.data.getLibros().get(i).getTitulo());
             //titulo.getStyleClass().add("nombre_restaurante");
-            titulo.setLayoutY(160);
+            titulo.setLayoutY(190);
+            titulo.getStyleClass().add("labelCadaTitulo");
+            titulo.setLayoutX(125);
 
             Label autor = new Label(this.data.getLibros().get(i).getAutor());
             //autor.getStyleClass().add("tiempo-entrega");
-            autor.setLayoutY(190);
+            autor.setLayoutY(220);
+            autor.setLayoutX(125);
+            autor.getStyleClass().add("labelCadaAutor");
+
 
             MFXButton btnVer = new MFXButton();
             btnVer.setOnMouseClicked(this::ver);
+            btnVer.getStyleClass().add("ver");
+            btnVer.setLayoutY(260);
+            btnVer.setLayoutX(85);
+            btnVer.setMinWidth(122);
+            btnVer.setMinHeight(26);
+
 
             if (this.data.getLocale().getLanguage().equalsIgnoreCase("en")){
                 btnVer.setText(bundle.getString("books.see"));
@@ -77,7 +89,6 @@ public class ControllerListaLibros {
                 btnVer.setText(bundle.getString("lista.ver"));
             }
             btnVer.setId(this.data.getLibros().get(i).getTitulo());
-            btnVer.setLayoutY(220);
 
             anchorPane.getChildren().add(imageView);
             anchorPane.getChildren().add(titulo);

@@ -34,11 +34,12 @@ public class ControllerConfiguracion {
     @FXML
     void guardar(MouseEvent event) {
         this.cambiarIdioma();
-        this.comprobarColor();
+        this.cambiarColor();
     }
     public void recibirData(Data data){
         this.data = data;
         this.traducir();
+
     }
     public void traducir(){
         this.data.setBundle(ResourceBundle.getBundle("bundles.MessagesBundle",this.data.getLocale()));
@@ -80,20 +81,24 @@ public class ControllerConfiguracion {
         this.data.getControllerPanelPrincipal().traducir();
     }
     public void cambiarIdioma(){
-        if (this.opcionesIdioma.getSelectedItem().equalsIgnoreCase("Spanish") || this.opcionesIdioma.getSelectedItem().equalsIgnoreCase("Español")){
+        if (this.opcionesIdioma.getSelectedItem() == null){
+            return;
+        }else if (this.opcionesIdioma.getSelectedItem().equalsIgnoreCase("Spanish") || this.opcionesIdioma.getSelectedItem().equalsIgnoreCase("Español")){
             this.data.setLocale(new Locale("es"));
         }else {
             this.data.setLocale(new Locale("en"));
         }
         this.traducir();
     }
-    public void comprobarColor(){
-        Scene scene = this.labelColor.getScene();
-        if(this.data.isOscuro()){
-            scene.getStylesheets().add(getClass().getResource("/styles/oscuro/principal.css").toExternalForm());
-        }else{
-            scene.getStylesheets().add(getClass().getResource("/styles/claro/principal.css").toExternalForm());
+    public void cambiarColor(){
+        if (this.opcionesColor.getSelectedItem()==null){
+            return;
+        }else if(this.opcionesColor.getSelectedItem().equalsIgnoreCase("Dark Mode") || this.opcionesColor.getSelectedItem().equalsIgnoreCase("Modo Oscuro")){
+            this.data.getMain().getStylesheets().add(getClass().getResource("/styles/oscuro/principal.css").toExternalForm());
+        }else {
+            this.data.getMain().getStylesheets().add(getClass().getResource("/styles/claro/principal.css").toExternalForm());
         }
+
     }
 }
 

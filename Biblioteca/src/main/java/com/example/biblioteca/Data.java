@@ -2,6 +2,7 @@ package com.example.biblioteca;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.layout.AnchorPane;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -20,7 +21,7 @@ public class Data {
     private Locale locale = new Locale("es");
     private ResourceBundle bundle;
     private boolean filtrar = false;
-    private boolean oscuro = false;
+    private AnchorPane main;
     private Libro libroSeleccionado;
     ControllerPanelPrincipal controllerPanelPrincipal;
 
@@ -72,14 +73,6 @@ public class Data {
         this.filtrar = filtrar;
     }
 
-    public boolean isOscuro() {
-        return oscuro;
-    }
-
-    public void setOscuro(boolean oscuro) {
-        this.oscuro = oscuro;
-    }
-
     public Libro getLibroSeleccionado() {
         return libroSeleccionado;
     }
@@ -102,5 +95,16 @@ public class Data {
 
     public void setLibrosFiltrados(ObservableList<Libro> librosFiltrados) {
         this.librosFiltrados = librosFiltrados;
+    }
+
+    public Boolean getVistaAnteriorTabla() {
+        return vistaAnteriorTabla;
+    }
+    public void setMain(AnchorPane anchorPane){
+        main = anchorPane;
+    }
+
+    public AnchorPane getMain() {
+        return main;
     }
 }

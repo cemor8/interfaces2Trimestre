@@ -8,9 +8,15 @@
     -fx-font-family: "Roboto Mono";
     -fx-font-size: 14px;
 }
+
 .seccion{
 
 }
+
+.seccion:hover{
+    -fx-background-color: red;
+}
+
 .labelCada{
     -fx-text-fill: #000;
     -fx-font-family: "Roboto Mono";
@@ -37,7 +43,7 @@
     -fx-font-weight: bold;
 }
 .columna{
-
+    -fx-font-weight: bold;
     -fx-font-family: "Roboto Mono";
     -fx-font-size: 18px;
     -fx-border-color: #8B8B8B;
@@ -48,26 +54,32 @@
 
 }
 #btnVolver{
+    -fx-background-color: #525252;
     -fx-font-family: "Roboto Mono";
 }
 
 #libroTitulo{
     -fx-font-family: "Roboto Mono";
+    -fx-font-weight: bold;
 }
 #libroAutor{
     -fx-font-family: "Roboto Mono";
 }
-#btnVer{
+.ver{
+    -fx-background-color: #525252;
+    -fx-text-fill: #FFF;
+    -fx-font-family: "Roboto Mono";
+    -fx-font-weight: bold;
+}
+.labelCadaTitulo{
     -fx-font-family: "Roboto Mono";
 }
-#labelCadaTitulo{
+.labelCadaAutor{
     -fx-font-family: "Roboto Mono";
 }
-#labelCadaAutor{
-    -fx-font-family: "Roboto Mono";
-}
-#cadaAnchor{
-
+.cadaAnchor{
+    -fx-border-color: black;
+    -fx-border-width: 2;
 }
 #barra{
 

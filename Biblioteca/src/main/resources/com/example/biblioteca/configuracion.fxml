@@ -5,7 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="900.0" prefWidth="958.0" stylesheets="@../../../styles/claro/principal.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.biblioteca.ControllerConfiguracion">
+<AnchorPane prefHeight="900.0" prefWidth="958.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.biblioteca.ControllerConfiguracion">
     <children>
         <MFXButton fx:id="btnGuardar" layoutX="233.0" layoutY="624.0" onMouseClicked="#guardar" prefHeight="70.0" prefWidth="493.0" styleClass="btnContinuar" text="Guardar" />
         <Label fx:id="labelIdioma" layoutX="164.0" layoutY="327.0" prefHeight="45.0" prefWidth="147.0" styleClass="labelCada" text="Cambiar idioma:" />

@@ -1,10 +1,10 @@
 #mostrarNombre{
-    -fx-fill: #000;
+    -fx-text-fill: #000;
     -fx-font-family: "Roboto Mono";
     -fx-font-size: 18px;
 }
 #bienvenido{
-    -fx-fill: #000;
+    -fx-text-fill: #000;
     -fx-font-family: "Roboto Mono";
     -fx-font-size: 14px;
 }
@@ -12,45 +12,71 @@
 
 }
 .labelCada{
-    -fx-fill: #000;
+    -fx-text-fill: #000;
     -fx-font-family: "Roboto Mono";
-    -fx-font-size: 12px;
+    -fx-font-size: 14px;
 }
 #menu{
-    -fx-background-color: #D4D4D4;
+    -fx-background-color: red;
 }
 .labelSuperior{
+    -fx-font-family: "Roboto Mono";
 }
 .btnContinuar{
     -fx-background-color: #28C3E5;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 14px;
+    -fx-font-family: "Roboto Mono";
+    -fx-font-weight: bold;
 }
 .btnAtras{
-
+    -fx-font-family: "Roboto Mono";
+    -fx-background-color: #E56128;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
 }
 .columna{
+
+    -fx-font-family: "Roboto Mono";
+    -fx-font-size: 18px;
+    -fx-border-color: #8B8B8B;
+    -fx-background-color: #E0DFDF;
+
 }
 #tabla{
 
 }
-#btnVolver{
 
+#btnVolver{
+    -fx-font-family: "Roboto Mono";
 }
 
 #libroTitulo{
-
+    -fx-font-family: "Roboto Mono";
 }
 #libroAutor{
-
+    -fx-font-family: "Roboto Mono";
 }
-#btnVer{
 
-}
-#labelCadaTitulo{
+.ver{
 
+    -fx-background-color: #525252;
+    -fx-text-fill: red;
+    -fx-font-family: "Roboto Mono";
+    -fx-font-weight: bold;
 }
-#labelCadaAutor{
 
+.labelCadaTitulo{
+    -fx-font-family: "Roboto Mono";
 }
-#cadaAnchor{
+.labelCadaAutor{
+    -fx-font-family: "Roboto Mono";
+}
+.cadaAnchor{
+    -fx-border-color: black;
+    -fx-border-width: 2;
+}
+#barra{
 
 }
