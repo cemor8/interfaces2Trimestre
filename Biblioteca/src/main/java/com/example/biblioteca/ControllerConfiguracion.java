@@ -3,6 +3,7 @@ package com.example.biblioteca;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXComboBox;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 
@@ -33,12 +34,11 @@ public class ControllerConfiguracion {
     @FXML
     void guardar(MouseEvent event) {
         this.cambiarIdioma();
-        this.cambiarColor();
+        this.comprobarColor();
     }
     public void recibirData(Data data){
         this.data = data;
         this.traducir();
-        this.cambiarColor();
     }
     public void traducir(){
         this.data.setBundle(ResourceBundle.getBundle("bundles.MessagesBundle",this.data.getLocale()));
@@ -87,8 +87,13 @@ public class ControllerConfiguracion {
         }
         this.traducir();
     }
-    public void cambiarColor(){
-
+    public void comprobarColor(){
+        Scene scene = this.labelColor.getScene();
+        if(this.data.isOscuro()){
+            scene.getStylesheets().add(getClass().getResource("/styles/oscuro/principal.css").toExternalForm());
+        }else{
+            scene.getStylesheets().add(getClass().getResource("/styles/claro/principal.css").toExternalForm());
+        }
     }
 }
 

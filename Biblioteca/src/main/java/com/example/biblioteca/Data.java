@@ -16,11 +16,11 @@ public class Data {
     private Usuario currentUser;
     private ObservableList<Libro> libros = FXCollections.observableArrayList();
     private ObservableList<Libro> librosFiltrados;
-    private String vistaAnterior;
+    private Boolean vistaAnteriorTabla;
     private Locale locale = new Locale("es");
     private ResourceBundle bundle;
     private boolean filtrar = false;
-    private boolean oscuro = true;
+    private boolean oscuro = false;
     private Libro libroSeleccionado;
     ControllerPanelPrincipal controllerPanelPrincipal;
 
@@ -36,8 +36,8 @@ public class Data {
         return libros;
     }
 
-    public String getVistaAnterior() {
-        return vistaAnterior;
+    public Boolean getVistaAnterior() {
+        return vistaAnteriorTabla;
     }
 
     public Locale getLocale() {
@@ -52,8 +52,8 @@ public class Data {
         this.libros = libros;
     }
 
-    public void setVistaAnterior(String vistaAnterior) {
-        this.vistaAnterior = vistaAnterior;
+    public void setVistaAnterior(Boolean vistaAnterior) {
+        this.vistaAnteriorTabla = vistaAnterior;
     }
 
     public void setLocale(Locale locale) {

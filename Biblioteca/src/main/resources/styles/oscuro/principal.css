@@ -1,0 +1,56 @@
+#mostrarNombre{
+    -fx-fill: #000;
+    -fx-font-family: "Roboto Mono";
+    -fx-font-size: 18px;
+}
+#bienvenido{
+    -fx-fill: #000;
+    -fx-font-family: "Roboto Mono";
+    -fx-font-size: 14px;
+}
+.seccion{
+
+}
+.labelCada{
+    -fx-fill: #000;
+    -fx-font-family: "Roboto Mono";
+    -fx-font-size: 12px;
+}
+#menu{
+    -fx-background-color: #D4D4D4;
+}
+.labelSuperior{
+}
+.btnContinuar{
+    -fx-background-color: #28C3E5;
+}
+.btnAtras{
+
+}
+.columna{
+}
+#tabla{
+
+}
+#btnVolver{
+
+}
+
+#libroTitulo{
+
+}
+#libroAutor{
+
+}
+#btnVer{
+
+}
+#labelCadaTitulo{
+
+}
+#labelCadaAutor{
+
+}
+#cadaAnchor{
+
+}

@@ -47,7 +47,9 @@ public class ControllerLogin {
         ControllerPanelPrincipal controllerPanel = fxmlLoader.getController();
         controllerPanel.establecerDatos(this.data);
         Stage stage = new Stage();
-        stage.setScene(new Scene(root));
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("/styles/claro/principal.css").toExternalForm());
+        stage.setScene(scene);
         stage.setTitle("Panel");
         stage.show();
         stageLogin.close();

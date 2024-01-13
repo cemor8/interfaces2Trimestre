@@ -96,8 +96,16 @@ public class ControllerPanelPrincipal {
     }
     public void establecerDatos(Data data){
         this.data = data;
+        this.comprobarColor();
         this.traducir();
         this.labelMostrarNombre.setText("Hola, "+this.data.getCurrentUser().getNombreUsuario());
+    }
+    public void comprobarColor(){
+        if(this.data.isOscuro()){
+            this.main.getStylesheets().add(getClass().getResource("/styles/oscuro/principal.css").toExternalForm());
+        }else{
+            this.main.getStylesheets().add(getClass().getResource("/styles/claro/principal.css").toExternalForm());
+        }
     }
     public void traducir(){
         this.data.setBundle(ResourceBundle.getBundle("bundles.MessagesBundle",this.data.getLocale()));

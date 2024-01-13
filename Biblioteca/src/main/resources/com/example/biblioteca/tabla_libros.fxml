@@ -11,21 +11,21 @@
 
 <AnchorPane prefHeight="900.0" prefWidth="958.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.biblioteca.ControllerTablaLibros">
    <children>
-      <HBox layoutX="89.0" layoutY="67.0" prefHeight="49.0" prefWidth="473.0">
+      <HBox layoutX="98.0" layoutY="68.0" prefHeight="49.0" prefWidth="382.0">
          <children>
-            <MFXTextField fx:id="barraBusqueda" prefHeight="35.0" prefWidth="410.0" />
+            <MFXTextField id="barra" fx:id="barraBusqueda" prefHeight="49.0" prefWidth="340.0" />
             <ImageView fitHeight="48.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </HBox>
-      <MFXButton fx:id="btnVer" layoutX="153.0" layoutY="643.0" onMouseClicked="#ver" prefHeight="49.0" prefWidth="148.0" text="Ver" />
-      <MFXButton fx:id="btnBorrar" layoutX="599.0" layoutY="643.0" onMouseClicked="#borrar" prefHeight="49.0" prefWidth="148.0" text="Borrar" />
-      <MFXCheckbox fx:id="filtrar" layoutX="787.0" layoutY="68.0" onMouseClicked="#filtrar" prefHeight="48.0" prefWidth="91.0" />
-      <TableView fx:id="tablaLibros" layoutX="221.0" layoutY="169.0" prefHeight="407.0" prefWidth="564.0">
+      <MFXButton fx:id="btnVer" layoutX="146.0" layoutY="748.0" onMouseClicked="#ver" prefHeight="49.0" prefWidth="184.0" styleClass="btnContinuar" text="Ver" />
+      <MFXButton fx:id="btnBorrar" layoutX="629.0" layoutY="748.0" onMouseClicked="#borrar" prefHeight="49.0" prefWidth="184.0" styleClass="btnAtras" text="Borrar" />
+      <MFXCheckbox fx:id="filtrar" layoutX="798.0" layoutY="69.0" onMouseClicked="#filtrar" prefHeight="48.0" prefWidth="91.0" />
+      <TableView id="tabla" fx:id="tablaLibros" layoutX="146.0" layoutY="182.0" prefHeight="521.0" prefWidth="667.0">
         <columns>
-          <TableColumn fx:id="columnaISBN" prefWidth="75.0" text="C1" />
-          <TableColumn fx:id="columnaTitulo" prefWidth="75.0" text="C2" />
-            <TableColumn fx:id="columnaAutor" prefWidth="75.0" text="Column X" />
-            <TableColumn fx:id="columnaFecha" prefWidth="75.0" text="Column X" />
+          <TableColumn fx:id="columnaISBN" prefWidth="138.0" styleClass="columna" text="C1" />
+          <TableColumn fx:id="columnaTitulo" minWidth="0.0" prefWidth="192.0" styleClass="columna" text="C2" />
+            <TableColumn fx:id="columnaAutor" prefWidth="197.0" styleClass="columna" text="Column X" />
+            <TableColumn fx:id="columnaFecha" prefWidth="139.0" styleClass="columna" text="Column X" />
         </columns>
       </TableView>
    </children>

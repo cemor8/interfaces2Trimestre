@@ -3,7 +3,10 @@ package com.example.biblioteca;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXScrollPane;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -13,8 +16,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 
 import javax.swing.text.View;
+import java.io.IOException;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ControllerListaLibros {
@@ -70,7 +76,7 @@ public class ControllerListaLibros {
             }else{
                 btnVer.setText(bundle.getString("lista.ver"));
             }
-            
+            btnVer.setId(this.data.getLibros().get(i).getTitulo());
             btnVer.setLayoutY(220);
 
             anchorPane.getChildren().add(imageView);
@@ -96,7 +102,21 @@ public class ControllerListaLibros {
         this.contenedorLibros.setContent(vBox);
     }
 
-    private void ver(MouseEvent event) {
+    private void ver(MouseEvent event)  {
+        MFXButton btn =(MFXButton) event.getSource();
+        Optional<Libro> libro = this.data.getLibros().stream().filter(libro1 -> libro1.getTitulo().equalsIgnoreCase(btn.getId())).findAny();
+        libro.ifPresent(value -> this.data.setLibroSeleccionado(value));
+        this.data.setVistaAnterior(true);
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("vista_libro.fxml"));
+        Parent root = null;
+        try {
+             root = fxmlLoader.load();
+        }catch (IOException err){
+            System.out.println(err.getMessage());
+        }
+        ControllerVistaLibro controllerVistaLibro =fxmlLoader.getController();
+        controllerVistaLibro.establecerDatos(this.data);
+        this.data.getControllerPanelPrincipal().cambiarContenido(root);
 
     }
     public void establecerDatos(Data data){

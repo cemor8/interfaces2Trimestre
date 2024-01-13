@@ -25,10 +25,10 @@ public class ControllerVistaLibro {
     @FXML
     void volver(MouseEvent event) throws IOException {
 
-        if(this.data.getVistaAnterior().equalsIgnoreCase("tabla_libros.fxml")){
+        if(!this.data.getVistaAnterior()){
             this.data.setLibroSeleccionado(null);
             this.data.setVistaAnterior(null);
-            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource(this.data.getVistaAnterior()));
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("tabla_libros.fxml"));
             Parent contenido = fxmlLoader.load();
             ControllerTablaLibros controllerTablaLibros = fxmlLoader.getController();
             controllerTablaLibros.recibirData(this.data);
@@ -36,7 +36,7 @@ public class ControllerVistaLibro {
         }else {
             this.data.setLibroSeleccionado(null);
             this.data.setVistaAnterior(null);
-            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource(this.data.getVistaAnterior()));
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("lista_libros.fxml"));
             Parent contenido = fxmlLoader.load();
             ControllerListaLibros controllerListaLibros = fxmlLoader.getController();
             controllerListaLibros.establecerDatos(this.data);

@@ -87,7 +87,7 @@ public class ControllerTablaLibros implements Initializable {
             return;
         }
         this.data.setLibroSeleccionado(libro);
-        this.data.setVistaAnterior("tabla_libros.fxml");
+        this.data.setVistaAnterior(false);
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("vista_libro.fxml"));
         Parent contenido = fxmlLoader.load();
         ControllerVistaLibro controllerVistaLibro = fxmlLoader.getController();
@@ -134,6 +134,7 @@ public class ControllerTablaLibros implements Initializable {
     }
 
     public void traducir(){
+        this.columnaISBN.setText("ISBN");
         this.data.setBundle(ResourceBundle.getBundle("bundles.MessagesBundle",this.data.getLocale()));
         ResourceBundle bundle = this.data.getBundle();
         if(this.data.getLocale().getLanguage().equalsIgnoreCase("en")){
