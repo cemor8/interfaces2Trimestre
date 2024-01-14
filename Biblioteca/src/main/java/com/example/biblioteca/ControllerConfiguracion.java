@@ -39,13 +39,22 @@ public class ControllerConfiguracion {
     public void recibirData(Data data){
         this.data = data;
         this.traducir();
+        if (this.data.isOscuro()){
+            this.opcionesColor.getSelectionModel().selectFirst();
+        }else {
+            this.opcionesColor.getSelectionModel().selectLast();
+        }
+        if(this.data.getLocale().getLanguage().equalsIgnoreCase("en")){
 
+            this.opcionesIdioma.getSelectionModel().selectLast();
+        }else {
+            this.opcionesIdioma.getSelectionModel().selectFirst();
+        }
     }
     public void traducir(){
         this.data.setBundle(ResourceBundle.getBundle("bundles.MessagesBundle",this.data.getLocale()));
         ResourceBundle bundle = this.data.getBundle();
         if(this.data.getLocale().getLanguage().equalsIgnoreCase("en")){
-
             this.btnGuardar.setText(bundle.getString("settings.save"));
 
             this.labelColor.setText(bundle.getString("settings.color"));
@@ -58,7 +67,6 @@ public class ControllerConfiguracion {
             this.opcionesIdioma.getItems().setAll(
                     bundle.getString("settings.language1"),
                     bundle.getString("settings.language2"));
-            this.opcionesIdioma.setValue(bundle.getString("settings.language2"));
 
         }else{
 
@@ -75,7 +83,6 @@ public class ControllerConfiguracion {
                     bundle.getString("configuracion.idioma1"),
                     bundle.getString("configuracion.idioma2"));
 
-            this.opcionesIdioma.setValue(bundle.getString("configuracion.idioma1"));
 
         }
         this.data.getControllerPanelPrincipal().traducir();
@@ -91,14 +98,15 @@ public class ControllerConfiguracion {
         this.traducir();
     }
     public void cambiarColor(){
-        if (this.opcionesColor.getSelectedItem()==null){
-            return;
-        }else if(this.opcionesColor.getSelectedItem().equalsIgnoreCase("Dark Mode") || this.opcionesColor.getSelectedItem().equalsIgnoreCase("Modo Oscuro")){
+        this.data.getMain().getStylesheets().clear();
+        if(this.opcionesColor.getSelectedItem().equalsIgnoreCase("Dark Mode") || this.opcionesColor.getSelectedItem().equalsIgnoreCase("Modo Oscuro")){
             this.data.getMain().getStylesheets().add(getClass().getResource("/styles/oscuro/principal.css").toExternalForm());
             this.data.setOscuro(true);
+            this.data.getControllerPanelPrincipal().modoOscuro();
         }else {
             this.data.getMain().getStylesheets().add(getClass().getResource("/styles/claro/principal.css").toExternalForm());
             this.data.setOscuro(false);
+            this.data.getControllerPanelPrincipal().modoClaro();
         }
 
     }

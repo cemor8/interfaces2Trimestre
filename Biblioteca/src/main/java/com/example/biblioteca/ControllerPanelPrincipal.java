@@ -87,11 +87,20 @@ public class ControllerPanelPrincipal {
         this.hboxLibros.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),false);
         this.hboxMeter.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),false);
         this.hboxUsuario.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),false);
-        this.imagenConfig.setImage(new Image(getClass().getResourceAsStream("/images/settingsnegro.png")));
-        this.imagenDetallada.setImage(new Image(getClass().getResourceAsStream("/images/listanegra.png")));
-        this.imagenLibros.setImage(new Image(getClass().getResourceAsStream("/images/librosnegro.png")));
-        this.imagenMeter.setImage(new Image(getClass().getResourceAsStream("/images/plusnegro.png")));
-        this.imagenUsuario.setImage(new Image(getClass().getResourceAsStream("/images/usuarionegro.png")));
+        if(this.data.isOscuro()){
+            this.imagenUsuario.setImage(new Image(getClass().getResourceAsStream("/images/usuarioblanco.png")));
+            this.imagenDetallada.setImage(new Image(getClass().getResourceAsStream("/images/listablanca.png")));
+            this.imagenConfig.setImage(new Image(getClass().getResourceAsStream("/images/settingsblanco.png")));
+            this.imagenLibros.setImage(new Image(getClass().getResourceAsStream("/images/librosblanco.png")));
+            this.imagenMeter.setImage(new Image(getClass().getResourceAsStream("/images/plusblanco.png")));
+        }else {
+            this.imagenConfig.setImage(new Image(getClass().getResourceAsStream("/images/settingsnegro.png")));
+            this.imagenDetallada.setImage(new Image(getClass().getResourceAsStream("/images/listanegra.png")));
+            this.imagenLibros.setImage(new Image(getClass().getResourceAsStream("/images/librosnegro.png")));
+            this.imagenMeter.setImage(new Image(getClass().getResourceAsStream("/images/plusnegro.png")));
+            this.imagenUsuario.setImage(new Image(getClass().getResourceAsStream("/images/usuarionegro.png")));
+        }
+
 
     }
 
@@ -106,9 +115,7 @@ public class ControllerPanelPrincipal {
         this.reiniciarHboxes();
         this.labelAñadirLibro.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),true);
         this.hboxMeter.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),true);
-        if(this.data.isOscuro()){
-            this.imagenMeter.setImage(new Image(getClass().getResourceAsStream("/images/plusblanco.png")));
-        }else {
+        if(!this.data.isOscuro()){
             this.imagenMeter.setImage(new Image(getClass().getResourceAsStream("/images/plusgris.png")));
         }
 
@@ -128,9 +135,7 @@ public class ControllerPanelPrincipal {
         this.reiniciarHboxes();
         this.labelConfig.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),true);
         this.hboxConfig.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),true);
-        if(this.data.isOscuro()){
-            this.imagenConfig.setImage(new Image(getClass().getResourceAsStream("/images/settingsblanco.png")));
-        }else {
+        if(!this.data.isOscuro()){
             this.imagenConfig.setImage(new Image(getClass().getResourceAsStream("/images/settingsgris.png")));
         }
     }
@@ -147,9 +152,7 @@ public class ControllerPanelPrincipal {
         this.reiniciarHboxes();
         this.labelLibros.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),true);
         this.hboxLibros.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),true);
-        if(this.data.isOscuro()){
-            this.imagenLibros.setImage(new Image(getClass().getResourceAsStream("/images/librosblanco.png")));
-        }else {
+        if(!this.data.isOscuro()){
             this.imagenLibros.setImage(new Image(getClass().getResourceAsStream("/images/librosgris.png")));
         }
     }
@@ -165,9 +168,7 @@ public class ControllerPanelPrincipal {
         this.reiniciarHboxes();
         this.labelVista.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),true);
         this.hboxDetallada.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),true);
-        if(this.data.isOscuro()){
-            this.imagenDetallada.setImage(new Image(getClass().getResourceAsStream("/images/listablanca.png")));
-        }else {
+        if(!this.data.isOscuro()){
             this.imagenDetallada.setImage(new Image(getClass().getResourceAsStream("/images/listagris.png")));
         }
     }
@@ -183,9 +184,7 @@ public class ControllerPanelPrincipal {
         this.reiniciarHboxes();
         this.labelUsuario.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),true);
         this.hboxUsuario.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),true);
-        if(this.data.isOscuro()){
-            this.imagenUsuario.setImage(new Image(getClass().getResourceAsStream("/images/usuarioblanco.png")));
-        }else {
+        if(!this.data.isOscuro()){
             this.imagenUsuario.setImage(new Image(getClass().getResourceAsStream("/images/usuariogris.png")));
         }
     }
@@ -219,6 +218,21 @@ public class ControllerPanelPrincipal {
             this.labelVista.setText(bundle.getString("panel.vista"));
             this.labelUsuario.setText(bundle.getString("panel.usuario"));
             this.labelMostrarNombre.setText(bundle.getString("panel.nombre") + this.data.getCurrentUser().getNombreUsuario());
+        }
+    }
+    public void modoOscuro(){
+        this.imagenUsuario.setImage(new Image(getClass().getResourceAsStream("/images/usuarioblanco.png")));
+        this.imagenDetallada.setImage(new Image(getClass().getResourceAsStream("/images/listablanca.png")));
+        this.imagenConfig.setImage(new Image(getClass().getResourceAsStream("/images/settingsblanco.png")));
+        this.imagenLibros.setImage(new Image(getClass().getResourceAsStream("/images/librosblanco.png")));
+        this.imagenMeter.setImage(new Image(getClass().getResourceAsStream("/images/plusblanco.png")));
+    }
+    public void modoClaro(){
+        this.reiniciarHboxes();
+        this.labelConfig.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),true);
+        this.hboxConfig.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),true);
+        if(!this.data.isOscuro()){
+            this.imagenConfig.setImage(new Image(getClass().getResourceAsStream("/images/settingsgris.png")));
         }
     }
 

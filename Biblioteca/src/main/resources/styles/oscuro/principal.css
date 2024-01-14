@@ -1,26 +1,51 @@
 #mostrarNombre{
-    -fx-text-fill: #000;
+    -fx-text-fill: #FFF;
     -fx-font-family: "Roboto Mono";
     -fx-font-size: 18px;
 }
 #bienvenido{
-    -fx-text-fill: #000;
+    -fx-text-fill: #FFF;
     -fx-font-family: "Roboto Mono";
     -fx-font-size: 14px;
+}
+#main{
+    -fx-background-color: #000;
 }
 .seccion{
 
 }
-.labelCada{
-    -fx-text-fill: #000;
+
+.seccion:hover{
+    -fx-background-color: #515151;
+}
+.seccion:selected{
+    -fx-background-color: #515151;
+}
+.labelCadaPanel{
+    -fx-text-fill: #FFF;
     -fx-font-family: "Roboto Mono";
-    -fx-font-size: 14px;
+    -fx-font-size: 16px;
+}
+.labelCadaPanel:selected{
+    -fx-text-fill: #FFF;
+    -fx-font-family: "Roboto Mono";
+    -fx-font-size: 16px;
+}
+
+.labelCada{
+    -fx-text-fill: #FFF;
+    -fx-font-family: "Roboto Mono";
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
 }
 #menu{
-    -fx-background-color: red;
+    -fx-background-color: #1f2124;
 }
 .labelSuperior{
-    -fx-font-family: "Roboto Mono";
+    -fx-text-fill: #FFF;
+        -fx-font-family: "Roboto Mono";
+        -fx-font-size: 16px;
+        -fx-font-weight: bold;
 }
 .btnContinuar{
     -fx-background-color: #28C3E5;
@@ -37,7 +62,7 @@
     -fx-font-weight: bold;
 }
 .columna{
-
+    -fx-font-weight: bold;
     -fx-font-family: "Roboto Mono";
     -fx-font-size: 18px;
     -fx-border-color: #8B8B8B;
@@ -47,26 +72,28 @@
 #tabla{
 
 }
-
 #btnVolver{
+    -fx-background-color: #525252;
     -fx-font-family: "Roboto Mono";
 }
 
 #libroTitulo{
     -fx-font-family: "Roboto Mono";
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+    -fx-text-fill: #FFFFFF;
 }
 #libroAutor{
     -fx-font-family: "Roboto Mono";
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 16px;
 }
-
 .ver{
-
     -fx-background-color: #525252;
-    -fx-text-fill: red;
+    -fx-text-fill: #FFF;
     -fx-font-family: "Roboto Mono";
     -fx-font-weight: bold;
 }
-
 .labelCadaTitulo{
     -fx-font-family: "Roboto Mono";
 }
@@ -74,9 +101,30 @@
     -fx-font-family: "Roboto Mono";
 }
 .cadaAnchor{
+    -fx-background-color: #F4F4F4;
     -fx-border-color: black;
     -fx-border-width: 2;
 }
 #barra{
 
+}
+#filtrar{
+    -fx-text-fill : #FFF
+}
+.opciones{
+
+}
+#scroll{
+      -fx-background-color: #000;
+}
+.introducir{
+    -fx-font-family: "Roboto Mono";
+    -fx-background-color: #FFF;
+        -fx-font-size: 16px;
+}
+#img{
+    -fx-background-color: #FFF;
+}
+.img{
+    -fx-background-color: #FFF;
 }

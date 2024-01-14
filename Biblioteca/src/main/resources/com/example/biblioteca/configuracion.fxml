@@ -10,7 +10,7 @@
         <MFXButton fx:id="btnGuardar" layoutX="233.0" layoutY="624.0" onMouseClicked="#guardar" prefHeight="70.0" prefWidth="493.0" styleClass="btnContinuar" text="Guardar" />
         <Label fx:id="labelIdioma" layoutX="164.0" layoutY="327.0" prefHeight="45.0" prefWidth="147.0" styleClass="labelCada" text="Cambiar idioma:" />
         <Label fx:id="labelColor" layoutX="636.0" layoutY="327.0" prefHeight="45.0" prefWidth="147.0" styleClass="labelCada" text="Cambiar Color:" />
-      <MFXComboBox fx:id="opcionesIdioma" layoutX="164.0" layoutY="410.0" prefHeight="40.0" prefWidth="172.0" />
-      <MFXComboBox fx:id="opcionesColor" layoutX="636.0" layoutY="410.0" prefHeight="40.0" prefWidth="172.0" />
+      <MFXComboBox fx:id="opcionesIdioma" layoutX="164.0" layoutY="410.0" prefHeight="40.0" prefWidth="172.0" styleClass="opciones" />
+      <MFXComboBox fx:id="opcionesColor" layoutX="636.0" layoutY="410.0" prefHeight="40.0" prefWidth="172.0" styleClass="opciones" />
     </children>
 </AnchorPane>

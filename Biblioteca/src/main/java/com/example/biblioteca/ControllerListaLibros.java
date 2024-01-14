@@ -39,16 +39,15 @@ public class ControllerListaLibros {
             AnchorPane anchorPane = new AnchorPane();
             anchorPane.setId(this.data.getLibros().get(i).getTitulo());
             anchorPane.setMinWidth(200);
-            anchorPane.setMinHeight(250);
+            anchorPane.setMinHeight(300);
             anchorPane.getStyleClass().add("cadaAnchor");
             //anchorPane.getStyleClass().add("test");
 
 
             ImageView imageView = new ImageView();
-            imageView.setFitWidth(290);
-            imageView.setFitHeight(150);
+            imageView.setFitWidth(1);
+            imageView.setFitHeight(1);
             imageView.setPreserveRatio(false);
-
             /*
             Rectangle clipRect = new Rectangle(290, 150);
             clipRect.setArcWidth(20);
@@ -63,24 +62,24 @@ public class ControllerListaLibros {
 
             Label titulo = new Label(this.data.getLibros().get(i).getTitulo());
             //titulo.getStyleClass().add("nombre_restaurante");
-            titulo.setLayoutY(190);
+            titulo.setLayoutY(210);
             titulo.getStyleClass().add("labelCadaTitulo");
-            titulo.setLayoutX(125);
+            titulo.setLayoutX(80);
 
             Label autor = new Label(this.data.getLibros().get(i).getAutor());
             //autor.getStyleClass().add("tiempo-entrega");
-            autor.setLayoutY(220);
-            autor.setLayoutX(125);
+            autor.setLayoutY(230);
+            autor.setLayoutX(80);
             autor.getStyleClass().add("labelCadaAutor");
 
 
             MFXButton btnVer = new MFXButton();
             btnVer.setOnMouseClicked(this::ver);
             btnVer.getStyleClass().add("ver");
-            btnVer.setLayoutY(260);
-            btnVer.setLayoutX(85);
-            btnVer.setMinWidth(122);
-            btnVer.setMinHeight(26);
+            btnVer.setLayoutY(250);
+            btnVer.setLayoutX(40);
+            btnVer.setMinWidth(130);
+            btnVer.setMinHeight(40);
 
 
             if (this.data.getLocale().getLanguage().equalsIgnoreCase("en")){

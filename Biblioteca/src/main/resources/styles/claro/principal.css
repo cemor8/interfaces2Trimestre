@@ -8,7 +8,9 @@
     -fx-font-family: "Roboto Mono";
     -fx-font-size: 14px;
 }
-
+#main{
+    -fx-background-color: #FFF;
+}
 .seccion{
 
 }
@@ -17,13 +19,31 @@
     -fx-background-color: #929292;
 }
 .seccion:selected{
-    -fx-background-color: #C4C4C4;
+    -fx-background-color: #525252;
+}
+.labelCadaPanel{
+    -fx-text-fill: #000;
+    -fx-font-family: "Roboto Mono";
+    -fx-font-size: 16px;
+}
+.labelCadaPanel:selected{
+    -fx-text-fill: #8B8B8B;
+    -fx-font-family: "Roboto Mono";
+    -fx-font-size: 16px;
 }
 
 .labelCada{
+
     -fx-text-fill: #000;
     -fx-font-family: "Roboto Mono";
-    -fx-font-size: 14px;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+.labelSuperior{
+    -fx-text-fill: #000;
+        -fx-font-family: "Roboto Mono";
+        -fx-font-size: 16px;
+        -fx-font-weight: bold;
 }
 #menu{
     -fx-background-color: #D4D4D4;
@@ -76,14 +96,38 @@
 }
 .labelCadaTitulo{
     -fx-font-family: "Roboto Mono";
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
 }
 .labelCadaAutor{
     -fx-font-family: "Roboto Mono";
+    -fx-font-size: 12px;
 }
 .cadaAnchor{
-    -fx-border-color: black;
-    -fx-border-width: 2;
+    -fx-background-color: D9D9D9;
 }
-#barra{
+#introducir{
+    -fx-font-size: 14px;
+    -fx-min-height: 10;
+    -fx-max-height: 45;
+}
+#filtrar{
+    -fx-text-fill : #000
+}
+.opciones{
 
+}
+#scroll{
+      -fx-background-color: #FFF;
+}
+.introducir{
+    -fx-font-family: "Roboto Mono";
+    -fx-background-color: #E0DFDF;
+    -fx-font-size: 14px;
+    -fx-min-height: 10;
+    -fx-max-height: 35;
+
+}
+#img{
+    -fx-background-color: #E0DFDF;
 }

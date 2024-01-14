@@ -62,7 +62,6 @@ public class ControllerVistaUsuario {
 
     @FXML
     void guardar(MouseEvent event) {
-
         if(!validarContenido(this.columnasExpresiones.get("Apellido"),this.introducirApellido.getText())){
             this.data.getCurrentUser().setApellidos(this.introducirApellido.getText());
         }
@@ -114,6 +113,7 @@ public class ControllerVistaUsuario {
     public void traducir(){
         this.data.setBundle(ResourceBundle.getBundle("bundles.MessagesBundle",this.data.getLocale()));
         ResourceBundle bundle = this.data.getBundle();
+        this.introducirNombre.setPromptText(this.data.getCurrentUser().getNombreUsuario());
         if(this.data.getLocale().getLanguage().equalsIgnoreCase("en")){
             this.btnGuardar.setText(bundle.getString("user.save"));
             this.btnSalir.setText(bundle.getString("user.logout"));
@@ -121,6 +121,12 @@ public class ControllerVistaUsuario {
             this.labelEdad.setText(bundle.getString("user.age"));
             this.labelEmail.setText(bundle.getString("user.email"));
             this.labelNombre.setText(bundle.getString("user.new"));
+
+            this.introducirNombre.setPromptText(bundle.getString("prompt.text"));
+            this.introducirEmail.setPromptText(bundle.getString("prompt.text"));
+            this.introducirEdad.setPromptText(bundle.getString("prompt.text"));
+            this.introducirApellido.setPromptText(bundle.getString("prompt.text"));
+
         }else{
             this.btnGuardar.setText(bundle.getString("usuario.guardar"));
             this.btnSalir.setText(bundle.getString("usuario.salir"));
@@ -128,6 +134,12 @@ public class ControllerVistaUsuario {
             this.labelEdad.setText(bundle.getString("usuario.edad"));
             this.labelEmail.setText(bundle.getString("usuario.email"));
             this.labelNombre.setText(bundle.getString("usuario.nombre"));
+
+            this.introducirNombre.setPromptText(bundle.getString("placeholder.texto"));
+            this.introducirEmail.setPromptText(bundle.getString("placeholder.texto"));
+            this.introducirEdad.setPromptText(bundle.getString("placeholder.texto"));
+            this.introducirApellido.setPromptText(bundle.getString("placeholder.texto"));
+
         }
     }
 

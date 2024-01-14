@@ -12,6 +12,19 @@ public class Data {
     public Data() {
         this.libros.add(new Libro("Libro1","Autor1","9898231741798","19/02/1967"));
         this.libros.add(new Libro("Libro2","Autor2","9898231741798","19/02/2003"));
+        this.libros.add(new Libro("Libro2","Autor2","9898231741798","19/02/2003"));
+        this.libros.add(new Libro("Libro2","Autor2","9898231741798","19/02/2003"));
+        this.libros.add(new Libro("Libro2","Autor2","9898231741798","19/02/2003"));
+        this.libros.add(new Libro("Libro2","Autor2","9898231741798","19/02/2003"));
+        this.libros.add(new Libro("Libro2","Autor2","9898231741798","19/02/2003"));
+        this.libros.add(new Libro("Libro2","Autor2","9898231741798","19/02/2003"));
+        this.libros.add(new Libro("Libro2","Autor2","9898231741798","19/02/2003"));
+        this.libros.add(new Libro("Libro2","Autor2","9898231741798","19/02/2003"));
+        this.libros.add(new Libro("Libro2","Autor2","9898231741798","19/02/2003"));
+        this.libros.add(new Libro("Libro2","Autor2","9898231741798","19/02/2003"));
+
+
+        this.libros.add(new Libro("Libro2","Autor2","9898231741798","19/02/2003"));
     }
 
     private Usuario currentUser;

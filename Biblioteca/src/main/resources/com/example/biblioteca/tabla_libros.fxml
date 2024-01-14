@@ -5,22 +5,16 @@
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 
 <AnchorPane prefHeight="900.0" prefWidth="958.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.biblioteca.ControllerTablaLibros">
    <children>
-      <HBox layoutX="98.0" layoutY="68.0" prefHeight="49.0" prefWidth="382.0">
-         <children>
-            <MFXTextField id="barra" fx:id="barraBusqueda" prefHeight="49.0" prefWidth="340.0" />
-            <ImageView fitHeight="48.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true" />
-         </children>
-      </HBox>
-      <MFXButton fx:id="btnVer" layoutX="146.0" layoutY="748.0" onMouseClicked="#ver" prefHeight="49.0" prefWidth="184.0" styleClass="btnContinuar" text="Ver" />
-      <MFXButton fx:id="btnBorrar" layoutX="629.0" layoutY="748.0" onMouseClicked="#borrar" prefHeight="49.0" prefWidth="184.0" styleClass="btnAtras" text="Borrar" />
-      <MFXCheckbox fx:id="filtrar" layoutX="798.0" layoutY="69.0" onMouseClicked="#filtrar" prefHeight="48.0" prefWidth="91.0" />
-      <TableView id="tabla" fx:id="tablaLibros" layoutX="146.0" layoutY="182.0" prefHeight="521.0" prefWidth="667.0">
+      <MFXButton fx:id="btnVer" layoutX="117.0" layoutY="748.0" onMouseClicked="#ver" prefHeight="49.0" prefWidth="184.0" styleClass="btnContinuar" text="Ver" />
+      <MFXButton fx:id="btnBorrar" layoutX="657.0" layoutY="748.0" onMouseClicked="#borrar" prefHeight="49.0" prefWidth="184.0" styleClass="btnAtras" text="Borrar" />
+      <MFXCheckbox id="filtrar" fx:id="filtrar" layoutX="798.0" layoutY="69.0" onMouseClicked="#filtrar" prefHeight="48.0" prefWidth="91.0" />
+      <TableView id="tabla" fx:id="tablaLibros" layoutX="117.0" layoutY="182.0" prefHeight="521.0" prefWidth="724.0">
         <columns>
           <TableColumn fx:id="columnaISBN" prefWidth="138.0" styleClass="columna" text="C1" />
           <TableColumn fx:id="columnaTitulo" minWidth="0.0" prefWidth="192.0" styleClass="columna" text="C2" />
@@ -28,5 +22,11 @@
             <TableColumn fx:id="columnaFecha" prefWidth="139.0" styleClass="columna" text="Column X" />
         </columns>
       </TableView>
+      <MFXTextField id="introducir" fx:id="barraBusqueda" layoutX="117.0" layoutY="70.0" prefHeight="36.0" prefWidth="296.0" />
+      <ImageView fitHeight="29.0" fitWidth="30.0" layoutX="370.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/lupanegra.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

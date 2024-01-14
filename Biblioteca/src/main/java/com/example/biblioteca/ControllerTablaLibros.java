@@ -145,6 +145,8 @@ public class ControllerTablaLibros implements Initializable {
             this.columnaFecha.setText(bundle.getString("detailed.date"));
             this.columnaTitulo.setText(bundle.getString("detailed.title"));
 
+            this.barraBusqueda.setPromptText(bundle.getString("prompt.text"));
+
         }else{
             this.btnBorrar.setText(bundle.getString("detallada.borrar"));
             this.btnVer.setText(bundle.getString("detallada.ver"));
@@ -152,6 +154,8 @@ public class ControllerTablaLibros implements Initializable {
             this.columnaAutor.setText(bundle.getString("detallada.autor"));
             this.columnaFecha.setText(bundle.getString("detallada.fecha"));
             this.columnaTitulo.setText(bundle.getString("detallada.titulo"));
+            this.barraBusqueda.setPromptText(bundle.getString("placeholder.texto"));
+
         }
     }
 }

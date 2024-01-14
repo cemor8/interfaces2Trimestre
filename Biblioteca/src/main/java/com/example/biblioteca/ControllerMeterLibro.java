@@ -88,13 +88,22 @@ public class ControllerMeterLibro {
             this.labelAutor.setText(bundle.getString("add.author"));
             this.labelAño.setText(bundle.getString("add.year"));
             this.labelNombre.setText(bundle.getString("add.title"));
+
+            this.introducirAño.setPromptText(bundle.getString("prompt.text"));
+            this.introducirNombre.setPromptText(bundle.getString("prompt.text"));
+            this.introducirIsbn.setPromptText(bundle.getString("prompt.text"));
+            this.introducirAutor.setPromptText(bundle.getString("prompt.text"));
+
         }else{
             this.btnEnviar.setText(bundle.getString("añadir.enviar"));
             this.labelAutor.setText(bundle.getString("añadir.autor"));
             this.labelAño.setText(bundle.getString("añadir.año"));
             this.labelNombre.setText(bundle.getString("añadir.nombre"));
 
-
+            this.introducirAño.setPromptText(bundle.getString("placeholder.texto"));
+            this.introducirNombre.setPromptText(bundle.getString("placeholder.texto"));
+            this.introducirIsbn.setPromptText(bundle.getString("placeholder.texto"));
+            this.introducirAutor.setPromptText(bundle.getString("placeholder.texto"));
         }
     }
     /**

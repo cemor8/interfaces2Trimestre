@@ -23,12 +23,11 @@
     -fx-background-color: "white";
   }
  .btn{
-    -fx-background-color:#68c3b7;
+    -fx-background-color: #28C3E5;
     -fx-font-family: "Roboto Mono";
     -fx-font-weight: bold;
     -fx-font-size: 15;
     -fx-text-fill: "white";
-    -fx-background-radius: 15px;
  }
  .error{
     -fx-text-fill : "red";
