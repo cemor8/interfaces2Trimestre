@@ -97,9 +97,6 @@ public class ControllerMeterLibro {
 
         }
     }
-
-
-
     /**
      * Método que devuelve true si se cumple una expresion regular en una string
      *

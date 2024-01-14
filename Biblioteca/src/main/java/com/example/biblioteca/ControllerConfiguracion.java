@@ -95,8 +95,10 @@ public class ControllerConfiguracion {
             return;
         }else if(this.opcionesColor.getSelectedItem().equalsIgnoreCase("Dark Mode") || this.opcionesColor.getSelectedItem().equalsIgnoreCase("Modo Oscuro")){
             this.data.getMain().getStylesheets().add(getClass().getResource("/styles/oscuro/principal.css").toExternalForm());
+            this.data.setOscuro(true);
         }else {
             this.data.getMain().getStylesheets().add(getClass().getResource("/styles/claro/principal.css").toExternalForm());
+            this.data.setOscuro(false);
         }
 
     }

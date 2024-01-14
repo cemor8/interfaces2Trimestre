@@ -23,6 +23,7 @@ public class Data {
     private boolean filtrar = false;
     private AnchorPane main;
     private Libro libroSeleccionado;
+    private boolean oscuro = false;
     ControllerPanelPrincipal controllerPanelPrincipal;
 
     public void setCurrentUser(Usuario currentUser) {
@@ -43,6 +44,14 @@ public class Data {
 
     public Locale getLocale() {
         return locale;
+    }
+
+    public boolean isOscuro() {
+        return oscuro;
+    }
+
+    public void setOscuro(boolean oscuro) {
+        this.oscuro = oscuro;
     }
 
     public ResourceBundle getBundle() {

@@ -14,7 +14,10 @@
 }
 
 .seccion:hover{
-    -fx-background-color: red;
+    -fx-background-color: #929292;
+}
+.seccion:selected{
+    -fx-background-color: #C4C4C4;
 }
 
 .labelCada{
