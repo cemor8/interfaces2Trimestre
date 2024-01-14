@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
@@ -78,6 +79,12 @@ public class ControllerVistaUsuario {
 
     @FXML
     void salir(MouseEvent event) {
+        this.data.setFiltrar(false);
+        this.data.setOscuro(false);
+        this.data.setLocale(new Locale("es"));
+        this.data.setCurrentUser(null);
+        this.data.setVistaAnterior(false);
+        this.data.setLibroSeleccionado(null);
         Button btn = (Button) event.getSource();
         Stage stageUsuario= (Stage) btn.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("login.fxml"));

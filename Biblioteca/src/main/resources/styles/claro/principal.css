@@ -77,6 +77,8 @@
 
 }
 #btnVolver{
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFFFFF;
     -fx-background-color: #525252;
     -fx-font-family: "Roboto Mono";
 }
@@ -84,9 +86,12 @@
 #libroTitulo{
     -fx-font-family: "Roboto Mono";
     -fx-font-weight: bold;
+    -fx-font-weight: bold;
+        -fx-font-size: 18px;
 }
 #libroAutor{
     -fx-font-family: "Roboto Mono";
+        -fx-font-size: 16px;
 }
 .ver{
     -fx-background-color: #525252;
@@ -104,7 +109,7 @@
     -fx-font-size: 12px;
 }
 .cadaAnchor{
-    -fx-background-color: D9D9D9;
+    -fx-background-color: #D9D9D9;
 }
 #introducir{
     -fx-font-size: 14px;

@@ -73,8 +73,10 @@
 
 }
 #btnVolver{
-    -fx-background-color: #525252;
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: #E56128;
     -fx-font-family: "Roboto Mono";
+    -fx-font-weight: bold;
 }
 
 #libroTitulo{
