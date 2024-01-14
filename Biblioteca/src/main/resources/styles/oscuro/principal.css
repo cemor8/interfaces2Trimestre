@@ -91,7 +91,7 @@
     -fx-font-size: 16px;
 }
 .ver{
-    -fx-background-color: #525252;
+    -fx-background-color: #1f2124;
     -fx-text-fill: #FFF;
     -fx-font-family: "Roboto Mono";
     -fx-font-weight: bold;
@@ -122,7 +122,7 @@
 .introducir{
     -fx-font-family: "Roboto Mono";
     -fx-background-color: #FFF;
-        -fx-font-size: 16px;
+    -fx-font-size: 16px;
 }
 #img{
     -fx-background-color: #FFF;
