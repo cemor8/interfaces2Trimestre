@@ -38,18 +38,18 @@ public class ControllerLogin {
     Map<String, String> columnasExpresiones = new HashMap<String, String>() {
         {
             put("Contraseña", "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$");
-            put("usuario", "^[a-zA-Z][a-zA-Z0-9_.]{4,14}$");
+            put("usuario", "^[a-zA-Z][a-zA-Z0-9_.]{4,10}$");
         }
 
     };
 
     @FXML
     void continuar(MouseEvent event) throws IOException {
-        /*
+
         boolean error = false;
         if (!validarContenido(this.columnasExpresiones.get("usuario"), this.introducirUsuario.getText())) {
             this.infoUsuario.setText("Usuario inválido");
-            this.infoUsuario.setText("");
+            this.introducirUsuario.setText("");
             error = true;
         }
         if (!validarContenido(this.columnasExpresiones.get("Contraseña"), this.introducirContraseña.getText())) {
@@ -61,7 +61,9 @@ public class ControllerLogin {
             return;
         }
 
-         */
+
+
+
 
         this.data.setCurrentUser(new Usuario(this.introducirUsuario.getText()));
         Button btn = (Button) event.getSource();

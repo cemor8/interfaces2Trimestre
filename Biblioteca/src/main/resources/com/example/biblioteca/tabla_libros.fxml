@@ -9,7 +9,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="900.0" prefWidth="958.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.biblioteca.ControllerTablaLibros">
+<AnchorPane prefHeight="900.0" prefWidth="958.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerTablaLibros">
    <children>
       <MFXButton fx:id="btnVer" layoutX="117.0" layoutY="748.0" onMouseClicked="#ver" prefHeight="49.0" prefWidth="184.0" styleClass="btnContinuar" text="Ver" />
       <MFXButton fx:id="btnBorrar" layoutX="657.0" layoutY="748.0" onMouseClicked="#borrar" prefHeight="49.0" prefWidth="184.0" styleClass="btnAtras" text="Borrar" />

@@ -54,27 +54,64 @@ public class ControllerVistaUsuario {
     Map<String, String> columnasExpresiones = new HashMap<String, String>() {
         {
             put("Apellido", "^[A-Z][a-z]+(\\s[A-Z][a-z]+)?$");
-            put("Nombre", "^[A-Z][a-z]{3,20}$");
+            put("Nombre", "^[a-zA-Z][a-zA-Z0-9_.]{4,10}$");
             put("Edad", "^((1[01][0-9]|12[0]|[1-9][0-9]|[1-9]))$");
             put("Email", "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
         }
 
     };
+    @FXML
+    private Label infoApellido;
+
+    @FXML
+    private Label infoEdad;
+
+    @FXML
+    private Label infoEmail;
+
+    @FXML
+    private Label infoNombre;
 
     @FXML
     void guardar(MouseEvent event) {
-        if(!validarContenido(this.columnasExpresiones.get("Apellido"),this.introducirApellido.getText())){
+        if(validarContenido(this.columnasExpresiones.get("Apellido"),this.introducirApellido.getText())){
             this.data.getCurrentUser().setApellidos(this.introducirApellido.getText());
+            this.infoApellido.setText("");
+        }else if(!this.introducirApellido.getText().isEmpty()){
+            this.infoApellido.setText("Contenido inválido");
+            this.introducirApellido.setText("");
+        }else {
+            this.infoApellido.setText("");
         }
-        if(!validarContenido(this.columnasExpresiones.get("Nombre"),this.introducirNombre.getText())){
+
+        if(validarContenido(this.columnasExpresiones.get("Nombre"),this.introducirNombre.getText())){
             this.data.getCurrentUser().setNombreUsuario(this.introducirNombre.getText());
             this.data.getControllerPanelPrincipal().ponerNombre();
+            this.infoNombre.setText("");
+        }else if(!this.introducirNombre.getText().isEmpty()){
+            this.infoNombre.setText("Contenido inválido");
+            this.introducirNombre.setText("");
+        }else {
+            this.infoNombre.setText("");
         }
-        if(!validarContenido(this.columnasExpresiones.get("Edad"),this.introducirEdad.getText())){
+        if(validarContenido(this.columnasExpresiones.get("Edad"),this.introducirEdad.getText())){
             this.data.getCurrentUser().setEdad(this.introducirEdad.getText());
+            this.infoEdad.setText("");
+        }else if(!this.introducirEdad.getText().isEmpty()){
+            this.infoEdad.setText("Contenido inválido");
+            this.introducirEdad.setText("");
+        }else {
+            this.infoEdad.setText("");
         }
-        if(!validarContenido(this.columnasExpresiones.get("Email"),this.introducirEmail.getText())){
+
+        if(validarContenido(this.columnasExpresiones.get("Email"),this.introducirEmail.getText())){
             this.data.getCurrentUser().setCorreo(this.introducirEmail.getText());
+            this.infoEmail.setText("");
+        }else if(!this.introducirEmail.getText().isEmpty()){
+            this.infoEmail.setText("Contenido inválido");
+            this.introducirEmail.setText("");
+        }else {
+            this.infoEmail.setText("");
         }
     }
 
@@ -121,7 +158,41 @@ public class ControllerVistaUsuario {
     public void traducir(){
         this.data.setBundle(ResourceBundle.getBundle("bundles.MessagesBundle",this.data.getLocale()));
         ResourceBundle bundle = this.data.getBundle();
+
         this.introducirNombre.setPromptText(this.data.getCurrentUser().getNombreUsuario());
+
+        if(this.data.getCurrentUser().getApellidos() != null && !this.data.getCurrentUser().getApellidos().isEmpty()){
+            this.introducirApellido.setPromptText(this.data.getCurrentUser().getApellidos());
+        }else {
+            if(this.data.getLocale().getLanguage().equalsIgnoreCase("en")){
+                this.introducirApellido.setPromptText(bundle.getString("prompt.text"));
+
+            }else{
+                this.introducirApellido.setPromptText(bundle.getString("placeholder.texto"));
+            }
+        }
+
+        if(this.data.getCurrentUser().getCorreo() != null && !this.data.getCurrentUser().getCorreo().isEmpty()){
+            this.introducirEmail.setPromptText(this.data.getCurrentUser().getCorreo());
+        }else {
+            if(this.data.getLocale().getLanguage().equalsIgnoreCase("en")){
+                this.introducirEmail.setPromptText(bundle.getString("prompt.text"));
+            }else{
+                this.introducirEmail.setPromptText(bundle.getString("placeholder.texto"));
+            }
+
+        }
+        if(this.data.getCurrentUser().getEdad() != null && !this.data.getCurrentUser().getEdad().isEmpty()){
+            this.introducirEdad.setPromptText(this.data.getCurrentUser().getEdad());
+        }else {
+            if(this.data.getLocale().getLanguage().equalsIgnoreCase("en")){
+                this.introducirEdad.setPromptText(bundle.getString("prompt.text"));
+            }else{
+                this.introducirEdad.setPromptText(bundle.getString("placeholder.texto"));
+            }
+
+        }
+
         if(this.data.getLocale().getLanguage().equalsIgnoreCase("en")){
             this.btnGuardar.setText(bundle.getString("user.save"));
             this.btnSalir.setText(bundle.getString("user.logout"));
@@ -130,10 +201,6 @@ public class ControllerVistaUsuario {
             this.labelEmail.setText(bundle.getString("user.email"));
             this.labelNombre.setText(bundle.getString("user.new"));
 
-            this.introducirEmail.setPromptText(bundle.getString("prompt.text"));
-            this.introducirEdad.setPromptText(bundle.getString("prompt.text"));
-            this.introducirApellido.setPromptText(bundle.getString("prompt.text"));
-
         }else{
             this.btnGuardar.setText(bundle.getString("usuario.guardar"));
             this.btnSalir.setText(bundle.getString("usuario.salir"));
@@ -141,10 +208,6 @@ public class ControllerVistaUsuario {
             this.labelEdad.setText(bundle.getString("usuario.edad"));
             this.labelEmail.setText(bundle.getString("usuario.email"));
             this.labelNombre.setText(bundle.getString("usuario.nombre"));
-
-            this.introducirEmail.setPromptText(bundle.getString("placeholder.texto"));
-            this.introducirEdad.setPromptText(bundle.getString("placeholder.texto"));
-            this.introducirApellido.setPromptText(bundle.getString("placeholder.texto"));
 
         }
     }

@@ -5,7 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="900.0" prefWidth="958.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.biblioteca.ControllerMeterLibro">
+<AnchorPane prefHeight="900.0" prefWidth="958.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerMeterLibro">
    <children>
       <MFXTextField fx:id="introducirIsbn" layoutX="115.0" layoutY="245.0" prefHeight="53.0" prefWidth="277.0" styleClass="introducir" />
       <MFXTextField fx:id="introducirNombre" layoutX="601.0" layoutY="245.0" prefHeight="53.0" prefWidth="277.0" styleClass="introducir" />
@@ -16,5 +16,9 @@
       <Label fx:id="labelAutor" layoutX="115.0" layoutY="405.0" prefHeight="45.0" prefWidth="147.0" styleClass="labelSuperior" text="Autor" />
       <Label fx:id="labelNombre" layoutX="601.0" layoutY="193.0" prefHeight="45.0" prefWidth="147.0" styleClass="labelSuperior" text="Nombre" />
       <Label fx:id="labelAño" layoutX="601.0" layoutY="405.0" prefHeight="45.0" prefWidth="147.0" styleClass="labelSuperior" text="Año" />
+      <Label fx:id="infoISBN" layoutX="115.0" layoutY="307.0" prefHeight="45.0" prefWidth="141.0" styleClass="error" />
+      <Label fx:id="infoNombre" layoutX="604.0" layoutY="307.0" prefHeight="45.0" prefWidth="141.0" styleClass="error" />
+      <Label fx:id="infoAutor" layoutX="115.0" layoutY="528.0" prefHeight="45.0" prefWidth="141.0" styleClass="error" />
+      <Label fx:id="infoAño" layoutX="607.0" layoutY="528.0" prefHeight="45.0" prefWidth="141.0" styleClass="error" />
    </children>
 </AnchorPane>

@@ -5,7 +5,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="900.0" prefWidth="958.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.biblioteca.ControllerVistaLibro">
+<AnchorPane prefHeight="900.0" prefWidth="958.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerVistaLibro">
    <children>
       <ImageView id="img" fitHeight="310.0" fitWidth="261.0" layoutX="129.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" />
       <Label id="libroTitulo" fx:id="labelTitulo" layoutX="563.0" layoutY="108.0" prefHeight="55.0" prefWidth="188.0" text="Titulo" />

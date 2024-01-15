@@ -1,10 +1,12 @@
-package com.example.biblioteca;
+package controller;
 
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import model.Data;
+import model.Libro;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -37,6 +39,17 @@ public class ControllerMeterLibro {
 
     @FXML
     private Label labelIsbn;
+    @FXML
+    private Label infoAutor;
+
+    @FXML
+    private Label infoAño;
+
+    @FXML
+    private Label infoISBN;
+
+    @FXML
+    private Label infoNombre;
 
     @FXML
     private Label labelNombre;
@@ -56,19 +69,23 @@ public class ControllerMeterLibro {
         boolean error = false;
         if(!validarContenido(this.columnasExpresiones.get("ISBN"),this.introducirIsbn.getText())){
             error = true;
-            System.out.println("isbn mal");
+            this.infoISBN.setText("Contenido inválido");
+            this.introducirIsbn.setText("");
         }
         if(!validarContenido(this.columnasExpresiones.get("Año"),this.introducirAño.getText())){
             error = true;
-            System.out.println("año mal");
+            this.infoAño.setText("Contenido inválido");
+            this.introducirAño.setText("");
         }
         if(!validarContenido(this.columnasExpresiones.get("Nombre"),this.introducirNombre.getText())){
             error = true;
-            System.out.println("nombre mal");
+            this.infoNombre.setText("Contenido inválido");
+            this.introducirNombre.setText("");
         }
         if(!validarContenido(this.columnasExpresiones.get("Autor"),this.introducirAutor.getText())){
             error = true;
-            System.out.println("autor mal");
+            this.infoAutor.setText("Contenido inválido");
+            this.introducirAutor.setText("");
         }
         if (error){
             return;
@@ -82,33 +99,6 @@ public class ControllerMeterLibro {
     }
     public void recibirData(Data data){
         this.data = data;
-        this.traducir();
-    }
-    public void traducir(){
-        this.data.setBundle(ResourceBundle.getBundle("bundles.MessagesBundle",this.data.getLocale()));
-        ResourceBundle bundle = this.data.getBundle();
-        if(this.data.getLocale().getLanguage().equalsIgnoreCase("en")){
-            this.btnEnviar.setText(bundle.getString("add.send"));
-            this.labelAutor.setText(bundle.getString("add.author"));
-            this.labelAño.setText(bundle.getString("add.year"));
-            this.labelNombre.setText(bundle.getString("add.title"));
-
-            this.introducirAño.setPromptText(bundle.getString("prompt.text"));
-            this.introducirNombre.setPromptText(bundle.getString("prompt.text"));
-            this.introducirIsbn.setPromptText(bundle.getString("prompt.text"));
-            this.introducirAutor.setPromptText(bundle.getString("prompt.text"));
-
-        }else{
-            this.btnEnviar.setText(bundle.getString("añadir.enviar"));
-            this.labelAutor.setText(bundle.getString("añadir.autor"));
-            this.labelAño.setText(bundle.getString("añadir.año"));
-            this.labelNombre.setText(bundle.getString("añadir.nombre"));
-
-            this.introducirAño.setPromptText(bundle.getString("placeholder.texto"));
-            this.introducirNombre.setPromptText(bundle.getString("placeholder.texto"));
-            this.introducirIsbn.setPromptText(bundle.getString("placeholder.texto"));
-            this.introducirAutor.setPromptText(bundle.getString("placeholder.texto"));
-        }
     }
     /**
      * Método que devuelve true si se cumple una expresion regular en una string
