@@ -52,13 +52,13 @@ public class ControllerListaLibros {
 
             Label titulo = new Label(this.data.getLibros().get(i).getTitulo());
 
-            titulo.setWrapText(true);
+
             titulo.setLayoutY(210);
             titulo.getStyleClass().add("labelCadaTitulo");
             titulo.setLayoutX(80);
 
             Label autor = new Label(this.data.getLibros().get(i).getAutor());
-            autor.setWrapText(true);
+
             autor.setLayoutY(230);
             autor.setLayoutX(80);
             autor.getStyleClass().add("labelCadaAutor");

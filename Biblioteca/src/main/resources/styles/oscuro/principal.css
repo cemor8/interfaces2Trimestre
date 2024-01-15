@@ -100,10 +100,15 @@
     -fx-font-weight: bold;
 }
 .labelCadaTitulo{
-    -fx-font-family: "Roboto Mono";
+     -fx-font-family: "Roboto Mono";
+        -fx-font-size: 14px;
+        -fx-font-weight: bold;
+        -fx-pref-width: 100px;
 }
 .labelCadaAutor{
     -fx-font-family: "Roboto Mono";
+        -fx-font-size: 12px;
+        -fx-pref-width: 100px;
 }
 .cadaAnchor{
     -fx-background-color: #F4F4F4;

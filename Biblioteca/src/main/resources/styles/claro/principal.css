@@ -109,10 +109,13 @@
     -fx-font-family: "Roboto Mono";
     -fx-font-size: 14px;
     -fx-font-weight: bold;
+    -fx-pref-width: 100px;
+
 }
 .labelCadaAutor{
     -fx-font-family: "Roboto Mono";
     -fx-font-size: 12px;
+    -fx-pref-width: 100px;
 }
 .cadaAnchor{
     -fx-background-color: #D9D9D9;
