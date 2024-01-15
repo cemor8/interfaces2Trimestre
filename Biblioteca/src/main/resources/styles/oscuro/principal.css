@@ -37,6 +37,9 @@
     -fx-font-family: "Roboto Mono";
     -fx-font-size: 16px;
     -fx-font-weight: bold;
+    -fx-pref-width: 200px;
+     -fx-pref-height: 50px;
+
 }
 #menu{
     -fx-background-color: #1f2124;
@@ -111,7 +114,9 @@
 
 }
 #filtrar{
-    -fx-text-fill : #FFF
+    -fx-text-fill : #FFF;
+    -fx-font-family: "Roboto Mono";
+    -fx-font-size: 16px;
 }
 .opciones{
 
@@ -123,10 +128,18 @@
     -fx-font-family: "Roboto Mono";
     -fx-background-color: #FFF;
     -fx-font-size: 16px;
+    -fx-border-color: #1f2124;
 }
+
 #img{
     -fx-background-color: #FFF;
 }
 .img{
     -fx-background-color: #FFF;
+}
+#introducir{
+    -fx-font-size: 14px;
+    -fx-min-height: 10;
+    -fx-max-height: 45;
+    -fx-border-color: #1f2124;
 }

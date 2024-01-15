@@ -45,7 +45,7 @@ public class ControllerMeterLibro {
         {
             put("ISBN", "^(978|979)-[0-9]{2}-[0-9]{5}-[0-9]{2}-[0-9]{1}$");
             put("Nombre", "^[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+ [A-ZÁÉÍÓÚÑ][a-záéíóúñ]+( [A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)?$");
-            put("Autor", "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$");
+            put("Autor", "^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ' -]+$");
             put("Año", "^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/\\d{4}$");
         }
 
@@ -56,15 +56,19 @@ public class ControllerMeterLibro {
         boolean error = false;
         if(!validarContenido(this.columnasExpresiones.get("ISBN"),this.introducirIsbn.getText())){
             error = true;
+            System.out.println("isbn mal");
         }
         if(!validarContenido(this.columnasExpresiones.get("Año"),this.introducirAño.getText())){
             error = true;
+            System.out.println("año mal");
         }
         if(!validarContenido(this.columnasExpresiones.get("Nombre"),this.introducirNombre.getText())){
             error = true;
+            System.out.println("nombre mal");
         }
         if(!validarContenido(this.columnasExpresiones.get("Autor"),this.introducirAutor.getText())){
             error = true;
+            System.out.println("autor mal");
         }
         if (error){
             return;

@@ -68,6 +68,7 @@ public class ControllerVistaUsuario {
         }
         if(!validarContenido(this.columnasExpresiones.get("Nombre"),this.introducirNombre.getText())){
             this.data.getCurrentUser().setNombreUsuario(this.introducirNombre.getText());
+            this.data.getControllerPanelPrincipal().ponerNombre();
         }
         if(!validarContenido(this.columnasExpresiones.get("Edad"),this.introducirEdad.getText())){
             this.data.getCurrentUser().setEdad(this.introducirEdad.getText());
@@ -129,7 +130,6 @@ public class ControllerVistaUsuario {
             this.labelEmail.setText(bundle.getString("user.email"));
             this.labelNombre.setText(bundle.getString("user.new"));
 
-            this.introducirNombre.setPromptText(bundle.getString("prompt.text"));
             this.introducirEmail.setPromptText(bundle.getString("prompt.text"));
             this.introducirEdad.setPromptText(bundle.getString("prompt.text"));
             this.introducirApellido.setPromptText(bundle.getString("prompt.text"));
@@ -142,7 +142,6 @@ public class ControllerVistaUsuario {
             this.labelEmail.setText(bundle.getString("usuario.email"));
             this.labelNombre.setText(bundle.getString("usuario.nombre"));
 
-            this.introducirNombre.setPromptText(bundle.getString("placeholder.texto"));
             this.introducirEmail.setPromptText(bundle.getString("placeholder.texto"));
             this.introducirEdad.setPromptText(bundle.getString("placeholder.texto"));
             this.introducirApellido.setPromptText(bundle.getString("placeholder.texto"));

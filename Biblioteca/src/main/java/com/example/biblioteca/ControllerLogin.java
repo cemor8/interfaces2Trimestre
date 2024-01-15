@@ -13,6 +13,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ControllerLogin {
 
@@ -31,9 +35,34 @@ public class ControllerLogin {
     @FXML
     private MFXTextField introducirUsuario;
     private Data data;
+    Map<String, String> columnasExpresiones = new HashMap<String, String>() {
+        {
+            put("Contraseña", "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$");
+            put("usuario", "^[a-zA-Z][a-zA-Z0-9_.]{4,14}$");
+        }
+
+    };
 
     @FXML
-    void continuar(MouseEvent event) {
+    void continuar(MouseEvent event) throws IOException {
+        /*
+        boolean error = false;
+        if (!validarContenido(this.columnasExpresiones.get("usuario"), this.introducirUsuario.getText())) {
+            this.infoUsuario.setText("Usuario inválido");
+            this.infoUsuario.setText("");
+            error = true;
+        }
+        if (!validarContenido(this.columnasExpresiones.get("Contraseña"), this.introducirContraseña.getText())) {
+            this.infoContraseña.setText("Contraseña inválida");
+            this.introducirContraseña.setText("");
+            error = true;
+        }
+        if (error) {
+            return;
+        }
+
+         */
+
         this.data.setCurrentUser(new Usuario(this.introducirUsuario.getText()));
         Button btn = (Button) event.getSource();
         Stage stageLogin= (Stage) btn.getScene().getWindow();
@@ -56,6 +85,17 @@ public class ControllerLogin {
     }
     public void establecerDatos(Data data){
         this.data = data;
+    }
+    /**
+     * Método que devuelve true si se cumple una expresion regular en una string
+     *
+     * @param patron       expresion regular
+     * @param texto_buscar texto donde buscar el patron
+     */
+    public boolean validarContenido(String patron, String texto_buscar) {
+        Pattern patronValidar = Pattern.compile(patron);
+        Matcher matcher = patronValidar.matcher(texto_buscar);
+        return matcher.matches();
     }
 
 }

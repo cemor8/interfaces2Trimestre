@@ -41,33 +41,24 @@ public class ControllerListaLibros {
             anchorPane.setMinWidth(200);
             anchorPane.setMinHeight(300);
             anchorPane.getStyleClass().add("cadaAnchor");
-            //anchorPane.getStyleClass().add("test");
+
 
 
             ImageView imageView = new ImageView();
             imageView.setFitWidth(1);
             imageView.setFitHeight(1);
             imageView.setPreserveRatio(false);
-            /*
-            Rectangle clipRect = new Rectangle(290, 150);
-            clipRect.setArcWidth(20);
-            clipRect.setArcHeight(20);
-            imageView.setClip(clipRect);
 
-            StackPane stackPane = new StackPane();
-            stackPane.getChildren().add(imageView);
-            stackPane.setPrefHeight(270);
-            stackPane.setPrefWidth(150);
-             */
 
             Label titulo = new Label(this.data.getLibros().get(i).getTitulo());
-            //titulo.getStyleClass().add("nombre_restaurante");
+
+            titulo.setWrapText(true);
             titulo.setLayoutY(210);
             titulo.getStyleClass().add("labelCadaTitulo");
             titulo.setLayoutX(80);
 
             Label autor = new Label(this.data.getLibros().get(i).getAutor());
-            //autor.getStyleClass().add("tiempo-entrega");
+            autor.setWrapText(true);
             autor.setLayoutY(230);
             autor.setLayoutX(80);
             autor.getStyleClass().add("labelCadaAutor");

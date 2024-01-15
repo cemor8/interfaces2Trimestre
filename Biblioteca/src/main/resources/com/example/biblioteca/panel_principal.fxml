@@ -7,13 +7,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="main" prefHeight="900.0" prefWidth="1300.0" stylesheets="@../../../styles/claro/principal.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.biblioteca.ControllerPanelPrincipal">
    <children>
       <AnchorPane id="menu" fx:id="menuLateral" prefHeight="900.0" prefWidth="292.0">
          <children>
-            <Label id="mostrarNombre" fx:id="labelMostrarNombre" alignment="CENTER" layoutX="24.0" layoutY="36.0" prefHeight="80.0" prefWidth="257.0" text="Label" />
+            <Label id="mostrarNombre" fx:id="labelMostrarNombre" alignment="CENTER" layoutX="24.0" layoutY="36.0" onMouseClicked="#volverInicio" prefHeight="80.0" prefWidth="257.0" text="Label" />
             <VBox layoutX="-3.0" layoutY="298.0" prefHeight="390.0" prefWidth="307.0">
                <children>
                   <HBox fx:id="hboxMeter" onMouseClicked="#meterLibro" prefHeight="100.0" prefWidth="200.0" styleClass="seccion">
@@ -107,18 +106,6 @@
             </HBox>
          </children>
       </AnchorPane>
-      <AnchorPane id="main" fx:id="rellenarContenido" layoutX="301.0" prefHeight="900.0" prefWidth="999.0">
-         <children>
-            <ImageView fitHeight="566.0" fitWidth="772.0" layoutX="102.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../images/imagenEntrar.png" />
-               </image>
-            </ImageView>
-            <Label id="bienvenido" fx:id="labelBienvenido" alignment="CENTER" layoutX="102.0" layoutY="633.0" prefHeight="148.0" prefWidth="755.0" text="Bienvenido a BiblioGest">
-               <font>
-                  <Font name="Roboto Black" size="12.0" />
-               </font>
-            </Label>
-         </children></AnchorPane>
+      <AnchorPane id="main" fx:id="rellenarContenido" layoutX="301.0" prefHeight="900.0" prefWidth="999.0" />
    </children>
 </AnchorPane>

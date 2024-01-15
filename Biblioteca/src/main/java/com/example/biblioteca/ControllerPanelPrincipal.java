@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ResourceBundle;
@@ -18,9 +19,6 @@ public class ControllerPanelPrincipal {
 
     @FXML
     private Label labelAñadirLibro;
-
-    @FXML
-    private Label labelBienvenido;
 
     @FXML
     private Label labelConfig;
@@ -102,6 +100,21 @@ public class ControllerPanelPrincipal {
         }
 
 
+    }
+    @FXML
+    void volverInicio(MouseEvent event) throws IOException {
+        this.volver();
+
+
+    }
+    public void volver() throws IOException {
+        this.data.setFiltrar(false);
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("vista_inicial.fxml"));
+        Parent root = fxmlLoader.load();
+        ControllerVistaInicial controllerVistaInicial = fxmlLoader.getController();
+        controllerVistaInicial.establecerDatos(this.data);
+        this.rellenarContenido.getChildren().setAll(root);
+        this.reiniciarHboxes();
     }
 
     @FXML
@@ -191,9 +204,12 @@ public class ControllerPanelPrincipal {
     public void cambiarContenido(Parent root){
         this.rellenarContenido.getChildren().setAll(root);
     }
-    public void establecerDatos(Data data){
+    public void establecerDatos(Data data) throws IOException {
         this.data = data;
+        this.volver();
+
         this.data.setMain(this.main);
+        this.data.setControllerPanelPrincipal(this);
         this.traducir();
         this.labelMostrarNombre.setText("Hola, "+this.data.getCurrentUser().getNombreUsuario());
     }
@@ -201,8 +217,6 @@ public class ControllerPanelPrincipal {
         this.data.setBundle(ResourceBundle.getBundle("bundles.MessagesBundle",this.data.getLocale()));
         ResourceBundle bundle = this.data.getBundle();
         if(this.data.getLocale().getLanguage().equalsIgnoreCase("en")){
-
-            this.labelBienvenido.setText(bundle.getString("panel.wellcome"));
             this.labelAñadirLibro.setText(bundle.getString("menu.add"));
             this.labelConfig.setText(bundle.getString("menu.settings"));
             this.labelLibros.setText(bundle.getString("menu.books"));
@@ -211,7 +225,6 @@ public class ControllerPanelPrincipal {
             this.labelMostrarNombre.setText(bundle.getString("menu.username") + this.data.getCurrentUser().getNombreUsuario());
         }else{
 
-            this.labelBienvenido.setText(bundle.getString("panel.hola"));
             this.labelAñadirLibro.setText(bundle.getString("panel.añadir"));
             this.labelConfig.setText(bundle.getString("panel.configuracion"));
             this.labelLibros.setText(bundle.getString("panel.libros"));
@@ -233,6 +246,16 @@ public class ControllerPanelPrincipal {
         this.hboxConfig.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),true);
         if(!this.data.isOscuro()){
             this.imagenConfig.setImage(new Image(getClass().getResourceAsStream("/images/settingsgris.png")));
+        }
+    }
+    public void ponerNombre(){
+        this.data.setBundle(ResourceBundle.getBundle("bundles.MessagesBundle",this.data.getLocale()));
+        ResourceBundle bundle = this.data.getBundle();
+        if(this.data.getLocale().getLanguage().equalsIgnoreCase("en")){
+            this.labelMostrarNombre.setText(bundle.getString("menu.username") + this.data.getCurrentUser().getNombreUsuario());
+        }else{
+
+            this.labelMostrarNombre.setText(bundle.getString("panel.nombre") + this.data.getCurrentUser().getNombreUsuario());
         }
     }
 
