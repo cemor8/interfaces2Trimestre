@@ -14,6 +14,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import model.CambiarIdioma;
 import model.Data;
 import model.Libro;
 
@@ -89,11 +90,11 @@ public class ControllerTablaLibros implements Initializable {
         }
         this.data.setLibroSeleccionado(libro);
         this.data.setVistaAnterior(false);
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("vista_libro.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("vista_libro.fxml"), CambiarIdioma.getInstance().getBundle());
         Parent contenido = fxmlLoader.load();
         ControllerVistaLibro controllerVistaLibro = fxmlLoader.getController();
         controllerVistaLibro.establecerDatos(this.data);
-        this.data.getControllerPanelPrincipal().cambiarContenido(contenido);
+        this.data.getControllers().getControllerPanelPrincipal().cambiarContenido(contenido);
 
     }
     public void recibirData(Data data){

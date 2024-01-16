@@ -7,9 +7,9 @@
 
 <AnchorPane prefHeight="900.0" prefWidth="958.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerConfiguracion">
     <children>
-        <MFXButton fx:id="btnGuardar" layoutX="233.0" layoutY="624.0" onMouseClicked="#guardar" prefHeight="70.0" prefWidth="493.0" styleClass="btnContinuar" text="\%configuracion.guardar" />
-        <Label fx:id="labelIdioma" layoutX="164.0" layoutY="302.0" prefHeight="70.0" prefWidth="184.0" styleClass="labelCada" text="\%configuracion.idioma" />
-        <Label fx:id="labelColor" layoutX="636.0" layoutY="302.0" prefHeight="70.0" prefWidth="184.0" styleClass="labelCada" text="\%configuracion.color" />
+        <MFXButton fx:id="btnGuardar" layoutX="233.0" layoutY="624.0" onMouseClicked="#guardar" prefHeight="70.0" prefWidth="493.0" styleClass="btnContinuar" text="%configuracion.guardar" />
+        <Label fx:id="labelIdioma" layoutX="164.0" layoutY="302.0" prefHeight="70.0" prefWidth="184.0" styleClass="labelCada" text="%configuracion.idioma" />
+        <Label fx:id="labelColor" layoutX="636.0" layoutY="302.0" prefHeight="70.0" prefWidth="184.0" styleClass="labelCada" text="%configuracion.color" />
       <MFXComboBox fx:id="opcionesIdioma" layoutX="164.0" layoutY="410.0" prefHeight="40.0" prefWidth="172.0" styleClass="opciones" />
       <MFXComboBox fx:id="opcionesColor" layoutX="636.0" layoutY="410.0" prefHeight="40.0" prefWidth="172.0" styleClass="opciones" />
     </children>

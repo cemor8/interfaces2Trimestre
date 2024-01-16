@@ -183,6 +183,7 @@ public class ControllerMenu {
 
     public void establecerDatos(Data data) {
         this.data = data;
+        this.data.getControllers().setControllerMenu(this);
     }
 
     public void reiniciarHboxes(){

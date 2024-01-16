@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import model.CambiarIdioma;
 import model.Data;
 
 import java.io.IOException;
@@ -88,7 +89,7 @@ public class ControllerVistaUsuario {
 
         if(validarContenido(this.columnasExpresiones.get("Nombre"),this.introducirNombre.getText())){
             this.data.getCurrentUser().setNombreUsuario(this.introducirNombre.getText());
-            this.data.getControllerPanelPrincipal().ponerNombre();
+            //this.data.getControllerPanelPrincipal().ponerNombre();
             this.infoNombre.setText("");
         }else if(!this.introducirNombre.getText().isEmpty()){
             this.infoNombre.setText("Contenido inválido");
@@ -122,10 +123,13 @@ public class ControllerVistaUsuario {
     void salir(MouseEvent event) {
         this.data.setFiltrar(false);
         this.data.setOscuro(false);
-        this.data.setLocale(new Locale("es"));
+        CambiarIdioma.getInstance().cargarIdioma("es","ES");
         this.data.setCurrentUser(null);
         this.data.setVistaAnterior(false);
         this.data.setLibroSeleccionado(null);
+        this.data.getControllers().setControllerMenu(null);
+        this.data.getControllers().setControllerPanelPrincipal(null);
+
         Button btn = (Button) event.getSource();
         Stage stageUsuario= (Stage) btn.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("login.fxml"));

@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="menu" fx:id="menuLateral" prefHeight="900.0" prefWidth="292.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.biblioteca.ControllerMenu">
+<AnchorPane id="menu" fx:id="menuLateral" prefHeight="900.0" prefWidth="292.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerMenu">
    <children>
-      <Label id="mostrarNombre" fx:id="labelMostrarNombre" alignment="CENTER" layoutX="24.0" layoutY="36.0" onMouseClicked="#volverInicio" prefHeight="80.0" prefWidth="257.0" text="\%panel.nombre" />
+      <Label id="mostrarNombre" fx:id="labelMostrarNombre" alignment="CENTER" layoutX="24.0" layoutY="36.0" onMouseClicked="#volverInicio" prefHeight="80.0" prefWidth="257.0" text="%panel.nombre" />
       <VBox layoutX="-3.0" layoutY="298.0" prefHeight="390.0" prefWidth="307.0">
          <children>
             <HBox fx:id="hboxMeter" onMouseClicked="#meterLibro" prefHeight="100.0" prefWidth="200.0" styleClass="seccion">
@@ -23,7 +23,7 @@
                         <Image url="@../../../images/plusnegro.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="labelAñadirLibro" prefHeight="61.0" prefWidth="142.0" styleClass="labelCadaPanel" text="\%panel.añadir">
+                  <Label fx:id="labelAñadirLibro" prefHeight="61.0" prefWidth="142.0" styleClass="labelCadaPanel" text="%panel.añadir">
                      <HBox.margin>
                         <Insets left="10.0" top="15.0" />
                      </HBox.margin>
@@ -40,7 +40,7 @@
                         <Image url="@../../../images/librosnegro.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="labelLibros" prefHeight="61.0" prefWidth="142.0" styleClass="labelCadaPanel" text="\%panel.libros">
+                  <Label fx:id="labelLibros" prefHeight="61.0" prefWidth="142.0" styleClass="labelCadaPanel" text="%panel.libros">
                      <HBox.margin>
                         <Insets left="10.0" top="15.0" />
                      </HBox.margin>
@@ -60,7 +60,7 @@
                         <Image url="@../../../images/listanegra.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="labelVista" prefHeight="61.0" prefWidth="200.0" styleClass="labelCadaPanel" text="\%panel.vista">
+                  <Label fx:id="labelVista" prefHeight="61.0" prefWidth="200.0" styleClass="labelCadaPanel" text="%panel.vista">
                      <HBox.margin>
                         <Insets left="10.0" top="15.0" />
                      </HBox.margin>
@@ -77,7 +77,7 @@
                         <Image url="@../../../images/usuarionegro.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="labelUsuario" prefHeight="61.0" prefWidth="142.0" styleClass="labelCadaPanel" text="\%panel.usuario">
+                  <Label fx:id="labelUsuario" prefHeight="61.0" prefWidth="142.0" styleClass="labelCadaPanel" text="%panel.usuario">
                      <HBox.margin>
                         <Insets left="10.0" top="15.0" />
                      </HBox.margin>
@@ -96,7 +96,7 @@
                   <Image url="@../../../images/settingsnegro.png" />
                </image>
             </ImageView>
-            <Label fx:id="labelConfig" prefHeight="61.0" prefWidth="142.0" styleClass="labelCadaPanel" text="\%panel.configuracion">
+            <Label fx:id="labelConfig" prefHeight="61.0" prefWidth="142.0" styleClass="labelCadaPanel" text="%panel.configuracion">
                <HBox.margin>
                   <Insets left="10.0" top="15.0" />
                </HBox.margin>

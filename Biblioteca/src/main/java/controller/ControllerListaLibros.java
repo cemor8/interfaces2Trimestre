@@ -14,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import model.CambiarIdioma;
 import model.Data;
 import model.Libro;
 
@@ -27,7 +28,7 @@ public class ControllerListaLibros {
     private MFXScrollPane contenedorLibros;
     private Data data;
 
-    public void crearLibros(){
+    public void crearLibros() throws IOException {
         VBox vBox = new VBox();
         HBox hBox = new HBox();
         vBox.setSpacing(30);
@@ -38,41 +39,13 @@ public class ControllerListaLibros {
             anchorPane.setMinHeight(300);
             anchorPane.getStyleClass().add("cadaAnchor");
 
-            // solo crear anchorpane, cargar dentro de el otro y cargar vista, igual que el dashboard.
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("cada_libro.fxml"), CambiarIdioma.getInstance().getBundle());
+            Parent root = fxmlLoader.load();
 
-            ImageView imageView = new ImageView();
-            imageView.setFitWidth(1);
-            imageView.setFitHeight(1);
-            imageView.setPreserveRatio(false);
+            ControllerCadaLibro controllerCadaLibro = fxmlLoader.getController();
+            controllerCadaLibro.recibirData(this.data,this.data.getLibros().get(i));
+            anchorPane.getChildren().setAll(root);
 
-
-            Label titulo = new Label(this.data.getLibros().get(i).getTitulo());
-
-
-            titulo.setLayoutY(210);
-            titulo.getStyleClass().add("labelCadaTitulo");
-            titulo.setLayoutX(80);
-
-            Label autor = new Label(this.data.getLibros().get(i).getAutor());
-
-            autor.setLayoutY(230);
-            autor.setLayoutX(80);
-            autor.getStyleClass().add("labelCadaAutor");
-
-
-            MFXButton btnVer = new MFXButton();
-            btnVer.setOnMouseClicked(this::ver);
-            btnVer.getStyleClass().add("ver");
-            btnVer.setLayoutY(250);
-            btnVer.setLayoutX(40);
-            btnVer.setMinWidth(130);
-            btnVer.setMinHeight(40);
-
-
-            anchorPane.getChildren().add(imageView);
-            anchorPane.getChildren().add(titulo);
-            anchorPane.getChildren().add(autor);
-            anchorPane.getChildren().add(btnVer);
 
             Insets insets = new Insets(0, 0, 0, 25);
             HBox.setMargin(anchorPane, insets);
@@ -92,24 +65,7 @@ public class ControllerListaLibros {
         this.contenedorLibros.setContent(vBox);
     }
 
-    private void ver(MouseEvent event)  {
-        MFXButton btn =(MFXButton) event.getSource();
-        Optional<Libro> libro = this.data.getLibros().stream().filter(libro1 -> libro1.getTitulo().equalsIgnoreCase(btn.getId())).findAny();
-        libro.ifPresent(value -> this.data.setLibroSeleccionado(value));
-        this.data.setVistaAnterior(true);
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("vista_libro.fxml"));
-        Parent root = null;
-        try {
-             root = fxmlLoader.load();
-        }catch (IOException err){
-            System.out.println(err.getMessage());
-        }
-        ControllerVistaLibro controllerVistaLibro =fxmlLoader.getController();
-        controllerVistaLibro.establecerDatos(this.data);
-        this.data.getControllerPanelPrincipal().cambiarContenido(root);
-
-    }
-    public void establecerDatos(Data data){
+    public void establecerDatos(Data data) throws IOException {
         this.data = data;
         this.crearLibros();
     }

@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import model.CambiarIdioma;
 import model.Data;
 
 import java.io.IOException;
@@ -30,19 +31,19 @@ public class ControllerVistaLibro {
         if(!this.data.getVistaAnterior()){
             this.data.setLibroSeleccionado(null);
             this.data.setVistaAnterior(null);
-            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("tabla_libros.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("tabla_libros.fxml"),CambiarIdioma.getInstance().getBundle());
             Parent contenido = fxmlLoader.load();
             ControllerTablaLibros controllerTablaLibros = fxmlLoader.getController();
             controllerTablaLibros.recibirData(this.data);
-            this.data.getControllerPanelPrincipal().cambiarContenido(contenido);
+            this.data.getControllers().getControllerPanelPrincipal().cambiarContenido(contenido);
         }else {
             this.data.setLibroSeleccionado(null);
             this.data.setVistaAnterior(null);
-            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("lista_libros.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("lista_libros.fxml"),CambiarIdioma.getInstance().getBundle());
             Parent contenido = fxmlLoader.load();
             ControllerListaLibros controllerListaLibros = fxmlLoader.getController();
             controllerListaLibros.establecerDatos(this.data);
-            this.data.getControllerPanelPrincipal().cambiarContenido(contenido);
+            this.data.getControllers().getControllerPanelPrincipal().cambiarContenido(contenido);
 
         }
     }

@@ -60,12 +60,17 @@ public class ControllerPanelPrincipal {
     }
     public void cargarMenu() throws IOException {
         this.data.setFiltrar(false);
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("menu.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("menu.fxml"),CambiarIdioma.getInstance().getBundle());
         Parent root = fxmlLoader.load();
         ControllerMenu controllerMenu = fxmlLoader.getController();
         controllerMenu.establecerDatos(this.data);
         this.menuLateral.getChildren().setAll(root);
-        this.data.getControllers().setControllerMenu(controllerMenu);
+    }
+    public void eliminarEstilos(){
+        this.main.getStylesheets().clear();
+    }
+    public void meterEstilo(String ruta){
+        this.main.getStylesheets().add(getClass().getResource(ruta).toExternalForm());
     }
 
 }

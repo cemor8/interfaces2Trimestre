@@ -33,9 +33,10 @@ public class Data {
     private Boolean vistaAnteriorTabla;
     private boolean filtrar = false;
     private AnchorPane main;
-    private Controllers controllers;
+    private Controllers controllers = new Controllers();
     private Libro libroSeleccionado;
     private boolean oscuro = false;
+    private boolean español = true;
 
     public void setCurrentUser(Usuario currentUser) {
         this.currentUser = currentUser;
@@ -116,5 +117,13 @@ public class Data {
 
     public void setControllers(Controllers controllers) {
         this.controllers = controllers;
+    }
+
+    public boolean isEspañol() {
+        return español;
+    }
+
+    public void setEspañol(boolean español) {
+        this.español = español;
     }
 }
