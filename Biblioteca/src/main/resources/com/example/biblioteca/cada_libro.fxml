@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="300.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerCadaLibro">
+   <children>
+      <MFXButton layoutX="21.0" layoutY="236.0" prefHeight="44.0" prefWidth="160.0" styleClass="ver" />
+      <Label alignment="CENTER" layoutX="34.0" layoutY="166.0" prefHeight="30.0" prefWidth="132.0" styleClass="labelCadaTitulo" text="Label" />
+      <Label alignment="CENTER" layoutX="34.0" layoutY="198.0" prefHeight="30.0" prefWidth="132.0" styleClass="labelCadaAutor" text="Label" />
+      <ImageView fitHeight="132.0" fitWidth="132.0" layoutX="35.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

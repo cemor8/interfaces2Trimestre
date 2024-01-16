@@ -42,7 +42,9 @@ public class ControllerPanelPrincipal {
     public void cambiarContenido(Parent root){
         this.rellenarContenido.getChildren().setAll(root);
     }
-
+    public void cambiarMenu(Parent root){
+        this.menuLateral.getChildren().setAll(root);
+    }
 
 
 

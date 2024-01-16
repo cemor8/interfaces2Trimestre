@@ -31,8 +31,6 @@ public class ControllerListaLibros {
         VBox vBox = new VBox();
         HBox hBox = new HBox();
         vBox.setSpacing(30);
-        this.data.setBundle(ResourceBundle.getBundle("bundles.MessagesBundle",this.data.getLocale()));
-        ResourceBundle bundle = this.data.getBundle();
         for(int i = 0; i<this.data.getLibros().size() ; i++){
             AnchorPane anchorPane = new AnchorPane();
             anchorPane.setId(this.data.getLibros().get(i).getTitulo());
@@ -70,15 +68,6 @@ public class ControllerListaLibros {
             btnVer.setMinWidth(130);
             btnVer.setMinHeight(40);
 
-            /*
-            if (this.data.getLocale().getLanguage().equalsIgnoreCase("en")){
-                btnVer.setText(bundle.getString("books.see"));
-            }else{
-                btnVer.setText(bundle.getString("lista.ver"));
-            }
-            btnVer.setId(this.data.getLibros().get(i).getTitulo());
-
-             */
 
             anchorPane.getChildren().add(imageView);
             anchorPane.getChildren().add(titulo);

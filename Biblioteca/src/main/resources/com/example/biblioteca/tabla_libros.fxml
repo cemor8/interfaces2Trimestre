@@ -11,15 +11,15 @@
 
 <AnchorPane prefHeight="900.0" prefWidth="958.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerTablaLibros">
    <children>
-      <MFXButton fx:id="btnVer" layoutX="117.0" layoutY="748.0" onMouseClicked="#ver" prefHeight="49.0" prefWidth="184.0" styleClass="btnContinuar" text="Ver" />
-      <MFXButton fx:id="btnBorrar" layoutX="657.0" layoutY="748.0" onMouseClicked="#borrar" prefHeight="49.0" prefWidth="184.0" styleClass="btnAtras" text="Borrar" />
-      <MFXCheckbox id="filtrar" fx:id="filtrar" layoutX="798.0" layoutY="69.0" onMouseClicked="#filtrar" prefHeight="48.0" prefWidth="91.0" />
+      <MFXButton fx:id="btnVer" layoutX="117.0" layoutY="748.0" onMouseClicked="#ver" prefHeight="49.0" prefWidth="184.0" styleClass="btnContinuar" text="\%detallada.ver" />
+      <MFXButton fx:id="btnBorrar" layoutX="657.0" layoutY="748.0" onMouseClicked="#borrar" prefHeight="49.0" prefWidth="184.0" styleClass="btnAtras" text="\%detallada.borrar" />
+      <MFXCheckbox id="filtrar" fx:id="filtrar" layoutX="798.0" layoutY="69.0" onMouseClicked="#filtrar" prefHeight="48.0" prefWidth="91.0" text="\%detallada.filtrar" />
       <TableView id="tabla" fx:id="tablaLibros" layoutX="117.0" layoutY="182.0" prefHeight="521.0" prefWidth="724.0">
         <columns>
           <TableColumn fx:id="columnaISBN" prefWidth="138.0" styleClass="columna" text="C1" />
-          <TableColumn fx:id="columnaTitulo" minWidth="0.0" prefWidth="192.0" styleClass="columna" text="C2" />
-            <TableColumn fx:id="columnaAutor" prefWidth="197.0" styleClass="columna" text="Column X" />
-            <TableColumn fx:id="columnaFecha" prefWidth="139.0" styleClass="columna" text="Column X" />
+          <TableColumn fx:id="columnaTitulo" minWidth="0.0" prefWidth="192.0" styleClass="columna" text="\%detallada.titulo" />
+            <TableColumn fx:id="columnaAutor" prefWidth="197.0" styleClass="columna" text="\%detallada.autor" />
+            <TableColumn fx:id="columnaFecha" prefWidth="139.0" styleClass="columna" text="\%detallada.fecha" />
         </columns>
       </TableView>
       <MFXTextField id="introducir" fx:id="barraBusqueda" layoutX="117.0" layoutY="70.0" prefHeight="36.0" prefWidth="296.0" />
