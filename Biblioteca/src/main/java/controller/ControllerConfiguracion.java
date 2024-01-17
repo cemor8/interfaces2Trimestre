@@ -35,8 +35,8 @@ public class ControllerConfiguracion {
 
     @FXML
     void guardar(MouseEvent event) throws IOException {
-        this.cambiarIdioma();
         this.cambiarColor();
+        this.cambiarIdioma();
     }
 
     public void recibirData(Data data) {
@@ -68,8 +68,10 @@ public class ControllerConfiguracion {
             return;
         } else if (this.opcionesIdioma.getSelectedItem().equalsIgnoreCase("English") || this.opcionesIdioma.getSelectedItem().equalsIgnoreCase("Inglés")) {
             CambiarIdioma.getInstance().cargarIdioma("en", "US");
+            this.data.setEspañol(false);
         } else if (this.opcionesIdioma.getSelectedItem().equalsIgnoreCase("Spanish") || this.opcionesIdioma.getSelectedItem().equalsIgnoreCase("Español")) {
             CambiarIdioma.getInstance().cargarIdioma("es", "ES");
+            this.data.setEspañol(true);
         }
 
 
@@ -86,13 +88,12 @@ public class ControllerConfiguracion {
         ControllerMenu controllerMenu = fxmlLoaderMenu.getController();
         controllerMenu.establecerDatos(this.data);
         this.data.getControllers().getControllerPanelPrincipal().cambiarMenu(rootMenu);
-
+        this.data.getControllers().getControllerMenu().seleccionConfig();
 
     }
 
     public void cambiarColor() {
         this.data.getControllers().getControllerPanelPrincipal().eliminarEstilos();
-
         if (this.opcionesColor.getSelectedItem().equalsIgnoreCase("Dark Mode") || this.opcionesColor.getSelectedItem().equalsIgnoreCase("Modo Oscuro")) {
             this.data.getControllers().getControllerPanelPrincipal().meterEstilo("/styles/oscuro/principal.css");
             this.data.setOscuro(true);

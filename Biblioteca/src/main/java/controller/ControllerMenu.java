@@ -98,15 +98,8 @@ public class ControllerMenu {
         controllerConfiguracion.recibirData(this.data);
 
         this.data.getControllers().getControllerPanelPrincipal().cambiarContenido(root);
+        this.seleccionConfig();
 
-        this.reiniciarHboxes();
-
-        this.labelConfig.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"), true);
-        this.hboxConfig.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"), true);
-
-        if (!this.data.isOscuro()) {
-            this.imagenConfig.setImage(new Image(getClass().getResourceAsStream("/images/settingsgris.png")));
-        }
     }
 
     @FXML
@@ -165,14 +158,7 @@ public class ControllerMenu {
 
         this.data.getControllers().getControllerPanelPrincipal().cambiarContenido(root);
 
-        this.reiniciarHboxes();
-
-        this.labelUsuario.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"), true);
-        this.hboxUsuario.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"), true);
-
-        if (!this.data.isOscuro()) {
-            this.imagenUsuario.setImage(new Image(getClass().getResourceAsStream("/images/usuariogris.png")));
-        }
+        this.seleccionUsuario();
     }
 
     @FXML
@@ -184,6 +170,7 @@ public class ControllerMenu {
     public void establecerDatos(Data data) {
         this.data = data;
         this.data.getControllers().setControllerMenu(this);
+        this.labelMostrarNombre.setText(this.labelMostrarNombre.getText() + this.data.getCurrentUser().getNombreUsuario());
     }
 
     public void reiniciarHboxes(){
@@ -225,6 +212,26 @@ public class ControllerMenu {
         this.labelConfig.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),true);
         this.hboxConfig.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),true);
         if(!this.data.isOscuro()){
+            this.imagenConfig.setImage(new Image(getClass().getResourceAsStream("/images/settingsgris.png")));
+        }
+    }
+    public void seleccionUsuario(){
+        this.reiniciarHboxes();
+
+        this.labelUsuario.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"), true);
+        this.hboxUsuario.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"), true);
+
+        if (!this.data.isOscuro()) {
+            this.imagenUsuario.setImage(new Image(getClass().getResourceAsStream("/images/usuariogris.png")));
+        }
+    }
+    public void seleccionConfig(){
+        this.reiniciarHboxes();
+
+        this.labelConfig.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"), true);
+        this.hboxConfig.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"), true);
+
+        if (!this.data.isOscuro()) {
             this.imagenConfig.setImage(new Image(getClass().getResourceAsStream("/images/settingsgris.png")));
         }
     }

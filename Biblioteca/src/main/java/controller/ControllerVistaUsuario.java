@@ -76,7 +76,7 @@ public class ControllerVistaUsuario {
     private Label infoNombre;
 
     @FXML
-    void guardar(MouseEvent event) {
+    void guardar(MouseEvent event) throws IOException {
         if(validarContenido(this.columnasExpresiones.get("Apellido"),this.introducirApellido.getText())){
             this.data.getCurrentUser().setApellidos(this.introducirApellido.getText());
             this.infoApellido.setText("");
@@ -88,8 +88,17 @@ public class ControllerVistaUsuario {
         }
 
         if(validarContenido(this.columnasExpresiones.get("Nombre"),this.introducirNombre.getText())){
+
             this.data.getCurrentUser().setNombreUsuario(this.introducirNombre.getText());
-            //this.data.getControllerPanelPrincipal().ponerNombre();
+            FXMLLoader fxmlLoaderMenu = new FXMLLoader(MainApplication.class.getResource("menu.fxml"), CambiarIdioma.getInstance().getBundle());
+            Parent rootMenu = fxmlLoaderMenu.load();
+            ControllerMenu controllerMenu = fxmlLoaderMenu.getController();
+            controllerMenu.establecerDatos(this.data);
+            controllerMenu.seleccionUsuario();
+            this.data.getControllers().getControllerPanelPrincipal().cambiarMenu(rootMenu);
+
+
+
             this.infoNombre.setText("");
         }else if(!this.introducirNombre.getText().isEmpty()){
             this.infoNombre.setText("Contenido inválido");
