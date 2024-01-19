@@ -3,7 +3,7 @@ package model;
 public class Usuario {
     private String nombreUsuario;
     private String Apellidos;
-    private String edad;
+    private Integer edad;
     private String correo;
 
     public Usuario(String nombreUsuario) {
@@ -18,7 +18,7 @@ public class Usuario {
         return Apellidos;
     }
 
-    public String getEdad() {
+    public Integer getEdad() {
         return edad;
     }
 
@@ -30,7 +30,7 @@ public class Usuario {
         Apellidos = apellidos;
     }
 
-    public void setEdad(String edad) {
+    public void setEdad(Integer edad) {
         this.edad = edad;
     }
 

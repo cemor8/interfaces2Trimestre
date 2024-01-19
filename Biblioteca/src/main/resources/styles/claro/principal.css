@@ -9,7 +9,8 @@
 #bienvenido{
     -fx-text-fill: #000;
     -fx-font-family: "Roboto Mono";
-    -fx-font-size: 14px;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
 }
 #main{
     -fx-background-color: #FFF;

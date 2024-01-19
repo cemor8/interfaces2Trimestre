@@ -81,11 +81,19 @@ public class ControllerVistaUsuario {
      * */
     @FXML
     void guardar(MouseEvent event) throws IOException {
+        if(this.introducirNombre.getText().isEmpty() && this.introducirApellido.getText().isEmpty() &&
+        this.introducirEmail.getText().isEmpty() && this.introducirEdad.getText().isEmpty()){
+            return;
+        }
+
+
+
+
         if(validarContenido(this.columnasExpresiones.get("Apellido"),this.introducirApellido.getText())){
             this.data.getCurrentUser().setApellidos(this.introducirApellido.getText());
             this.infoApellido.setText("");
         }else if(!this.introducirApellido.getText().isEmpty()){
-            this.infoApellido.setText("Contenido inválido");
+            this.infoApellido.setText(CambiarIdioma.getInstance().getBundle().getString("aviso"));
             this.introducirApellido.setText("");
         }else {
             this.infoApellido.setText("");
@@ -105,16 +113,16 @@ public class ControllerVistaUsuario {
 
             this.infoNombre.setText("");
         }else if(!this.introducirNombre.getText().isEmpty()){
-            this.infoNombre.setText("Contenido inválido");
+            this.infoNombre.setText(CambiarIdioma.getInstance().getBundle().getString("aviso"));
             this.introducirNombre.setText("");
         }else {
             this.infoNombre.setText("");
         }
         if(validarContenido(this.columnasExpresiones.get("Edad"),this.introducirEdad.getText())){
-            this.data.getCurrentUser().setEdad(this.introducirEdad.getText());
+            this.data.getCurrentUser().setEdad(Integer.parseInt(this.introducirEdad.getText()));
             this.infoEdad.setText("");
         }else if(!this.introducirEdad.getText().isEmpty()){
-            this.infoEdad.setText("Contenido inválido");
+            this.infoEdad.setText(CambiarIdioma.getInstance().getBundle().getString("aviso"));
             this.introducirEdad.setText("");
         }else {
             this.infoEdad.setText("");
@@ -124,7 +132,7 @@ public class ControllerVistaUsuario {
             this.data.getCurrentUser().setCorreo(this.introducirEmail.getText());
             this.infoEmail.setText("");
         }else if(!this.introducirEmail.getText().isEmpty()){
-            this.infoEmail.setText("Contenido inválido");
+            this.infoEmail.setText(CambiarIdioma.getInstance().getBundle().getString("aviso"));
             this.introducirEmail.setText("");
         }else {
             this.infoEmail.setText("");
@@ -164,6 +172,16 @@ public class ControllerVistaUsuario {
     }
     public void recibirData(Data data){
         this.data = data;
+        if(this.data.getCurrentUser().getApellidos() != null && !this.data.getCurrentUser().getApellidos().isEmpty()){
+            this.introducirApellido.setPromptText(this.data.getCurrentUser().getApellidos());
+        }
+        if(this.data.getCurrentUser().getCorreo() != null && !this.data.getCurrentUser().getCorreo().isEmpty()){
+            this.introducirEmail.setPromptText(this.data.getCurrentUser().getCorreo());
+        }
+        if(this.data.getCurrentUser().getEdad() != null){
+            this.introducirApellido.setPromptText(this.data.getCurrentUser().getEdad().toString());
+        }
+        this.introducirNombre.setPromptText(this.data.getCurrentUser().getNombreUsuario());
     }
     /**
      * Método que devuelve true si se cumple una expresion regular en una string
