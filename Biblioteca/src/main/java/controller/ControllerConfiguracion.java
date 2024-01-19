@@ -38,7 +38,10 @@ public class ControllerConfiguracion {
         this.cambiarColor();
         this.cambiarIdioma();
     }
-
+    /**
+     * Método que se encarga de recibir el modelo para que el controlador tenga acceso a el, también
+     * inicializa los comboboxes de idioma y color
+     * */
     public void recibirData(Data data) {
         this.data = data;
         this.opcionesIdioma.getItems().setAll(CambiarIdioma.getInstance().getBundle().getString("configuracion.idioma1"),
@@ -61,7 +64,10 @@ public class ControllerConfiguracion {
 
 
     }
-
+    /**
+     * Método que se encarga de cambiar el idioma al seleccionado, vuelve a cargar la pantalla de la
+     * configuracion y el menu con el nuevo idioma
+     * */
     public void cambiarIdioma() throws IOException {
 
         if (this.opcionesIdioma.getSelectedItem() == null) {
@@ -88,10 +94,13 @@ public class ControllerConfiguracion {
         ControllerMenu controllerMenu = fxmlLoaderMenu.getController();
         controllerMenu.establecerDatos(this.data);
         this.data.getControllers().getControllerPanelPrincipal().cambiarMenu(rootMenu);
-        this.data.getControllers().getControllerMenu().seleccionConfig();
+        this.data.getControllers().getControllerMenu().modoClaro();
 
     }
-
+    /**
+     * Método que se encarga de cambiar el color de fondo de la app, establece un css u otro
+     * dependiendo de la opcion seleccionada
+     * */
     public void cambiarColor() {
         this.data.getControllers().getControllerPanelPrincipal().eliminarEstilos();
         if (this.opcionesColor.getSelectedItem().equalsIgnoreCase("Dark Mode") || this.opcionesColor.getSelectedItem().equalsIgnoreCase("Modo Oscuro")) {

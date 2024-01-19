@@ -63,7 +63,10 @@ public class ControllerMeterLibro {
         }
 
     };
-
+    /**
+     * Método que se encarga de añadir un nuevo libro, comprueba los valores con expresiones
+     * regulares, si hay algun fallo, el libro no se crea e indica el contenido erroneo
+     * */
     @FXML
     void enviar(MouseEvent event) {
         boolean error = false;
@@ -97,6 +100,9 @@ public class ControllerMeterLibro {
         this.introducirNombre.setText("");
         this.introducirAño.setText("");
     }
+    /**
+     * Método que se encarga de recibir el modelo para que el controlador tenga acceso a el
+     * */
     public void recibirData(Data data){
         this.data = data;
     }

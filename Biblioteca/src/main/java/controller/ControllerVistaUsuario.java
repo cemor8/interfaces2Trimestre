@@ -74,7 +74,11 @@ public class ControllerVistaUsuario {
 
     @FXML
     private Label infoNombre;
-
+    /**
+     * Método que se encarga de guardar los cambios realizados al perfil
+     * del usuario, si los datos no estan en un buen formato o se dejan en blanco,
+     * quedará el valor anterior
+     * */
     @FXML
     void guardar(MouseEvent event) throws IOException {
         if(validarContenido(this.columnasExpresiones.get("Apellido"),this.introducirApellido.getText())){
@@ -127,7 +131,9 @@ public class ControllerVistaUsuario {
         }
     }
 
-
+    /**
+     * Método que se encarga de volver al login
+     * */
     @FXML
     void salir(MouseEvent event) {
         this.data.setFiltrar(false);

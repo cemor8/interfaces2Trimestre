@@ -66,6 +66,9 @@ public class ControllerMenu {
     private Label labelVista;
     private Data data;
 
+    /**
+     * Método que se encarga de mostrar el apartado de añadir libros
+     * */
     @FXML
     void meterLibro(MouseEvent event) throws IOException {
         this.data.setFiltrar(false);
@@ -86,7 +89,9 @@ public class ControllerMenu {
         }
 
     }
-
+    /**
+     * Método que se encarga de mostrar el apartado de configuracion
+     * */
     @FXML
     void verConfiguracion(MouseEvent event) throws IOException {
         this.data.setFiltrar(false);
@@ -98,10 +103,12 @@ public class ControllerMenu {
         controllerConfiguracion.recibirData(this.data);
 
         this.data.getControllers().getControllerPanelPrincipal().cambiarContenido(root);
-        this.seleccionConfig();
+        this.modoClaro();
 
     }
-
+    /**
+     * Método que se encarga de mostrar la lista con todos los libros
+     * */
     @FXML
     void verLibros(MouseEvent event) throws IOException {
 
@@ -124,7 +131,9 @@ public class ControllerMenu {
         }
 
     }
-
+    /**
+     * Método que se encarga de mostrar la vista detallada de los libros
+     * */
     @FXML
     void verTabla(MouseEvent event) throws IOException {
 
@@ -145,7 +154,9 @@ public class ControllerMenu {
         }
 
     }
-
+    /**
+     * Método que se encarga de mostrar la configuracion del usuario
+     * */
     @FXML
     void verUsuario(MouseEvent event) throws IOException {
         this.data.setFiltrar(false);
@@ -160,19 +171,28 @@ public class ControllerMenu {
 
         this.seleccionUsuario();
     }
-
+    /**
+     * Método que se encarga de volver a la pantalla inicial
+     * */
     @FXML
     void volverInicio(MouseEvent event) throws IOException {
+        this.reiniciarHboxes();
         this.data.getControllers().getControllerPanelPrincipal().cargarInicio();
     }
 
-
+    /**
+     * Método que se encarga de recibir el modelo para que el controlador tenga acceso a el, tambien muestra
+     * el nombre del usuario en un label.
+     * */
     public void establecerDatos(Data data) {
         this.data = data;
         this.data.getControllers().setControllerMenu(this);
         this.labelMostrarNombre.setText(this.labelMostrarNombre.getText() + this.data.getCurrentUser().getNombreUsuario());
     }
-
+    /**
+     * Método que se encarga de reiniciar la propiedad selected de los labeles y hboxes del menu, junto a
+     * las imagenes para ponerlas del color por defecto
+     * */
     public void reiniciarHboxes(){
         this.labelAñadirLibro.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),false);
         this.labelLibros.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),false);
@@ -200,6 +220,9 @@ public class ControllerMenu {
             this.imagenUsuario.setImage(new Image(getClass().getResourceAsStream("/images/usuarionegro.png")));
         }
     }
+    /**
+     * Método que cambia el color de las imagenes al modo oscuro
+     * */
     public void modoOscuro(){
         this.imagenUsuario.setImage(new Image(getClass().getResourceAsStream("/images/usuarioblanco.png")));
         this.imagenDetallada.setImage(new Image(getClass().getResourceAsStream("/images/listablanca.png")));
@@ -207,6 +230,9 @@ public class ControllerMenu {
         this.imagenLibros.setImage(new Image(getClass().getResourceAsStream("/images/librosblanco.png")));
         this.imagenMeter.setImage(new Image(getClass().getResourceAsStream("/images/plusblanco.png")));
     }
+    /**
+     * Método que se encarga de indicar la seleccion del apartado de configuracion
+     * */
     public void modoClaro(){
         this.reiniciarHboxes();
         this.labelConfig.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),true);
@@ -215,6 +241,9 @@ public class ControllerMenu {
             this.imagenConfig.setImage(new Image(getClass().getResourceAsStream("/images/settingsgris.png")));
         }
     }
+    /**
+     * Método que se encarga de indicar la seleccion del apartado de usuario
+     * */
     public void seleccionUsuario(){
         this.reiniciarHboxes();
 
@@ -223,16 +252,6 @@ public class ControllerMenu {
 
         if (!this.data.isOscuro()) {
             this.imagenUsuario.setImage(new Image(getClass().getResourceAsStream("/images/usuariogris.png")));
-        }
-    }
-    public void seleccionConfig(){
-        this.reiniciarHboxes();
-
-        this.labelConfig.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"), true);
-        this.hboxConfig.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"), true);
-
-        if (!this.data.isOscuro()) {
-            this.imagenConfig.setImage(new Image(getClass().getResourceAsStream("/images/settingsgris.png")));
         }
     }
 }

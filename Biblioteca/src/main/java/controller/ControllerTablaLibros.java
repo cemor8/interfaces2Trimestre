@@ -51,6 +51,10 @@ public class ControllerTablaLibros implements Initializable {
     private TableColumn<Libro, String> columnaTitulo;
     private Data data;
 
+    /**
+     * Método que se encarga de borrar un elemento de la tabla y
+     * de la lista de libros
+     * */
     @FXML
     void borrar(MouseEvent event) {
         Libro libro = this.tablaLibros.getSelectionModel().getSelectedItem();
@@ -63,7 +67,9 @@ public class ControllerTablaLibros implements Initializable {
         }
         this.tablaLibros.refresh();
     }
-
+    /**
+     * Método que se encarga de filtrar los libros.
+     * */
     @FXML
     void filtrar(MouseEvent event) {
         System.out.println(this.filtrar.isSelected());
@@ -81,7 +87,10 @@ public class ControllerTablaLibros implements Initializable {
         }
 
     }
-
+    /**
+     * Método que se encarga de mostrar la vista de un libro seleccionado en
+     * la tabla
+     * */
     @FXML
     void ver(MouseEvent event) throws IOException {
         Libro libro = this.tablaLibros.getSelectionModel().getSelectedItem();
@@ -97,6 +106,10 @@ public class ControllerTablaLibros implements Initializable {
         this.data.getControllers().getControllerPanelPrincipal().cambiarContenido(contenido);
 
     }
+    /**
+     * Método que se encarga de recibir el modelo para que el controlador tenga acceso a el, tambien
+     * comprueba si hay que filtrar la tabla
+     * */
     public void recibirData(Data data){
         this.data = data;
         if(this.data.isFiltrar()){
@@ -107,15 +120,15 @@ public class ControllerTablaLibros implements Initializable {
         }
 
 
-        this.barraBusqueda.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue.isEmpty()) {
+        this.barraBusqueda.textProperty().addListener((observable, textoPrevio, textoIntroducido) -> {
+            if (textoIntroducido.isEmpty()) {
                 this.tablaLibros.setItems(this.data.getLibros());
             } else {
                 if(this.data.isFiltrar()){
-                    ObservableList<Libro> filteredList = this.data.getLibrosFiltrados().filtered(item -> item.getTitulo().toLowerCase().contains(newValue.toLowerCase()));
+                    ObservableList<Libro> filteredList = this.data.getLibrosFiltrados().filtered(item -> item.getTitulo().toLowerCase().contains(textoIntroducido.toLowerCase()));
                     this.tablaLibros.setItems(filteredList);
                 }else {
-                    ObservableList<Libro> filteredList = this.data.getLibros().filtered(item -> item.getTitulo().toLowerCase().contains(newValue.toLowerCase()));
+                    ObservableList<Libro> filteredList = this.data.getLibros().filtered(item -> item.getTitulo().toLowerCase().contains(textoIntroducido.toLowerCase()));
                     this.tablaLibros.setItems(filteredList);
                 }
 
@@ -124,7 +137,9 @@ public class ControllerTablaLibros implements Initializable {
         });
 
     }
-
+    /**
+     * Método que se encarga de inicializar la tabla
+     * */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.columnaAutor.setCellValueFactory(new PropertyValueFactory<>("autor"));

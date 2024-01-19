@@ -27,7 +27,10 @@ public class ControllerListaLibros {
     @FXML
     private MFXScrollPane contenedorLibros;
     private Data data;
-
+    /**
+     * Método que se encarga de crear los libros rellenando la vista de "cada_libro" con
+     * el contenido de un libro, recorre toda la lista de los libros haciendo esto.
+     * */
     public void crearLibros() throws IOException {
         VBox vBox = new VBox();
         HBox hBox = new HBox();
@@ -64,7 +67,9 @@ public class ControllerListaLibros {
         }
         this.contenedorLibros.setContent(vBox);
     }
-
+    /**
+     * Método que se encarga de recibir el modelo para que el controlador tenga acceso a el
+     * */
     public void establecerDatos(Data data) throws IOException {
         this.data = data;
         this.crearLibros();

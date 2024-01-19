@@ -30,7 +30,9 @@ public class ControllerPanelPrincipal {
     private Data data;
 
 
-
+    /**
+     * Método que se encarga de cargar el inicio de la app
+     * */
     public void cargarInicio() throws IOException {
         this.data.setFiltrar(false);
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("vista_inicial.fxml"), CambiarIdioma.getInstance().getBundle());
@@ -39,18 +41,23 @@ public class ControllerPanelPrincipal {
         controllerVistaInicial.establecerDatos(this.data);
         this.cambiarContenido(root);
     }
+    /**
+     * Método que se encarga de cambiar el contenido del anchor que
+     * mostrara las diferentes vistas de la app
+     * */
     public void cambiarContenido(Parent root){
         this.rellenarContenido.getChildren().setAll(root);
     }
+    /**
+     * Método que se encarga de cambiar el contenido del menu
+     * */
     public void cambiarMenu(Parent root){
         this.menuLateral.getChildren().setAll(root);
     }
 
-
-
-    public void ponerNombre(){
-
-    }
+    /**
+     * Método que se encarga de recibir el modelo para que el controlador tenga acceso a el
+     * */
     public void establecerDatos(Data data) throws IOException {
         this.data = data;
         this.cargarInicio();
@@ -66,9 +73,15 @@ public class ControllerPanelPrincipal {
         controllerMenu.establecerDatos(this.data);
         this.menuLateral.getChildren().setAll(root);
     }
+    /**
+     * Método que se encarga de eliminar los estilos
+     * */
     public void eliminarEstilos(){
         this.main.getStylesheets().clear();
     }
+    /**
+     * Método que se encarga de añadir un estilo
+     * */
     public void meterEstilo(String ruta){
         this.main.getStylesheets().add(getClass().getResource(ruta).toExternalForm());
     }

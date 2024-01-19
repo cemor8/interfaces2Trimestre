@@ -46,10 +46,13 @@ public class ControllerLogin {
         }
 
     };
-
+    /**
+     * Método que se encarga de logear al usuario en la app, comprueba el formato de las
+     * credenciales con expresiones regulares
+     * */
     @FXML
     void continuar(MouseEvent event) throws IOException {
-        /*
+
         boolean error = false;
         if (!validarContenido(this.columnasExpresiones.get("usuario"), this.introducirUsuario.getText())) {
             this.infoUsuario.setText("Usuario inválido");
@@ -64,9 +67,6 @@ public class ControllerLogin {
         if (error) {
             return;
         }
-
-         */
-
         this.data.setCurrentUser(new Usuario(this.introducirUsuario.getText()));
         Button btn = (Button) event.getSource();
         Stage stageLogin= (Stage) btn.getScene().getWindow();
@@ -89,6 +89,9 @@ public class ControllerLogin {
         stage.show();
         stageLogin.close();
     }
+    /**
+     * Método que se encarga de recibir el modelo para que el controlador tenga acceso a el
+     * */
     public void establecerDatos(Data data){
         this.data = data;
     }

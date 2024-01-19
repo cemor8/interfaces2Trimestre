@@ -24,7 +24,9 @@ public class ControllerVistaLibro {
     @FXML
     private Label labelTitulo;
     private Data data;
-
+    /**
+     * Método que se encarga de volver a la vista anterior
+     * */
     @FXML
     void volver(MouseEvent event) throws IOException {
 
@@ -47,6 +49,10 @@ public class ControllerVistaLibro {
 
         }
     }
+    /**
+     * Método que se encarga de recibir el modelo para que el controlador tenga acceso a el, tambien
+     * añade el titulo y el autor de libro a un label
+     * */
     public void establecerDatos(Data data){
         this.data = data;
         this.labelAutor.setText(this.data.getLibroSeleccionado().getAutor());
