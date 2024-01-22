@@ -5,6 +5,7 @@ public class Usuario {
     private String Apellidos;
     private Integer edad;
     private String correo;
+    private String imagen;
 
     public Usuario(String nombreUsuario) {
         this.nombreUsuario = nombreUsuario;
@@ -40,5 +41,13 @@ public class Usuario {
 
     public String getCorreo() {
         return correo;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 }

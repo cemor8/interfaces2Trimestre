@@ -1,0 +1,29 @@
+obtener fila y columna igual que sudoku,
+ fila / filas
+	columna % columnas, int i = 0 al inicio
+
+
+como meter una imagen: 
+
+
+	
+Filechooser filechooser = new Filechooser()
+
+filechooser.getEstenfionFilters().add(new Filechooser.Extensionfiltes("image files", "*.png", etc))
+File selectedFile = filechooser.showOpenDialog(null)
+
+
+if(selectedFile != null){
+	String imagePath = selectedFile.getAbsolutePath;
+añadir esa imagePath a la propiedad imagen del libro
+}
+
+
+
+extra : 
+
+Path destPath = Paths.get("path/to/your/directory/" + sourceImage.getName());
+    Files.copy(sourceImage.toPath(), destPath, StandardCopyOption.REPLACE_EXISTING);
+    Image portada = new Image(destPath.toUri().toString());
+
+new image("file:"+rutaimagen)
