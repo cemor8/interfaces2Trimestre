@@ -9,6 +9,7 @@ import model.CambiarIdioma;
 import model.Data;
 import model.Libro;
 
+import javax.swing.text.html.ImageView;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -42,6 +43,8 @@ public class ControllerMeterLibro {
     private Label labelIsbn;
     @FXML
     private Label infoAutor;
+    @FXML
+    private ImageView meterImagen;
 
     @FXML
     private Label infoAño;
@@ -117,6 +120,10 @@ public class ControllerMeterLibro {
         Pattern patronValidar = Pattern.compile(patron);
         Matcher matcher = patronValidar.matcher(texto_buscar);
         return matcher.matches();
+    }
+    @FXML
+    void meterImagen(MouseEvent event) {
+
     }
 
 }
