@@ -35,7 +35,6 @@ public class ControllerListaLibros {
         VBox vBox = new VBox();
         HBox hBox = new HBox();
         vBox.setSpacing(30);
-
         for(int i = 0; i<this.data.getLibros().size() ; i++){
             AnchorPane anchorPane = new AnchorPane();
             anchorPane.setId(this.data.getLibros().get(i).getTitulo());
