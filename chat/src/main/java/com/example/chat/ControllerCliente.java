@@ -2,11 +2,9 @@ package com.example.chat;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.*;
@@ -14,7 +12,7 @@ import java.util.ResourceBundle;
 
 public class ControllerCliente implements Initializable {
     @FXML
-    private TextArea area;
+    private ScrollPane area;
 
     @FXML
     private Button btnenviar;
@@ -28,6 +26,8 @@ public class ControllerCliente implements Initializable {
     private String nombre = "Pepe";
     private int puertoServer = 3000;
     private byte[] buffer = new byte[1024];
+    @FXML
+    private VBox meter;
     InetAddress direccionSever;
     DatagramSocket socket;
     @FXML
@@ -37,7 +37,10 @@ public class ControllerCliente implements Initializable {
         if (mensaje.isEmpty()){
             return;
         }
+        mensaje = this.nombre+" :"+mensaje;
+
         System.out.println("enviando mensaje");
+
         buffer = mensaje.getBytes();
         DatagramPacket paqueteMensaje = new DatagramPacket(buffer,buffer.length,direccionSever,puertoServer);
         socket.send(paqueteMensaje);
@@ -47,6 +50,7 @@ public class ControllerCliente implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         try {
             clienteThread = new ClienteThread(this);
         } catch (SocketException e) {
@@ -58,21 +62,12 @@ public class ControllerCliente implements Initializable {
         } catch (UnknownHostException e) {
             throw new RuntimeException(e);
         }
+
         try {
             socket = new DatagramSocket();
         } catch (SocketException e) {
             throw new RuntimeException(e);
         }
-        System.out.println(clienteThread.getPuertoHilo());
-        String puertoRecibir = String.valueOf(clienteThread.getPuertoHilo());
-        buffer = puertoRecibir.getBytes();
-        DatagramPacket peticionConex =new DatagramPacket(buffer,buffer.length,direccionSever,puertoServer);
-        try {
-            socket.send(peticionConex);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
 
     }
 
@@ -89,6 +84,7 @@ public class ControllerCliente implements Initializable {
     }
     public void meterMensaje(String mensaje){
         System.out.println("mensaje recibido");
-        this.area.setText(mensaje);
+        Label label = new Label("Tú: "+mensaje);
+        this.meter.getChildren().add(label);
     }
 }

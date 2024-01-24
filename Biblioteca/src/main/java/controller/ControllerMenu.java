@@ -117,7 +117,7 @@ public class ControllerMenu {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("lista_libros.fxml"), CambiarIdioma.getInstance().getBundle());
         Parent root = fxmlLoader.load();
         ControllerListaLibros controllerListaLibros = fxmlLoader.getController();
-        controllerListaLibros.establecerDatos(this.data);
+        controllerListaLibros.establecerDatos(this.data,0);
 
         this.data.getControllers().getControllerPanelPrincipal().cambiarContenido(root);
 

@@ -1,9 +1,7 @@
 package com.example.chat;
 
 import java.io.IOException;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-import java.net.SocketException;
+import java.net.*;
 
 public class ClienteThread extends Thread{
     ControllerCliente cliente;
@@ -18,19 +16,38 @@ public class ClienteThread extends Thread{
 
     @Override
     public void run(){
+        byte[] buffer;
+        DatagramPacket peticionConex;
+
+        String mensaje = "REGISTRO";
+        buffer = mensaje.getBytes();
+        try {
+            peticionConex =new DatagramPacket(buffer,buffer.length, InetAddress.getByName("localhost"),this.cliente.getPuertoServer());
+        } catch (UnknownHostException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println(buffer.length);
+
+        try {
+            socket.send(peticionConex);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        buffer = new byte[1024];
         while (activado){
+            buffer = new byte[1024];
             System.out.println("hilo esperando mensaje");
-            DatagramPacket peticion = new DatagramPacket(cliente.getBuffer(), cliente.getBuffer().length);
+            DatagramPacket peticion = new DatagramPacket(buffer,buffer.length);
             try {
                 socket.receive(peticion);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
             System.out.println("hilo acepta peticion");
-            String mensaje = new String(peticion.getData());
-            System.out.println(mensaje);
-            this.cliente.meterMensaje(mensaje);
-            socket.close();
+            String mensajeTexto = new String(peticion.getData());
+            System.out.println(mensajeTexto);
+            this.cliente.meterMensaje(mensajeTexto);
+
         }
 
     }

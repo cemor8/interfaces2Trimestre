@@ -29,23 +29,22 @@ public class Server {
     public void iniciarServer() throws IOException {
         while (activado){
             DatagramPacket peticion = new DatagramPacket(buffer, buffer.length);
-            socket.receive(paquete);
-            int puertoCliente = paquete.getPort();
+            socket.receive(peticion);
+            int puertoCliente = peticion.getPort();
 
-            String puertoRecibido = new String(peticion.getData());
-            int puertoFinal = Integer.parseInt(puertoRecibido);
+            String mensajeRecibido = new String(peticion.getData(),0, peticion.getLength(), StandardCharsets.UTF_8);
+            System.out.println(mensajeRecibido);
 
-            System.out.println(puertoFinal);
-            if(!puertosClientes.contains(puertoFinal)){
-                puertosClientes.add(puertoFinal);
+            if(mensajeRecibido.equals("REGISTRO")&&!puertosClientes.contains(puertoCliente)){
+                puertosClientes.add(puertoCliente);
                 continue;
             }
-            String mensajeRecibido = new String(paquete.getData(),0, paquete.getLength(), StandardCharsets.UTF_8);
+
             if(!mensajeRecibido.isEmpty()){
                 System.out.println("a replicar");
                 for(int puerto : puertosClientes){
                     System.out.println(puerto);
-                    if(puerto != puertoFinal){
+                    if(puerto != puertoCliente){
                         System.out.println("enviando");
                         System.out.println(mensajeRecibido);
                         buffer = mensajeRecibido.getBytes();

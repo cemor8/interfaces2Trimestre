@@ -44,7 +44,7 @@ public class ControllerVistaLibro {
             FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("lista_libros.fxml"),CambiarIdioma.getInstance().getBundle());
             Parent contenido = fxmlLoader.load();
             ControllerListaLibros controllerListaLibros = fxmlLoader.getController();
-            controllerListaLibros.establecerDatos(this.data);
+            controllerListaLibros.establecerDatos(this.data,0);
             this.data.getControllers().getControllerPanelPrincipal().cambiarContenido(contenido);
 
         }
