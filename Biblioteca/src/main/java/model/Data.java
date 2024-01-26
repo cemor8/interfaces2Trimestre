@@ -10,20 +10,16 @@ import java.util.ResourceBundle;
 
 public class Data {
     public Data() {
-        this.libros.add(new Libro("Libro1","Autor1","9898231741798","19/02/1967"));
-        this.libros.add(new Libro("Libro1 morais blanco","Autodasdadad ada r1","9898231741798","19/02/1967"));
-        this.libros.add(new Libro("Libro2","Autor2","9898231741798","19/02/2003"));
-        this.libros.add(new Libro("Libro2","Autor2","9898231741798","19/02/2003"));
-        this.libros.add(new Libro("Libro2","Autor2","9898231741798","19/02/2003"));
-        this.libros.add(new Libro("Libro2","Autor2","9898231741798","19/02/2003"));
-        this.libros.add(new Libro("Libro2","Autor2","9898231741798","19/02/2003"));
-        this.libros.add(new Libro("Libro2","Autor2","9898231741798","19/02/2003"));
-        this.libros.add(new Libro("Libro2","Autor2","9898231741798","19/02/2003"));
-        this.libros.add(new Libro("Libro2","Autor2","9898231741798","19/02/2003"));
-        this.libros.add(new Libro("Libro2","Autor2","9898231741798","19/02/2003"));
-        this.libros.add(new Libro("Libro2","Autor2","9898231741798","19/02/2003"));
-        this.libros.add(new Libro("Libro2","Autor2","9898231741798","19/02/2003"));
-        this.libros.add(new Libro("Libro2","Autor2","9898231741798","19/02/2003"));
+
+        this.libros.add(new Libro("Libro2","Autor1","9898231741798","19/02/1967","C:\\Users\\cmorbla\\Desktop\\test.jpg"));
+        this.libros.add(new Libro("Libro2","Autor1","9898231741798","19/02/1967","C:\\Users\\cmorbla\\Desktop\\test.jpg"));
+        this.libros.add(new Libro("Libro2","Autor1","9898231741798","19/02/1967","C:\\Users\\cmorbla\\Desktop\\test.jpg"));
+        this.libros.add(new Libro("Libro2","Autor1","9898231741798","19/02/1967","C:\\Users\\cmorbla\\Desktop\\test.jpg"));
+        this.libros.add(new Libro("Libro2","Autor1","9898231741798","19/02/1967","C:\\Users\\cmorbla\\Desktop\\test.jpg"));
+        this.libros.add(new Libro("Libro2","Autor1","9898231741798","19/02/1967","C:\\Users\\cmorbla\\Desktop\\test.jpg"));
+        this.libros.add(new Libro("Libro2","Autor1","9898231741798","19/02/1967","C:\\Users\\cmorbla\\Desktop\\test.jpg"));
+        this.libros.add(new Libro("Libro2","Autor1","9898231741798","19/02/1967","C:\\Users\\cmorbla\\Desktop\\test.jpg"));
+
     }
 
 
@@ -37,6 +33,7 @@ public class Data {
     private Libro libroSeleccionado;
     private boolean oscuro = false;
     private boolean español = true;
+    private int currentPage = 0;
 
     public void setCurrentUser(Usuario currentUser) {
         this.currentUser = currentUser;
@@ -125,5 +122,13 @@ public class Data {
 
     public void setEspañol(boolean español) {
         this.español = español;
+    }
+
+    public int getCurrentPage() {
+        return currentPage;
+    }
+
+    public void setCurrentPage(int currentPage) {
+        this.currentPage = currentPage;
     }
 }

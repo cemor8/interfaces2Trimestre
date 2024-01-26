@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import model.CambiarIdioma;
 import model.Data;
@@ -15,6 +17,8 @@ import java.io.IOException;
 import java.util.Optional;
 
 public class ControllerCadaLibro {
+    @FXML
+    private ImageView meterImagen;
 
     @FXML
     private Label autor;
@@ -47,6 +51,7 @@ public class ControllerCadaLibro {
         this.libro = libro;
         this.titulo.setText(this.libro.getTitulo());
         this.autor.setText(this.libro.getAutor());
+        this.meterImagen.setImage(new Image("file:"+this.libro.getImagen()));
     }
 
 }

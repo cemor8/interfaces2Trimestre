@@ -4,6 +4,7 @@ import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import model.CambiarIdioma;
@@ -55,6 +56,7 @@ public class ControllerMeterLibro {
 
     @FXML
     private Label infoNombre;
+    private String imagenSeleccionada;
 
     @FXML
     private Label labelNombre;
@@ -95,11 +97,15 @@ public class ControllerMeterLibro {
             this.infoAutor.setText(CambiarIdioma.getInstance().getBundle().getString("aviso"));
             this.introducirAutor.setText("");
         }
+        if(this.imagenSeleccionada == null){
+            error = true;
+        }
         if (error){
             return;
         }
-        Libro libro = new Libro(this.introducirNombre.getText(),this.introducirAutor.getText(),this.introducirIsbn.getText(),this.introducirAño.getText());
+        Libro libro = new Libro(this.introducirNombre.getText(),this.introducirAutor.getText(),this.introducirIsbn.getText(),this.introducirAño.getText(),this.imagenSeleccionada);
         this.data.getLibros().add(libro);
+        this.meterImagen.setImage(new Image(getClass().getResourceAsStream("/images/imagenPlaceholder/preview.png")));
         this.introducirAutor.setText("");
         this.introducirIsbn.setText("");
         this.introducirNombre.setText("");
@@ -126,12 +132,22 @@ public class ControllerMeterLibro {
     void meterImagen(MouseEvent event) {
         FileChooser filechooser = new FileChooser();
 
-        filechooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("image files", "*.png"));
+        filechooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("image files", "*.png","*.jpg","*.jpeg"));
         File selectedFile = filechooser.showOpenDialog(null);
 
 
         if(selectedFile != null){
             String imagePath = selectedFile.getAbsolutePath();
+            this.imagenSeleccionada = imagePath;
+            System.out.println(imagenSeleccionada);
+            this.meterImagen.setImage(new Image("file:"+imagenSeleccionada));
+        }else {
+            if(this.imagenSeleccionada != null){
+                this.meterImagen.setImage(new Image("file:"+imagenSeleccionada));
+            }else {
+                this.meterImagen.setImage(new Image(getClass().getResourceAsStream("/images/imagenPlaceholder/preview.png")));
+            }
+
         }
     }
 

@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import model.CambiarIdioma;
 import model.Data;
@@ -17,6 +19,8 @@ public class ControllerVistaLibro {
 
     @FXML
     private MFXButton btnVolver;
+    @FXML
+    private ImageView img;
 
     @FXML
     private Label labelAutor;
@@ -44,7 +48,7 @@ public class ControllerVistaLibro {
             FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("lista_libros.fxml"),CambiarIdioma.getInstance().getBundle());
             Parent contenido = fxmlLoader.load();
             ControllerListaLibros controllerListaLibros = fxmlLoader.getController();
-            controllerListaLibros.establecerDatos(this.data,0);
+            controllerListaLibros.establecerDatos(this.data,this.data.getCurrentPage());
             this.data.getControllers().getControllerPanelPrincipal().cambiarContenido(contenido);
 
         }
@@ -57,6 +61,7 @@ public class ControllerVistaLibro {
         this.data = data;
         this.labelAutor.setText(this.data.getLibroSeleccionado().getAutor());
         this.labelTitulo.setText(this.data.getLibroSeleccionado().getTitulo());
+        this.img.setImage(new Image("file:"+this.data.getLibroSeleccionado().getImagen()));
     }
 
 

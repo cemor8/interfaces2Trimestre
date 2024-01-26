@@ -7,11 +7,12 @@ public class Libro {
     private String fecha;
     private String imagen;
 
-    public Libro(String titulo, String autor, String isbn2, String fecha) {
+    public Libro(String titulo, String autor, String isbn2, String fecha,String imagenPath) {
         this.titulo = titulo;
         this.autor = autor;
         isbn = isbn2;
         this.fecha = fecha;
+        this.imagen = imagenPath;
     }
 
     public String getTitulo() {
@@ -44,5 +45,13 @@ public class Libro {
 
     public void setFecha(String fecha) {
         this.fecha = fecha;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 }
