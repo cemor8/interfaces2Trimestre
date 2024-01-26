@@ -5,6 +5,7 @@ public class Libro {
     private String autor;
     private String isbn;
     private String fecha;
+    private String imagen;
 
     public Libro(String titulo, String autor, String isbn2, String fecha) {
         this.titulo = titulo;

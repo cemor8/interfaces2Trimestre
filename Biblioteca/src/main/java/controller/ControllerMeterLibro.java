@@ -4,12 +4,13 @@ import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import model.CambiarIdioma;
 import model.Data;
 import model.Libro;
-
-import javax.swing.text.html.ImageView;
+import javafx.stage.FileChooser;
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -123,7 +124,15 @@ public class ControllerMeterLibro {
     }
     @FXML
     void meterImagen(MouseEvent event) {
+        FileChooser filechooser = new FileChooser();
 
+        filechooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("image files", "*.png"));
+        File selectedFile = filechooser.showOpenDialog(null);
+
+
+        if(selectedFile != null){
+            String imagePath = selectedFile.getAbsolutePath();
+        }
     }
 
 }
