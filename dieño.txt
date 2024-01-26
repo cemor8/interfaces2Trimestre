@@ -1,0 +1,3 @@
+tareas , proyectas, notas de texto, calendario , contactos
+
+cada tarea un codigo
