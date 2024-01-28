@@ -11,15 +11,15 @@ import java.util.ResourceBundle;
 public class Data {
     public Data() {
 
-        this.libros.add(new Libro("Libro2","Autor1","9898231741798","19/02/1967","C:\\Users\\cmorbla\\Desktop\\test.jpg"));
-        this.libros.add(new Libro("Libro2","Autor1","9898231741798","19/02/1967","C:\\Users\\cmorbla\\Desktop\\test.jpg"));
-        this.libros.add(new Libro("Libro2","Autor1","9898231741798","19/02/1967","C:\\Users\\cmorbla\\Desktop\\test.jpg"));
-        this.libros.add(new Libro("Libro2","Autor1","9898231741798","19/02/1967","C:\\Users\\cmorbla\\Desktop\\test.jpg"));
-        this.libros.add(new Libro("Libro2","Autor1","9898231741798","19/02/1967","C:\\Users\\cmorbla\\Desktop\\test.jpg"));
-        this.libros.add(new Libro("Libro2","Autor1","9898231741798","19/02/1967","C:\\Users\\cmorbla\\Desktop\\test.jpg"));
-        this.libros.add(new Libro("Libro2","Autor1","9898231741798","19/02/1967","C:\\Users\\cmorbla\\Desktop\\test.jpg"));
-        this.libros.add(new Libro("Libro2","Autor1","9898231741798","19/02/1967","C:\\Users\\cmorbla\\Desktop\\test.jpg"));
-
+        this.libros.add(new Libro("Libro1","Autor1","9898231741798","19/02/1967",""));
+        this.libros.add(new Libro("Libro2","Autor2","9898231741798","19/02/1967",""));
+        this.libros.add(new Libro("Libro3","Autor3","9898231741798","19/02/1967",""));
+        this.libros.add(new Libro("Libro4","Autor4","9898231741798","19/02/1967",""));
+        this.libros.add(new Libro("Libro5","Autor5","9898231741798","19/02/1967",""));
+        this.libros.add(new Libro("Libro6","Autor6","9898231741798","19/02/1967",""));
+        this.libros.add(new Libro("Libro7","Autor7","9898231741798","19/02/1967",""));
+        this.libros.add(new Libro("Libro8","Autor8","9898231741798","19/02/1967",""));
+        this.libros.add(new Libro("Libro9","Autor9","9898231741798","19/02/1967",""));
     }
 
 

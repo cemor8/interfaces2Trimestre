@@ -17,6 +17,8 @@ public class Server {
     private DatagramPacket paquete;
     private boolean activado = true;
     private ArrayList<Integer> puertosClientes = new ArrayList<>();
+    private ArrayList<Integer> puertosThread = new ArrayList<>();
+    private boolean esCliente = true;
     public Server() throws SocketException {
         socket = new DatagramSocket(puerto);
         paquete = new DatagramPacket(buffer, buffer.length);
@@ -35,16 +37,23 @@ public class Server {
             String mensajeRecibido = new String(peticion.getData(),0, peticion.getLength(), StandardCharsets.UTF_8);
             System.out.println(mensajeRecibido);
 
-            if(mensajeRecibido.equals("REGISTRO")&&!puertosClientes.contains(puertoCliente)){
-                puertosClientes.add(puertoCliente);
-                continue;
+            if(mensajeRecibido.equals("REGISTRO")){
+                if(esCliente&& !this.puertosClientes.contains(puertoCliente)){
+                    puertosClientes.add(puertoCliente);
+                    esCliente = false;
+                    continue;
+                }else if(!esCliente && !this.puertosThread.contains(puertoCliente)){
+                    puertosThread.add(puertoCliente);
+                    esCliente = true;
+                    continue;
+                }
             }
 
             if(!mensajeRecibido.isEmpty()){
                 System.out.println("a replicar");
-                for(int puerto : puertosClientes){
+                for(int puerto : puertosThread){
                     System.out.println(puerto);
-                    if(puerto != puertoCliente){
+                    if(puerto != this.puertosThread.get(this.puertosClientes.indexOf(puertoCliente))){
                         System.out.println("enviando");
                         System.out.println(mensajeRecibido);
                         buffer = mensajeRecibido.getBytes();

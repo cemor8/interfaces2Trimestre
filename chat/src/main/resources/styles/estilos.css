@@ -1,0 +1,30 @@
+.propio{
+-fx-alignment: top-right;
+    -fx-background-color: #DCF8C6; /* Un color de fondo claro para el mensaje del usuario */
+    -fx-background-radius: 10px;
+    -fx-padding: 10px;
+    -fx-label-padding: 5px;
+    -fx-max-width: 300px; /* O un ancho máximo que se ajuste a tu diseño */
+    -fx-wrap-text: true;
+}
+.otro{
+-fx-alignment: top-left;
+    -fx-background-color: #EAEAEA; /* Un color de fondo diferente para el otro usuario */
+    -fx-background-radius: 10px;
+    -fx-padding: 10px;
+    -fx-label-padding: 5px;
+    -fx-max-width: 300px; /* O un ancho máximo que se ajuste a tu diseño */
+    -fx-wrap-text: true;
+}
+.nombre{
+
+}
+.scroll{
+
+}
+.btn{
+
+}
+.enviar{
+
+}

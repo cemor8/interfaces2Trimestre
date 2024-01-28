@@ -60,6 +60,8 @@ public class ControllerMeterLibro {
 
     @FXML
     private Label labelNombre;
+    @FXML
+    private Label infoImagen;
     private Data data;
     Map<String, String> columnasExpresiones = new HashMap<String, String>() {
         {
@@ -77,6 +79,11 @@ public class ControllerMeterLibro {
     @FXML
     void enviar(MouseEvent event) {
         boolean error = false;
+        this.infoImagen.setText("");
+        this.infoAutor.setText("");
+        this.infoISBN.setText("");
+        this.infoNombre.setText("");
+        this.infoAño.setText("");
         if(!validarContenido(this.columnasExpresiones.get("ISBN"),this.introducirIsbn.getText())){
             error = true;
             this.infoISBN.setText(CambiarIdioma.getInstance().getBundle().getString("aviso"));
@@ -99,6 +106,7 @@ public class ControllerMeterLibro {
         }
         if(this.imagenSeleccionada == null){
             error = true;
+            this.infoImagen.setText(CambiarIdioma.getInstance().getBundle().getString("aviso"));
         }
         if (error){
             return;

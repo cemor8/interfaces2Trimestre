@@ -49,9 +49,9 @@ public class ControllerListaLibros {
         this.rellenar.setHgap(10);
         this.rellenar.setVgap(10);
         ColumnConstraints columnConstraints = new ColumnConstraints();
-        columnConstraints.setPercentWidth(20); // Cada columna ocupa el 25% del ancho del GridPane
-        columnConstraints.setHalignment(HPos.CENTER); // Centrar horizontalmente los elementos en la columna
-        this.rellenar.getColumnConstraints().addAll(columnConstraints, columnConstraints, columnConstraints, columnConstraints); // Añadir las restricciones a todas las columnas
+        columnConstraints.setPercentWidth(20);
+        columnConstraints.setHalignment(HPos.CENTER);
+        this.rellenar.getColumnConstraints().addAll(columnConstraints, columnConstraints, columnConstraints, columnConstraints);
         for (int i = librosXpagina * numeroPagina; i < librosXpagina * (numeroPagina + 1) && i < this.data.getLibros().size(); i++) {
 
 
@@ -76,13 +76,11 @@ public class ControllerListaLibros {
             GridPane.setFillHeight(anchorPane, false);
             GridPane.setFillWidth(anchorPane, false);
             this.rellenar.setPrefSize(800, 600);
-            System.out.println("columna: "+columna);
-            System.out.println("fila: "+fila);
             GridPane.setConstraints(anchorPane, columna, fila);
             this.rellenar.getChildren().add(anchorPane);
             y++;
         }
-        this.rellenar.setLayoutX(70);
+        this.rellenar.setLayoutX(105);
         this.rellenar.setLayoutY(70);
 
     }
@@ -126,12 +124,6 @@ public class ControllerListaLibros {
         if ((double) this.numeroPagina >= this.paginasTotales - 1) {
             this.btnSiguiente.setDisable(true);
         }
-
-
-
-
-        System.out.println(this.numeroPagina);
-        System.out.println(this.paginasTotales);
         this.crearLibros();
 
     }

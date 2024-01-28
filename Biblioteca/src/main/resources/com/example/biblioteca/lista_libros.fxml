@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="900.0" prefWidth="958.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerListaLibros">
    <children>
-      <Label fx:id="pagina" alignment="CENTER" layoutX="429.0" layoutY="733.0" prefHeight="57.0" prefWidth="100.0" styleClass="labelSuperior" text="Label" />
+      <Label fx:id="pagina" alignment="CENTER" layoutX="402.0" layoutY="734.0" prefHeight="57.0" prefWidth="100.0" styleClass="labelSuperior" text="Label" />
       <GridPane fx:id="rellenar" layoutY="-2.0" prefHeight="677.0" prefWidth="958.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -19,7 +19,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
-      <MFXButton fx:id="btnAnterior" layoutX="143.0" layoutY="722.0" onMouseClicked="#anterior" prefHeight="80.0" prefWidth="170.0" styleClass="btnAtras" text="%btn.anterior">
+      <MFXButton fx:id="btnAnterior" layoutX="118.0" layoutY="722.0" onMouseClicked="#anterior" prefHeight="80.0" prefWidth="170.0" styleClass="btnAtras" text="%btn.anterior">
          <font>
             <Font size="24.0" />
          </font></MFXButton>

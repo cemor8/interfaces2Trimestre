@@ -2,6 +2,7 @@ package com.example.chat;
 
 import java.io.IOException;
 import java.net.*;
+import java.nio.charset.StandardCharsets;
 
 public class ClienteThread extends Thread{
     ControllerCliente cliente;
@@ -11,7 +12,6 @@ public class ClienteThread extends Thread{
     public ClienteThread(ControllerCliente cliente) throws SocketException {
         this.cliente = cliente;
         socket = new DatagramSocket();
-        System.out.println(socket.getPort());
     }
 
     @Override
@@ -26,7 +26,6 @@ public class ClienteThread extends Thread{
         } catch (UnknownHostException e) {
             throw new RuntimeException(e);
         }
-        System.out.println(buffer.length);
 
         try {
             socket.send(peticionConex);
@@ -44,7 +43,7 @@ public class ClienteThread extends Thread{
                 throw new RuntimeException(e);
             }
             System.out.println("hilo acepta peticion");
-            String mensajeTexto = new String(peticion.getData());
+            String mensajeTexto = new String(peticion.getData(),0,peticion.getLength(), StandardCharsets.UTF_8);
             System.out.println(mensajeTexto);
             this.cliente.meterMensaje(mensajeTexto);
 
