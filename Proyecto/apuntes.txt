@@ -1,0 +1,42 @@
+primero diseño en figma, leugo trabjar
+
+Estetica y usabilidad
+
+como se ve de la mano a como se utiliza, relacionadas.
+
+
+guia material
+
+https://www.realtimecolors.com/?colors=050315-fbfbfe-2f27ce-dedcff-433bff&fonts=Poppins-Poppins
+
+
+crear proyectos, divididos en tareas
+
+detallar cada tarea
+
+dividir tarea segun lenguaje programacion,
+
+tarea fecha de creacion y entrega
+
+rellenar calendario - resaltar fechas
+
+seccion para tomar notas
+
+notas tienen texto
+
+notas por proyectos
+
+poder añadir imagenes, videos a notas, tambien a proyrctos multimedia
+
+
+contactos - 
+
+gente que trabaja la la org
+
+agrupar gente por proyetos
+
+datis de contacto, imagen,
+
+
+pseudologin no registro
+
