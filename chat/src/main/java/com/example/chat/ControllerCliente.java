@@ -1,9 +1,12 @@
 package com.example.chat;
 
+import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXScrollPane;
+import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
@@ -20,21 +23,25 @@ public class ControllerCliente implements Initializable {
 
 
     @FXML
-    private Button btnenviar;
+    private MFXButton btnenviar;
 
     @FXML
-    private TextField introducirMensaje;
+    private MFXTextField introducirMensaje;
 
     @FXML
     private Label labelNombre;
     private ClienteThread clienteThread;
-    private String nombre = "Pepe";
+    private String nombre;
     private int puertoServer = 3000;
     private byte[] buffer = new byte[1024];
     @FXML
     private VBox meter;
     InetAddress direccionSever;
     DatagramSocket socket;
+    /**
+     * Método que se encarga de enviar los mensajes al sevidor y representar los
+     * mensajes propios en el chat
+     * */
     @FXML
     void enviar(MouseEvent event) throws IOException {
 
@@ -42,15 +49,15 @@ public class ControllerCliente implements Initializable {
         if (mensaje.isEmpty()){
             return;
         }
+        this.introducirMensaje.setText("");
         HBox hboxLocal = new HBox();
         hboxLocal.setAlignment(Pos.CENTER_RIGHT);
         Label label = new Label("Tu : "+mensaje);
         label.getStyleClass().add("propio");
         hboxLocal.getChildren().add(label);
+        VBox.setMargin(hboxLocal,new Insets(10,10,0,0));
         this.meter.getChildren().add(hboxLocal);
         mensaje = this.nombre+" : "+mensaje;
-
-        System.out.println("enviando mensaje");
 
         buffer = mensaje.getBytes();
         DatagramPacket paqueteMensaje = new DatagramPacket(buffer,buffer.length,direccionSever,puertoServer);
@@ -58,7 +65,14 @@ public class ControllerCliente implements Initializable {
         buffer = new byte[1024];
 
     }
-
+    public void recibirNombre(String nombre){
+        this.nombre = nombre;
+        this.labelNombre.setText("Hola, "+nombre);
+    }
+    /**
+     * Se hace una conexion para indicar al server que hay un nuevo cliente, tambien se crea el hilo
+     * asociado a este cliente
+     * */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.meter = new VBox();
@@ -100,21 +114,17 @@ public class ControllerCliente implements Initializable {
         return puertoServer;
     }
 
-    public byte[] getBuffer() {
-        return buffer;
-    }
-
-    public DatagramSocket getSocket() {
-        return socket;
-    }
+    /**
+     * Método que mete el mensaje recibido en la interfaz
+     * */
     public void meterMensaje(String mensaje){
         Platform.runLater(() -> {
             HBox hboxRemote = new HBox();
             hboxRemote.setAlignment(Pos.CENTER_LEFT);
-            System.out.println("mensaje recibido");
             Label label = new Label(mensaje);
             label.getStyleClass().add("otro");
             hboxRemote.getChildren().add(label);
+            VBox.setMargin(hboxRemote,new Insets(10,0,0,10));
             this.meter.getChildren().add(hboxRemote);
         });
 

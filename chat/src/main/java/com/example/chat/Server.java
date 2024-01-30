@@ -35,7 +35,7 @@ public class Server {
             int puertoCliente = peticion.getPort();
 
             String mensajeRecibido = new String(peticion.getData(),0, peticion.getLength(), StandardCharsets.UTF_8);
-            System.out.println(mensajeRecibido);
+
 
             if(mensajeRecibido.equals("REGISTRO")){
                 if(esCliente&& !this.puertosClientes.contains(puertoCliente)){
@@ -50,12 +50,12 @@ public class Server {
             }
 
             if(!mensajeRecibido.isEmpty()){
-                System.out.println("a replicar");
+
                 for(int puerto : puertosThread){
-                    System.out.println(puerto);
+
                     if(puerto != this.puertosThread.get(this.puertosClientes.indexOf(puertoCliente))){
-                        System.out.println("enviando");
-                        System.out.println(mensajeRecibido);
+
+
                         buffer = mensajeRecibido.getBytes();
                         DatagramPacket replicar = new DatagramPacket(buffer,buffer.length,InetAddress.getByName("localhost"),puerto);
                         socket.send(replicar);
