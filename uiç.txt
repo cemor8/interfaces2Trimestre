@@ -22,3 +22,40 @@ https://www.pinterest.es/pin/644788871642257060/
 https://www.pinterest.es/pin/1040683426378505382/
 
 https://www.pinterest.es/pin/159596380537890860/
+
+
+
+Modo oscuro
+
+
+Paletas colores:
+
+Fondo : #143447
+
+
+Fondo2: #131313
+
+
+Fondo menu: #1f1f1f
+
+
+
+
+Principal : #747296
+
+texto : blanco
+
+Secundario : #DEDCFF
+
+
+#514AF8
+
+
+Acentos : #251DD8
+
+
+
+
+
+
+https://www.serboweb.com/localizacion-contacto.php
