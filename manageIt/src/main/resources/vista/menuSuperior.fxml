@@ -9,12 +9,12 @@
    <children>
       <ImageView fitHeight="65.0" fitWidth="84.0" layoutX="974.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" />
       <MFXTextField fx:id="barraBusqueda" layoutX="109.0" layoutY="29.0" prefHeight="49.0" prefWidth="267.0" styleClass="barraBusqueda" />
-      <ImageView fitHeight="38.0" fitWidth="38.0" layoutX="877.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="38.0" fitWidth="38.0" layoutX="877.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" styleClass="calendarioSuperior">
          <image>
             <Image url="@../images/menuLateral/Calendar31.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="38.0" fitWidth="38.0" layoutX="791.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="38.0" fitWidth="38.0" layoutX="791.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" styleClass="proyectosSuperior">
          <image>
             <Image url="@../images/menuLateral/NewProduct.png" />
          </image>

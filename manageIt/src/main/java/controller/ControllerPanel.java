@@ -93,7 +93,7 @@ public class ControllerPanel {
             btnver.setOnMouseClicked(this::cargarProyecto);
             btnver.setId(String.valueOf(i));
 
-
+            HBox.setMargin(btnver,new Insets(0,0,0,40));
             hBox.getChildren().addAll(titulo,estado,btnver);
 
             this.contenedorCadaProyecto.getChildren().add(hBox);

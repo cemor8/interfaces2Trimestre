@@ -173,7 +173,7 @@ Imagenes
 .panel:hover{
 
 }
-.proyectos{
+.proyectos, .proyectosSuperior{
     -fx-image: url(../images/menuLateral/NewProduct.png);
 
 }
@@ -183,7 +183,7 @@ Imagenes
 .notas{
     -fx-image: url(../images/menuLateral/Paper.png);
 }
-.calendario{
+.calendario, .calendarioSuperior{
     -fx-image: url(../images/menuLateral/Calendar31.png);
 }
 .contactos{
@@ -199,7 +199,7 @@ Imagenes
 .panelPresionado{
     -fx-image: url(../images/menuLateral/HomeV.png);
 }
-.proyectosPresionado{
+.proyectosPresionado, .proyectosSuperior:hover{
     -fx-image: url(../images/menuLateral/NewProductV.png);
 }
 .tareasPresionado{
@@ -208,7 +208,7 @@ Imagenes
 .notasPresionado{
     -fx-image: url(../images/menuLateral/PaperV.png);
 }
-.calendarioPresionado{
+.calendarioPresionado, .calendarioSuperior:hover{
     -fx-image: url(../images/menuLateral/Calendar31V.png);
 }
 .contactosPresionado{
