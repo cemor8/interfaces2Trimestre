@@ -1,0 +1,219 @@
+/*
+Estilos generales
+*/
+
+.fondo{
+    -fx-background-color : #131313;
+}
+.btn{
+    -fx-background-color : #00E18A;
+    -fx-text-fill : "black";
+    -fx-background-radius : 10px;
+    -fx-font-family : "Roboto";
+    -fx-text-size : 18px;
+}
+/*
+Estilos Login
+*/
+
+.textfieldLogin{
+    -fx-font-size: 14px;
+    -fx-min-height: 10;
+    -fx-max-height: 35;
+    -fx-font-family : "Roboto";
+    -fx-font-style: italic;
+    -fx-border-color: none;
+
+}
+.textfieldLogin:pressed, .textfieldLogin:hover{
+    -fx-border-color: #00E18A;
+}
+
+.error{
+    fx-text-fill : "red";
+}
+.labelLogin{
+   -fx-text-fill : "white";
+   -fx-font-family : "Roboto";
+   -fx-text-size : 18px;
+}
+
+/*
+Estilos Menu Lateral
+*/
+
+#fondoMenuLateral{
+    -fx-background-color : #1F1F1F;
+}
+.hboxLateral:selected, .hboxLateral:hover{
+    -fx-background-color: #ACABBB;
+}
+.hboxLateral{
+    -fx-background-color: transparent;
+}
+.labelLateral{
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 14px;
+    -fx-font-family: 'Roboto Flex', sans-serif;
+}
+
+
+/*
+Estilos Menu Superior
+*/
+
+.barraBusqueda{
+    -fx-min-height: 10;
+    -fx-max-height: 35;
+}
+
+/*
+Estilos Panel
+*/
+
+.labelMostrarNombre{
+    -fx-font-family: 'Roboto Mono', sans-serif;
+    -fx-font-size: 34px;
+    -fx-text-fill: #FFFFFF;
+}
+.labelSecciones{
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 14px;
+    -fx-font-family: 'Roboto Mono', sans-serif;
+}
+
+.labelTerminado{
+    -fx-font-family: 'Roboto Flex', sans-serif;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 24px;
+}
+.btnSecciones{
+
+}
+.contenedorProyectos{
+    -fx-background-color : #1F1F1F;
+    -fx-background-radius: 10px;
+}
+.seccionTerminado{
+    -fx-background-color : #1F1F1F;
+    -fx-background-radius: 5px;
+}
+.hboxTarjetaProyecto{
+    -fx-padding: 10;
+    -fx-spacing: 5;
+    -fx-alignment: center-left;
+    -fx-border-color: #d3d3d3;
+    -fx-border-width: 1;
+    -fx-background-color: #f7f7f7;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+.nombreTarjetaProyecto{
+    -fx-border-color: black;
+        -fx-border-width: 2;
+    -fx-font-size: 14px;
+        -fx-text-fill: #333;
+}
+.estadoTarjetaProyecto{
+    -fx-border-color: black;
+        -fx-border-width: 2;
+}
+.btnTarjetaProyecto{
+    -fx-background-color: #76cd77;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+    -fx-padding: 5 15;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+/*
+Estilos cada Proyecto
+*/
+.contenedorVistaCadaProyecto{
+    -fx-background-radius: 10px;
+    -fx-background-color : #1F1F1F;
+}
+.fechaVistaCadaProyecto{
+    -fx-font-family: 'Roboto Mono', sans-serif;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 10px;
+}
+.descripcionVistaCadaProyecto{
+    -fx-font-family: 'Roboto Mono', sans-serif;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 16px;
+}
+.labelVistaCadaProyecto{
+    -fx-font-family: 'Roboto Mono', sans-serif;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 14px;
+}
+.imagenVistaCadaProyecto{
+
+}
+.papeleraVistaCadaProyecto{
+    -fx-image: url(../images/proyectos/vistaCadaProyecto/Trash.png);
+}
+.papeleraVistaCadaProyecto:hover{
+    -fx-image: url(../images/proyectos/vistaCadaProyecto/TrashCan.png);
+}
+.ojoVistaCadaProyecto{
+    -fx-image: url(../images/proyectos/vistaCadaProyecto/Eye.png);
+}
+.ojoVistaCadaProyecto:hover{
+    -fx-image: url(../images/proyectos/vistaCadaProyecto/EyeV.png);
+}
+/*
+Imagenes
+*/
+.panel{
+    -fx-image: url(../images/menuLateral/Home.png);
+}
+.panel:hover{
+
+}
+.proyectos{
+    -fx-image: url(../images/menuLateral/NewProduct.png);
+
+}
+.tareas{
+    -fx-image: url(../images/menuLateral/CheckList.png);
+}
+.notas{
+    -fx-image: url(../images/menuLateral/Paper.png);
+}
+.calendario{
+    -fx-image: url(../images/menuLateral/Calendar31.png);
+}
+.contactos{
+    -fx-image: url(../images/menuLateral/Contacts.png);
+}
+.config{
+    -fx-image: url(../images/menuLateral/Settings.png);
+}
+.cerrar{
+    -fx-image: url(../images/menuLateral/OpenPane.png);
+}
+
+.panelPresionado{
+    -fx-image: url(../images/menuLateral/HomeV.png);
+}
+.proyectosPresionado{
+    -fx-image: url(../images/menuLateral/NewProductV.png);
+}
+.tareasPresionado{
+    -fx-image: url(../images/menuLateral/CheckListV.png);
+}
+.notasPresionado{
+    -fx-image: url(../images/menuLateral/PaperV.png);
+}
+.calendarioPresionado{
+    -fx-image: url(../images/menuLateral/Calendar31V.png);
+}
+.contactosPresionado{
+    -fx-image: url(../images/menuLateral/ContactsV.png);
+}
+.configPresionado{
+    -fx-image: url(../images/menuLateral/SettingsV.png);
+}

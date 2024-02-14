@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="801.0" prefWidth="1082.0" styleClass="fondo" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerPanel">
+   <children>
+      <Label fx:id="labelMostrarNombre" layoutX="43.0" layoutY="40.0" prefHeight="65.0" prefWidth="314.0" styleClass="labelMostrarNombre" text="%panel.nombre" />
+      <AnchorPane layoutX="135.0" layoutY="153.0" prefHeight="224.0" prefWidth="314.0" />
+      <AnchorPane layoutX="145.0" layoutY="163.0" prefHeight="224.0" prefWidth="314.0" styleClass="seccionTerminado">
+         <children>
+            <Label fx:id="labelProyectosTerminados" alignment="CENTER" layoutX="35.0" layoutY="34.0" prefHeight="71.0" prefWidth="122.0" styleClass="labelTerminado" text="Label" />
+            <ImageView fitHeight="107.0" fitWidth="148.0" layoutX="96.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/panel/Line.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="labelProyectosTotales" alignment="CENTER" layoutX="150.0" layoutY="105.0" prefHeight="71.0" prefWidth="122.0" styleClass="labelTerminado" text="Label" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="contenedorProyectos" layoutX="135.0" layoutY="437.0" prefHeight="309.0" prefWidth="394.0" styleClass="contenedorProyectos">
+         <children>
+            <VBox fx:id="contenedorCadaProyecto" layoutY="85.0" prefHeight="224.0" prefWidth="394.0" />
+            <Label fx:id="labelProyectos" layoutX="14.0" layoutY="4.0" prefHeight="65.0" prefWidth="151.0" styleClass="labelSecciones" text="%panel.contenedorProyectos" />
+            <MFXButton fx:id="btnVerTodosProyectos" layoutX="275.0" layoutY="20.0" onMouseClicked="#verProyectos" prefHeight="34.0" prefWidth="88.0" styleClass="btn" text="%panel.botonVerTodos" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
