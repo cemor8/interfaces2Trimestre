@@ -8,6 +8,7 @@ import javafx.scene.input.MouseEvent;
 import modelo.Data;
 import modelo.Proyecto;
 
+import java.text.SimpleDateFormat;
 import java.util.Objects;
 
 public class ControllerCadaProyecto {
@@ -47,6 +48,11 @@ public class ControllerCadaProyecto {
         this.nombre.setText(this.proyecto.getNombre());
         this.descripcion.setText(this.proyecto.getDescripcion());
         this.imagen.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("file:" + this.proyecto.getRutaImagen()))));
+        SimpleDateFormat fechaCreacion = new SimpleDateFormat("dd-MM-yyyy");
+        String mostrarCreacion = fechaCreacion.format(this.proyecto.getFechaCreacion());
+        String mostrarEntrega = fechaCreacion.format(this.proyecto.getFechaEntrega());
+        this.fechaCreacion.setText(mostrarCreacion);
+        this.fechaEntrega.setText(mostrarEntrega);
     }
 
 }

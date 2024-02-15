@@ -27,6 +27,11 @@ public class ControllerLogin {
     private MFXTextField introducirCorreo;
     private Data data;
 
+    /**
+     * Método que se encarga de logear a un usuario en la app
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void iniciar(MouseEvent event) throws IOException {
         /*

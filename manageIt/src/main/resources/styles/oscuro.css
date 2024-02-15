@@ -164,6 +164,28 @@ Estilos cada Proyecto
 .ojoVistaCadaProyecto:hover{
     -fx-image: url(../images/proyectos/vistaCadaProyecto/EyeV.png);
 }
+
+
+/*
+Vista Proyectos
+*/
+
+.labelCantidadProyectos{
+
+}
+
+.labelNombreCantidadProyectos{
+
+}
+
+.btnFlotante{
+
+}
+
+.scrollProyectos{
+
+}
+
 /*
 Imagenes
 */
@@ -216,4 +238,10 @@ Imagenes
 }
 .configPresionado{
     -fx-image: url(../images/menuLateral/SettingsV.png);
+}
+.imagenFecha{
+    -fx-image: url(../images/menuLateral/Calendar.png);
+}
+.imagenFechaEntrega{
+    -fx-image: url(../images/menuLateral/Schedule.png);
 }

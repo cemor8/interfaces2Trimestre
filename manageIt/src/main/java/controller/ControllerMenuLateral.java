@@ -62,11 +62,19 @@ public class ControllerMenuLateral {
     private ImageView imagenTareas;
     private Data data;
 
+    /**
+     * Método que se encarga de cerrar sesión
+     * @param event
+     */
     @FXML
     void cerrar(MouseEvent event) {
 
     }
 
+    /**
+     * Método que se encarga de mostrar la vista del calendario
+     * @param event
+     */
     @FXML
     void mostrarCalendario(MouseEvent event) {
         this.reiniciarHbox();
@@ -74,6 +82,10 @@ public class ControllerMenuLateral {
         this.imagenCalendario.getStyleClass().add("calendarioPresionado");
     }
 
+    /**
+     * Método que se encarga de mostrar la vista de la configuracion del usuario
+     * @param event
+     */
     @FXML
     void mostrarConfig(MouseEvent event) {
         this.reiniciarHbox();
@@ -81,6 +93,10 @@ public class ControllerMenuLateral {
         this.imagenAjustes.getStyleClass().add("configPresionado");
     }
 
+    /**
+     * Método que se encarga de mostrar la vista de contactos
+     * @param event
+     */
     @FXML
     void mostrarContacto(MouseEvent event) {
         this.reiniciarHbox();
@@ -88,6 +104,10 @@ public class ControllerMenuLateral {
         this.imagenContactos.getStyleClass().add("contactosPresionado");
     }
 
+    /**
+     * Método que se encarga de mostrar la vista de notas
+     * @param event
+     */
     @FXML
     void mostrarNotas(MouseEvent event) {
         this.reiniciarHbox();
@@ -95,6 +115,11 @@ public class ControllerMenuLateral {
         this.imagenNotas.getStyleClass().add("notasPresionado");
     }
 
+    /**
+     * Método que se encarga de mostrar el panel principal
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void mostrarPanel(MouseEvent event) throws IOException {
         System.out.println("hola");
@@ -108,7 +133,10 @@ public class ControllerMenuLateral {
         this.iniciarPanel();
     }
 
-
+    /**
+     * Método que se encarga de mostrar la vista de los proyectos
+     * @param event
+     */
     @FXML
     void mostrarProyectos(MouseEvent event) {
         this.reiniciarHbox();
@@ -116,6 +144,10 @@ public class ControllerMenuLateral {
         this.imagenProyectos.getStyleClass().add("proyectosPresionado");
     }
 
+    /**
+     * Método que se encarga de mostrar tareas
+     * @param event
+     */
     @FXML
     void mostrarTareas(MouseEvent event) {
         this.reiniciarHbox();
@@ -123,6 +155,10 @@ public class ControllerMenuLateral {
         this.imagenTareas.getStyleClass().add("tareasPresionado");
     }
 
+    /**
+     * Método que se encarga de recibir la información
+     * @param data
+     */
     public void recibirData(Data data){
         this.data = data;
         this.data.getListaControladores().setControllerMenuLateral(this);

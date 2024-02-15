@@ -26,6 +26,11 @@ public class ControllerContenedor {
     private AnchorPane rellenar;
     private Data data;
 
+    /**
+     * Método que se encarga de recibir la información
+     * @param data
+     * @throws IOException
+     */
     public void recibirData(Data data) throws IOException {
         this.data = data;
         this.data.getListaControladores().setControllerContenedor(this);
@@ -34,6 +39,11 @@ public class ControllerContenedor {
         this.cargarContenido();
         this.meterEstilo("/styles/oscuro.css");
     }
+
+    /**
+     * Método que se encarga de cargar el menú superior
+     * @throws IOException
+     */
     public void cargarSuperior() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/menuSuperior.fxml"), CambiarIdioma.getInstance().getBundle());
         Parent root = fxmlLoader.load();
@@ -41,6 +51,11 @@ public class ControllerContenedor {
         controllerMenuSuperior.recibirData(this.data);
         this.menuSuperior.getChildren().setAll(root);
     }
+
+    /**
+     * Método que se encarga de cargar el menú lateral
+     * @throws IOException
+     */
     public void cargarLateral() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/menuLateral.fxml"), CambiarIdioma.getInstance().getBundle());
         Parent root = fxmlLoader.load();
@@ -48,6 +63,11 @@ public class ControllerContenedor {
         controllerMenuLateralc.recibirData(this.data);
         this.menuLateral.getChildren().setAll(root);
     }
+
+    /**
+     * Método que se encarga de cargar el panel principal
+     * @throws IOException
+     */
     public void cargarContenido() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/panel.fxml"), CambiarIdioma.getInstance().getBundle());
         Parent root = fxmlLoader.load();

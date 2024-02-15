@@ -4,16 +4,17 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="371.0" prefWidth="342.0" styleClass="contenedorVistaCadaProyecto" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerCadaProyecto">
    <children>
       <ImageView fx:id="imagen" fitHeight="114.0" fitWidth="349.0" layoutX="-5.0" pickOnBounds="true" preserveRatio="true" styleClass="imagenVistaCadaProyecto" />
       <ImageView fitHeight="64.0" fitWidth="86.0" layoutX="127.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true" />
       <Label fx:id="nombre" layoutX="11.0" layoutY="169.0" prefHeight="33.0" prefWidth="116.0" styleClass="labelVistaCadaProyecto" text="Label" />
-      <Label fx:id="fechaCreacion" layoutX="14.0" layoutY="214.0" prefHeight="27.0" prefWidth="108.0" styleClass="fechaVistaCadaProyecto" text="Label" />
-      <Label fx:id="fechaEntrega" layoutX="15.0" layoutY="247.0" prefHeight="27.0" prefWidth="108.0" styleClass="fechaVistaCadaProyecto" text="Label" />
+      <Label fx:id="fechaCreacion" layoutX="44.0" layoutY="210.0" prefHeight="27.0" prefWidth="108.0" styleClass="fechaVistaCadaProyecto" text="Label" />
+      <Label fx:id="fechaEntrega" layoutX="44.0" layoutY="247.0" prefHeight="27.0" prefWidth="108.0" styleClass="fechaVistaCadaProyecto" text="Label" />
       <Label fx:id="descripcion" layoutX="15.0" layoutY="293.0" prefHeight="64.0" prefWidth="316.0" styleClass="descripcionVistaCadaProyecto" text="Label" />
       <ImageView fitHeight="49.0" fitWidth="60.0" layoutX="183.0" layoutY="236.0" onMouseClicked="#verProyecto" pickOnBounds="true" preserveRatio="true" styleClass="ojoVistaCadaProyecto" />
       <ImageView fitHeight="49.0" fitWidth="60.0" layoutX="259.0" layoutY="236.0" onMouseClicked="#eliminarProyecto" pickOnBounds="true" preserveRatio="true" styleClass="papeleraVistaCadaProyecto" />
+      <ImageView fitHeight="20.0" fitWidth="19.0" layoutX="11.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true" styleClass="imagenFecha" />
+      <ImageView fitHeight="20.0" fitWidth="19.0" layoutX="11.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true" styleClass="imagenFechaEntrega" />
    </children>
 </AnchorPane>

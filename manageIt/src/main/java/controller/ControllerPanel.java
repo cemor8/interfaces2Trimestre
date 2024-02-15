@@ -42,11 +42,19 @@ public class ControllerPanel {
     private ArrayList<Tarea> tareasAsignadas = new ArrayList<>();
     private Data data;
 
+    /**
+     * Método que se encarga de cargar la vista que muestra todos los proyectos para verlos
+     * @param event
+     */
     @FXML
     void verProyectos(MouseEvent event) {
 
     }
 
+    /**
+     * Método que se encarga de cargar los 3 primeros proyectos que tengan relación con el
+     * usuario en la interfaz
+     */
     public void cargarProyectos(){
         this.proyectosAsignados = new ArrayList<>();
         for (Proyecto proyecto : this.data.getProyectos()) {
@@ -101,9 +109,18 @@ public class ControllerPanel {
 
         }
     }
+
+    /**
+     * Método que se encarga de cargar la vista detallada de un proyecto
+     * @param event
+     */
     public void cargarProyecto(MouseEvent event){
 
     }
+
+    /**
+     * Método que se encarga de cargar las tareas
+     */
     public void cargarTareas(){
         this.tareasAsignadas = new ArrayList<>();
         for (Tarea tarea : this.data.getTareas()) {
@@ -115,6 +132,11 @@ public class ControllerPanel {
             }
         }
     }
+
+    /**
+     * Método que se encarga de recibir la informacion y mostrar el nombre del usuario
+     * @param data
+     */
     public void recibirData(Data data){
         this.data = data;
         this.cargarProyectos();
