@@ -40,7 +40,7 @@ public class ControllerMenuSuperior {
     }
 
     /**
-     * Método que se encarga  d
+     * Método que se encarga de poner la imagen del usuario
      */
     public void ponerImagen(){
         this.perfil.setImage(new Image("file:"+this.data.getCurrentUser().getRutaImagen()));
