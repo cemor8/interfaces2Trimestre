@@ -28,10 +28,10 @@ public class Data {
 
         Tarea tarea = new Tarea("Tarea de prueba","Prueba","Descripcion de tarea de prueba",
                 Date.from(hoy.atStartOfDay(ZoneId.systemDefault()).toInstant()),Date.from(manana.atStartOfDay(ZoneId.systemDefault()).toInstant()),
-                "src/main/resources/images/tareas/persona.png",new ArrayList<>(),new ArrayList<>(List.of(usuario)));
+                "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",new ArrayList<>(),new ArrayList<>(List.of(usuario)));
         Nota nota = new Nota("Nota de prueba","Descripcion de nota de prueba", Date.from(hoy.atStartOfDay(ZoneId.systemDefault()).toInstant()),
                 usuario);
-        Proyecto proyecto = new Proyecto("Proyecto de prueba","Cliente de prueba","src/main/resources/images/proyectos/persona.png",
+        Proyecto proyecto = new Proyecto("Proyecto de prueba","Cliente de prueba","src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
                 "Estado de prueba","Descripcion de proyecto de prueba",Date.from(hoy.atStartOfDay(ZoneId.systemDefault()).toInstant()),
                 Date.from(manana.atStartOfDay(ZoneId.systemDefault()).toInstant()),usuario,new ArrayList<>(),new ArrayList<>(),new ArrayList<>(List.of(usuario)));
 

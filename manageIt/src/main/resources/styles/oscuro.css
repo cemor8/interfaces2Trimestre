@@ -66,6 +66,11 @@ Estilos Menu Superior
     -fx-min-height: 10;
     -fx-max-height: 35;
 }
+.labelMenuSuperiorNombre{
+    -fx-text-fill:"white";
+    -fx-font-size: 30px;
+    -fx-font-family : "Roboto";
+}
 
 /*
 Estilos Panel
@@ -133,11 +138,20 @@ Estilos cada Proyecto
 .contenedorVistaCadaProyecto{
     -fx-background-radius: 10px;
     -fx-background-color : #1F1F1F;
+    -fx-scale-x: 1;
+    -fx-scale-y: 1;
+    -fx-cursor: default;
+    -transition: all 0.2s ease-in-out;
+}
+.contenedorVistaCadaProyecto:hover{
+    -fx-scale-x: 1.01;
+    -fx-scale-y: 1.01;
+    -fx-cursor: hand;
 }
 .fechaVistaCadaProyecto{
     -fx-font-family: 'Roboto Mono', sans-serif;
     -fx-text-fill: #FFFFFF;
-    -fx-font-size: 10px;
+    -fx-font-size: 12px;
 }
 .descripcionVistaCadaProyecto{
     -fx-font-family: 'Roboto Mono', sans-serif;
@@ -147,7 +161,7 @@ Estilos cada Proyecto
 .labelVistaCadaProyecto{
     -fx-font-family: 'Roboto Mono', sans-serif;
     -fx-text-fill: #FFFFFF;
-    -fx-font-size: 14px;
+    -fx-font-size: 18px;
 }
 .imagenVistaCadaProyecto{
 
@@ -179,13 +193,52 @@ Vista Proyectos
 }
 
 .btnFlotante{
+    -fx-background-radius: 50%;
+    -fx-background-color: #00E18A;
+    -fx-min-width: 70px;
+    -fx-min-height: 70px;
+    -fx-max-width: 70px;
+    -fx-max-height: 70px;
+    -fx-background-image: url(../images/global/Plus.png);
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+    -fx-scale-x: 1;
+    -fx-scale-y: 1;
+    -transition: all 0.2s ease-in-out;
 
+}
+.btnFlotante:hover{
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-cursor: hand;
+}
+.btnFlotante:pressed{
+    -fx-scale-x: 0.9;
+    -fx-scale-y: 0.9;
+    -fx-cursor: hand;
 }
 
 .scrollProyectos{
 
 }
 
+/*
+Vista Crear Proyecto
+*/
+.contenedor{
+    -fx-background-color : #1F1F1F;
+    -fx-border-radius : 34px
+}
+.labelCrear{
+    -fx-text-fill: "white";
+    -fx-font-family:"Roboto";
+    -fx-font-size: 16px;
+}
+.introducciones{
+    -fx-text-fill: "white";
+    -fx-font-family:"Roboto";
+    -fx-font-size: 30px;
+}
 /*
 Imagenes
 */
@@ -224,6 +277,11 @@ Imagenes
 .proyectosPresionado, .proyectosSuperior:hover{
     -fx-image: url(../images/menuLateral/NewProductV.png);
 }
+
+.proyectosSuperior:hover{
+    -fx-cursor: hand;
+}
+
 .tareasPresionado{
     -fx-image: url(../images/menuLateral/CheckListV.png);
 }
@@ -233,6 +291,9 @@ Imagenes
 .calendarioPresionado, .calendarioSuperior:hover{
     -fx-image: url(../images/menuLateral/Calendar31V.png);
 }
+.calendarioSuperior:hover{
+    -fx-cursor: hand;
+}
 .contactosPresionado{
     -fx-image: url(../images/menuLateral/ContactsV.png);
 }
@@ -240,8 +301,12 @@ Imagenes
     -fx-image: url(../images/menuLateral/SettingsV.png);
 }
 .imagenFecha{
-    -fx-image: url(../images/menuLateral/Calendar.png);
+    -fx-image: url(../images/proyectos/vistaCadaProyecto/Calendar.png);
 }
 .imagenFechaEntrega{
-    -fx-image: url(../images/menuLateral/Schedule.png);
+    -fx-image: url(../images/proyectos/vistaCadaProyecto/Schedule.png);
 }
+.imgPerfilSuperior{
+    -fx-cursor: hand;
+}
+

@@ -3,11 +3,13 @@ package modelo;
 import controller.ControllerContenedor;
 import controller.ControllerMenuLateral;
 import controller.ControllerMenuSuperior;
+import controller.ControllerProyectos;
 
 public class ListaControladores {
     private ControllerContenedor controllerContenedor;
     private ControllerMenuLateral controllerMenuLateral;
     private ControllerMenuSuperior controllerMenuSuperior;
+    private ControllerProyectos controllerProyectos;
 
     public ControllerContenedor getControllerContenedor() {
         return controllerContenedor;
@@ -31,5 +33,13 @@ public class ListaControladores {
 
     public ControllerMenuSuperior getControllerMenuSuperior() {
         return controllerMenuSuperior;
+    }
+
+    public ControllerProyectos getControllerProyectos() {
+        return controllerProyectos;
+    }
+
+    public void setControllerProyectos(ControllerProyectos controllerProyectos) {
+        this.controllerProyectos = controllerProyectos;
     }
 }

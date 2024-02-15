@@ -7,8 +7,11 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import modelo.CambiarIdioma;
 import modelo.Data;
+import modelo.Proyecto;
+import modelo.Usuario;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class ControllerContenedor {
@@ -69,10 +72,19 @@ public class ControllerContenedor {
      * @throws IOException
      */
     public void cargarContenido() throws IOException {
+        ArrayList<Proyecto> proyectos = new ArrayList<>();
+        for (Proyecto proyecto : this.data.getProyectos()) {
+            for (Usuario usuario : proyecto.getPersonasAsignadas()) {
+                if (usuario.getCorreo().equals(this.data.getCurrentUser().getCorreo())) {
+                    proyectos.add(proyecto);
+                    break;
+                }
+            }
+        }
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/panel.fxml"), CambiarIdioma.getInstance().getBundle());
         Parent root = fxmlLoader.load();
         ControllerPanel controllerPanel = fxmlLoader.getController();
-        controllerPanel.recibirData(this.data);
+        controllerPanel.recibirData(this.data,proyectos);
         this.data.getListaControladores().getControllerMenuLateral().iniciarPanel();
         this.rellenarContenido(root);
 

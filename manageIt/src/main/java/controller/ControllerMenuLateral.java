@@ -10,8 +10,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import modelo.CambiarIdioma;
 import modelo.Data;
+import modelo.Proyecto;
+import modelo.Usuario;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class ControllerMenuLateral {
 
@@ -123,10 +126,19 @@ public class ControllerMenuLateral {
     @FXML
     void mostrarPanel(MouseEvent event) throws IOException {
         System.out.println("hola");
+        ArrayList<Proyecto> proyectos = new ArrayList<>();
+        for (Proyecto proyecto : this.data.getProyectos()) {
+            for (Usuario usuario : proyecto.getPersonasAsignadas()) {
+                if (usuario.getCorreo().equals(this.data.getCurrentUser().getCorreo())) {
+                    proyectos.add(proyecto);
+                    break;
+                }
+            }
+        }
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/panel.fxml"), CambiarIdioma.getInstance().getBundle());
         Parent root = fxmlLoader.load();
         ControllerPanel controllerPanel = fxmlLoader.getController();
-        controllerPanel.recibirData(this.data);
+        controllerPanel.recibirData(this.data,proyectos);
         this.data.getListaControladores().getControllerContenedor().rellenarContenido(root);
 
         this.reiniciarHbox();
@@ -138,10 +150,25 @@ public class ControllerMenuLateral {
      * @param event
      */
     @FXML
-    void mostrarProyectos(MouseEvent event) {
+    void mostrarProyectos(MouseEvent event) throws IOException {
         this.reiniciarHbox();
         this.hboxProyectos.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),true);
         this.imagenProyectos.getStyleClass().add("proyectosPresionado");
+
+        ArrayList<Proyecto> proyectos = new ArrayList<>();
+        for (Proyecto proyecto : this.data.getProyectos()) {
+            for (Usuario usuario : proyecto.getPersonasAsignadas()) {
+                if (usuario.getCorreo().equals(this.data.getCurrentUser().getCorreo())) {
+                    proyectos.add(proyecto);
+                    break;
+                }
+            }
+        }
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/proyectos.fxml"), CambiarIdioma.getInstance().getBundle());
+        Parent root = fxmlLoader.load();
+        ControllerProyectos controllerProyectos = fxmlLoader.getController();
+        controllerProyectos.recibirData(this.data,proyectos);
+        this.data.getListaControladores().getControllerContenedor().rellenarContenido(root);
     }
 
     /**

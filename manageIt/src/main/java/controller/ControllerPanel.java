@@ -56,15 +56,6 @@ public class ControllerPanel {
      * usuario en la interfaz
      */
     public void cargarProyectos(){
-        this.proyectosAsignados = new ArrayList<>();
-        for (Proyecto proyecto : this.data.getProyectos()) {
-            for (Usuario usuario : proyecto.getPersonasAsignadas()) {
-                if (usuario.getCorreo().equals(this.data.getCurrentUser().getCorreo())) {
-                    proyectosAsignados.add(proyecto);
-                    break;
-                }
-            }
-        }
         System.out.println(proyectosAsignados);
         if (this.proyectosAsignados.isEmpty()){
             return;
@@ -137,10 +128,12 @@ public class ControllerPanel {
      * Método que se encarga de recibir la informacion y mostrar el nombre del usuario
      * @param data
      */
-    public void recibirData(Data data){
+    public void recibirData(Data data,ArrayList<Proyecto> proyectos){
         this.data = data;
+        this.proyectosAsignados = proyectos;
         this.cargarProyectos();
         this.labelMostrarNombre.setText(this.labelMostrarNombre.getText()+this.data.getCurrentUser().getNombre());
+
     }
 
 }
