@@ -51,6 +51,7 @@ public class ControllerCadaProyecto {
     private Label nombre;
     private Data data;
     private Proyecto proyecto;
+    private ArrayList<Proyecto> listaDeProyecto;
 
     /**
      * Método que se encarga de eliminar un proyecto de la lista, luego vuelve a cargar la vista para que se
@@ -78,8 +79,12 @@ public class ControllerCadaProyecto {
     }
 
     @FXML
-    void verProyecto(MouseEvent event) {
-
+    void verProyecto(MouseEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/vistaCadaProyecto.fxml"), CambiarIdioma.getInstance().getBundle());
+        Parent root = fxmlLoader.load();
+        ControllerVistaCadaProyecto controllerVistaCadaProyecto = fxmlLoader.getController();
+        controllerVistaCadaProyecto.recibirData(this.data,this.proyecto,this.listaDeProyecto);
+        this.data.getListaControladores().getControllerContenedor().rellenarContenido(root);
     }
 
     /**
@@ -87,9 +92,10 @@ public class ControllerCadaProyecto {
      * @param data información
      * @param proyecto  proyecto a crear
      */
-    public void recibirData(Data data, Proyecto proyecto){
+    public void recibirData(Data data, Proyecto proyecto,ArrayList<Proyecto> listaDeProyecto){
         this.data = data;
         this.proyecto = proyecto;
+        this.listaDeProyecto = listaDeProyecto;
         this.inicializar();
     }
 

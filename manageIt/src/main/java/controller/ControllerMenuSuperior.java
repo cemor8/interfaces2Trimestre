@@ -3,6 +3,8 @@ package controller;
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -10,7 +12,13 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import modelo.CambiarIdioma;
 import modelo.Data;
+import modelo.Proyecto;
+import modelo.Usuario;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class ControllerMenuSuperior {
 
@@ -52,17 +60,18 @@ public class ControllerMenuSuperior {
     }
     @FXML
     void verCalendario(MouseEvent event) {
-
+        this.data.getListaControladores().getControllerMenuLateral().mostrarCalendario(null);
     }
 
     @FXML
-    void verPerfil(MouseEvent event) {
-
+    void verPerfil(MouseEvent event) throws IOException {
+        this.data.getListaControladores().getControllerMenuLateral().mostrarConfig(null);
     }
 
     @FXML
-    void verProyectos(MouseEvent event) {
+    void verProyectos(MouseEvent event) throws IOException {
 
+        this.data.getListaControladores().getControllerMenuLateral().mostrarProyectos(null);
     }
 
 }

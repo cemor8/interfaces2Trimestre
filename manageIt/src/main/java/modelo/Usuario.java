@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.ArrayList;
+
 public class Usuario {
     private String correo;
     private String nombre;
@@ -8,6 +10,7 @@ public class Usuario {
     private String descripcion;
     private String puesto;
     private String rutaImagen;
+    private ArrayList<Usuario> contactos;
 
     public Usuario(String correo, String nombre, String apellidos, String contraseña, String descripcion, String puesto, String rutaImagen) {
         this.correo = correo;

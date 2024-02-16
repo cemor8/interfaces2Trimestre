@@ -34,8 +34,20 @@ public class Data {
         Proyecto proyecto = new Proyecto("Proyecto de prueba","Cliente de prueba","src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
                 "Estado de prueba","Descripcion de proyecto de prueba",Date.from(hoy.atStartOfDay(ZoneId.systemDefault()).toInstant()),
                 Date.from(manana.atStartOfDay(ZoneId.systemDefault()).toInstant()),usuario,new ArrayList<>(),new ArrayList<>(),new ArrayList<>(List.of(usuario)));
+        Proyecto proyecto2 = new Proyecto("Proyecto de prueba","Cliente de prueba","src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
+                "Estado de prueba","Descripcion de proyecto de prueba",Date.from(hoy.atStartOfDay(ZoneId.systemDefault()).toInstant()),
+                Date.from(manana.atStartOfDay(ZoneId.systemDefault()).toInstant()),usuario,new ArrayList<>(),new ArrayList<>(),new ArrayList<>(List.of(usuario)));
+        Proyecto proyecto3 = new Proyecto("Proyecto de prueba","Cliente de prueba","src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
+                "Estado de prueba","Descripcion de proyecto de prueba",Date.from(hoy.atStartOfDay(ZoneId.systemDefault()).toInstant()),
+                Date.from(manana.atStartOfDay(ZoneId.systemDefault()).toInstant()),usuario,new ArrayList<>(),new ArrayList<>(),new ArrayList<>(List.of(usuario)));
+        Proyecto proyecto4 = new Proyecto("Proyecto de prueba","Cliente de prueba","src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
+                "Estado de prueba","Descripcion de proyecto de prueba",Date.from(hoy.atStartOfDay(ZoneId.systemDefault()).toInstant()),
+                Date.from(manana.atStartOfDay(ZoneId.systemDefault()).toInstant()),usuario,new ArrayList<>(),new ArrayList<>(),new ArrayList<>(List.of(usuario)));
 
         this.proyectos.add(proyecto);
+        this.proyectos.add(proyecto2);
+        this.proyectos.add(proyecto3);
+        this.proyectos.add(proyecto4);
         this.notas.add(nota);
         this.tareas.add(tarea);
         this.usuarios.add(usuario);

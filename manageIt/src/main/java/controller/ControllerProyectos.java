@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import modelo.CambiarIdioma;
 import modelo.Data;
 import modelo.Proyecto;
@@ -62,6 +63,8 @@ public class ControllerProyectos {
         int bloqueados = 0;
         int i = 0;
         HBox hBox = new HBox();
+        VBox vbox = new VBox();
+        vbox.setSpacing(10);
         for (Proyecto proyecto : this.proyectosRecorrer){
             if(proyecto.getEstado().equalsIgnoreCase("En proceso")){
                 enProceso+=1;
@@ -71,22 +74,33 @@ public class ControllerProyectos {
                 bloqueados+=1;
             }
 
-            /* Cargar las vistas de cada proceso y meterlos de 3 en 3 en el scroll */
-            if(i%3 == 0 && i > 0){
-                break;
+            if (i % 3 == 0 && i > 0) {
+                if (hBox != null) {
+                    vbox.getChildren().add(hBox);
+                }
+                hBox = new HBox(10);
             }
+
+
             AnchorPane anchorPane = new AnchorPane();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/cadaProyecto.fxml"),CambiarIdioma.getInstance().getBundle());
             Parent root = fxmlLoader.load();
             ControllerCadaProyecto controllerCadaProyecto = fxmlLoader.getController();
-            controllerCadaProyecto.recibirData(this.data,proyecto);
+            controllerCadaProyecto.recibirData(this.data,proyecto,proyectosRecorrer);
             anchorPane.getChildren().setAll(root);
-            HBox.setMargin(anchorPane,new Insets(0,0,0,20));
+
+            HBox.setMargin(anchorPane, new Insets(10, 0, 0, 10));
+
             hBox.getChildren().add(anchorPane);
-            this.scroll.setContent(hBox);
             i++;
 
+
+            if (i == this.proyectosRecorrer.size()) {
+                vbox.getChildren().add(hBox);
+            }
+
         }
+        this.scroll.setContent(vbox);
         this.labelProyectosBloqueados.setText(String.valueOf(bloqueados));
         this.labelProyectosPendientes.setText(String.valueOf(pendientes));
         this.labelProyectosProceso.setText(String.valueOf(enProceso));
