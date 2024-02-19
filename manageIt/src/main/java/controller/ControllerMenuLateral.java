@@ -101,10 +101,15 @@ public class ControllerMenuLateral {
      * @param event
      */
     @FXML
-    void mostrarContacto(MouseEvent event) {
+    void mostrarContacto(MouseEvent event) throws IOException {
         this.reiniciarHbox();
         this.hboxContactos.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),true);
         this.imagenContactos.getStyleClass().add("contactosPresionado");
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/contactos.fxml"), CambiarIdioma.getInstance().getBundle());
+        Parent root = fxmlLoader.load();
+        ControllerContactos controllerContactos = fxmlLoader.getController();
+        controllerContactos.recibirData(this.data,this.data.getCurrentUser().getContactos());
+        this.data.getListaControladores().getControllerContenedor().rellenarContenido(root);
     }
 
     /**
@@ -176,10 +181,15 @@ public class ControllerMenuLateral {
      * @param event
      */
     @FXML
-    void mostrarTareas(MouseEvent event) {
+    void mostrarTareas(MouseEvent event) throws IOException {
         this.reiniciarHbox();
         this.hboxTareas.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),true);
         this.imagenTareas.getStyleClass().add("tareasPresionado");
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/tareas.fxml"), CambiarIdioma.getInstance().getBundle());
+        Parent root = fxmlLoader.load();
+        ControllerTareas controllerTareas = fxmlLoader.getController();
+        controllerTareas.recibirData(this.data,this.data.getCurrentUser().getTareas());
+        this.data.getListaControladores().getControllerContenedor().rellenarContenido(root);
     }
 
     /**

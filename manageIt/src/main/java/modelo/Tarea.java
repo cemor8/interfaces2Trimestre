@@ -12,8 +12,9 @@ public class Tarea {
     private String rutaimagen;
     private ArrayList<Nota> notas;
     private ArrayList<Usuario> personasAsignadas;
+    private Usuario creador;
 
-    public Tarea(String nombre, String estado, String descripcion, Date fechaCreacion, Date fechaEntrega, String rutaimagen, ArrayList<Nota> notas, ArrayList<Usuario> personasAsignadas) {
+    public Tarea(String nombre, String estado, String descripcion, Date fechaCreacion, Date fechaEntrega, String rutaimagen, ArrayList<Nota> notas, ArrayList<Usuario> personasAsignadas, Usuario creador) {
         this.nombre = nombre;
         this.estado = estado;
         this.descripcion = descripcion;
@@ -22,6 +23,7 @@ public class Tarea {
         this.rutaimagen = rutaimagen;
         this.notas = notas;
         this.personasAsignadas = personasAsignadas;
+        this.creador = creador;
     }
 
     public String getNombre() {
@@ -30,6 +32,14 @@ public class Tarea {
 
     public String getEstado() {
         return estado;
+    }
+
+    public Usuario getCreador() {
+        return creador;
+    }
+
+    public void setCreador(Usuario creador) {
+        this.creador = creador;
     }
 
     public String getDescripcion() {

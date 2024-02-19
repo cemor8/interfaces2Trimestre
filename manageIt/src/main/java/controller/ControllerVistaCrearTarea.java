@@ -9,13 +9,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import modelo.Data;
 
-public class ControllerVistaCrearProyecto {
+public class ControllerVistaCrearTarea {
 
     @FXML
     private ImageView imagenProyecto;
 
     @FXML
-    private ImageView imagenProyecto1;
+    private ImageView imagenTarea;
 
     @FXML
     private TextArea introducirDescripcion;
@@ -27,7 +27,7 @@ public class ControllerVistaCrearProyecto {
     private MFXTextField introducirNombre;
 
     @FXML
-    private Label labelTextoCrearProyecto;
+    private Label labelTextoCrearTarea;
 
     @FXML
     private ComboBox<String> seleccionarCliente;
@@ -42,10 +42,9 @@ public class ControllerVistaCrearProyecto {
     void elegirImagen(MouseEvent event) {
 
     }
-    public void recibirData(Data data){
+    private void recibirData(Data data){
         this.data = data;
     }
 
 }
-
 
