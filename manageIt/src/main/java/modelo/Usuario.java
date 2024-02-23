@@ -12,6 +12,7 @@ public class Usuario {
     private String rutaImagen;
     private ArrayList<Usuario> contactos;
     private ArrayList<Tarea> tareas;
+    private ArrayList<Nota> notas;
 
     public Usuario(String correo, String nombre, String apellidos, String contraseña, String descripcion, String puesto, String rutaImagen, ArrayList<Usuario> contactos, ArrayList<Tarea> tareas) {
         this.correo = correo;
