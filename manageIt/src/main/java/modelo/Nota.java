@@ -5,14 +5,24 @@ import java.util.Date;
 public class Nota {
     private String titulo;
     private String descripcion;
+    private String rutaImagen;
     private Date fechaCreacion;
     private Usuario usuario;
 
-    public Nota(String titulo, String descripcion, Date fechaCreacion, Usuario usuario) {
+    public Nota(String titulo, String descripcion, String rutaImagen, Date fechaCreacion, Usuario usuario) {
         this.titulo = titulo;
         this.descripcion = descripcion;
+        this.rutaImagen = rutaImagen;
         this.fechaCreacion = fechaCreacion;
         this.usuario = usuario;
+    }
+
+    public String getRutaImagen() {
+        return rutaImagen;
+    }
+
+    public void setRutaImagen(String rutaImagen) {
+        this.rutaImagen = rutaImagen;
     }
 
     public String getTitulo() {

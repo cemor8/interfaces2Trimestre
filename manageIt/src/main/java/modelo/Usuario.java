@@ -14,7 +14,7 @@ public class Usuario {
     private ArrayList<Tarea> tareas;
     private ArrayList<Nota> notas;
 
-    public Usuario(String correo, String nombre, String apellidos, String contraseña, String descripcion, String puesto, String rutaImagen, ArrayList<Usuario> contactos, ArrayList<Tarea> tareas) {
+    public Usuario(String correo, String nombre, String apellidos, String contraseña, String descripcion, String puesto, String rutaImagen, ArrayList<Usuario> contactos, ArrayList<Tarea> tareas, ArrayList<Nota> notas) {
         this.correo = correo;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -24,6 +24,7 @@ public class Usuario {
         this.rutaImagen = rutaImagen;
         this.contactos = contactos;
         this.tareas = tareas;
+        this.notas = notas;
     }
 
     public void setContactos(ArrayList<Usuario> contactos) {
@@ -80,6 +81,14 @@ public class Usuario {
 
     public void setPuesto(String puesto) {
         this.puesto = puesto;
+    }
+
+    public ArrayList<Nota> getNotas() {
+        return notas;
+    }
+
+    public void setNotas(ArrayList<Nota> notas) {
+        this.notas = notas;
     }
 
     public String getContraseña() {

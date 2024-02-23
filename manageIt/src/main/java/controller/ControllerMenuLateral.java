@@ -117,10 +117,15 @@ public class ControllerMenuLateral {
      * @param event
      */
     @FXML
-    void mostrarNotas(MouseEvent event) {
+    void mostrarNotas(MouseEvent event) throws IOException {
         this.reiniciarHbox();
         this.hboxNotas.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),true);
         this.imagenNotas.getStyleClass().add("notasPresionado");
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/notas.fxml"), CambiarIdioma.getInstance().getBundle());
+        Parent root = fxmlLoader.load();
+        ControllerNotas controllerNotas = fxmlLoader.getController();
+        controllerNotas.recibirData(this.data,this.data.getCurrentUser().getNotas());
+        this.data.getListaControladores().getControllerContenedor().rellenarContenido(root);
     }
 
     /**

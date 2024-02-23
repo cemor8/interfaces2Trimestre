@@ -24,16 +24,16 @@ public class Data {
         LocalDate hoy = LocalDate.now();
         LocalDate manana = hoy.plusDays(1);
         Usuario usuario2 =  new Usuario("carldsadaosmoraisblanco@gmail.com","Carlos","Morais","12q12q12",
-                "Hola me llamo Carlos Morais","Informático","src/main/resources/images/usuarios/persona.png",new ArrayList<>(),new ArrayList<>());
+                "Hola me llamo Carlos Morais","Informático","src/main/resources/images/usuarios/persona.png",new ArrayList<>(),new ArrayList<>(),new ArrayList<>());
 
         Usuario usuario = new Usuario("carlosmoraisblanco@gmail.com","Carlos","Morais","12q12q12",
-                "Hola me llamo Carlos Morais","Informático","src/main/resources/images/usuarios/persona.png",new ArrayList<>(List.of(usuario2)),new ArrayList<>());
+                "Hola me llamo Carlos Morais","Informático","src/main/resources/images/usuarios/persona.png",new ArrayList<>(List.of(usuario2)),new ArrayList<>(),new ArrayList<>());
 
 
         Tarea tarea = new Tarea("Tarea de prueba","Prueba","Descripcion de tarea de prueba",
                 Date.from(hoy.atStartOfDay(ZoneId.systemDefault()).toInstant()),Date.from(manana.atStartOfDay(ZoneId.systemDefault()).toInstant()),
                 "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",new ArrayList<>(),new ArrayList<>(List.of(usuario)),usuario);
-        Nota nota = new Nota("Nota de prueba","Descripcion de nota de prueba", Date.from(hoy.atStartOfDay(ZoneId.systemDefault()).toInstant()),
+        Nota nota = new Nota("Nota de prueba","Descdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddripcion de nota de prueba", "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",Date.from(hoy.atStartOfDay(ZoneId.systemDefault()).toInstant()),
                 usuario);
         Proyecto proyecto = new Proyecto("Proyecto de prueba","Cliente de prueba","src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
                 "Estado de prueba","Descripcion de proyecto de prueba",Date.from(hoy.atStartOfDay(ZoneId.systemDefault()).toInstant()),
@@ -47,7 +47,7 @@ public class Data {
         Proyecto proyecto4 = new Proyecto("Proyecto de prueba","Cliente de prueba","src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
                 "Estado de prueba","Descripcion de proyecto de prueba",Date.from(hoy.atStartOfDay(ZoneId.systemDefault()).toInstant()),
                 Date.from(manana.atStartOfDay(ZoneId.systemDefault()).toInstant()),usuario,new ArrayList<>(),new ArrayList<>(),new ArrayList<>(List.of(usuario)));
-
+        usuario.getNotas().add(nota);
         this.proyectos.add(proyecto);
         this.proyectos.add(proyecto2);
         this.proyectos.add(proyecto3);

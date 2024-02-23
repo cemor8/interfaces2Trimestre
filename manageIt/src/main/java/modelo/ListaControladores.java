@@ -1,15 +1,21 @@
 package modelo;
 
-import controller.ControllerContenedor;
-import controller.ControllerMenuLateral;
-import controller.ControllerMenuSuperior;
-import controller.ControllerProyectos;
+import controller.*;
 
 public class ListaControladores {
     private ControllerContenedor controllerContenedor;
     private ControllerMenuLateral controllerMenuLateral;
     private ControllerMenuSuperior controllerMenuSuperior;
     private ControllerProyectos controllerProyectos;
+    private ControllerNotas controllerNotas;
+
+    public ControllerNotas getControllerNotas() {
+        return controllerNotas;
+    }
+
+    public void setControllerNotas(ControllerNotas controllerNotas) {
+        this.controllerNotas = controllerNotas;
+    }
 
     public ControllerContenedor getControllerContenedor() {
         return controllerContenedor;
