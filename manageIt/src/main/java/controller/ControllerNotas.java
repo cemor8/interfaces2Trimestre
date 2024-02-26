@@ -8,6 +8,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -16,14 +17,17 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.FileChooser;
 import modelo.*;
 
+import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.function.UnaryOperator;
 
 public class ControllerNotas {
 
@@ -54,7 +58,9 @@ public class ControllerNotas {
     private MFXScrollPane scroll;
 
     @FXML
-    private Label tituloNota;
+    private TextArea tituloNota;
+    @FXML
+    private ImageView imgEditar;
     private Data data;
     @FXML
     private Label creadorTexto;
@@ -62,16 +68,23 @@ public class ControllerNotas {
     private Nota notaSeleccionada;
     @FXML
     private ImageView calendario;
+    private String rutaImagenElegida;
 
     @FXML
-    void meter(MouseEvent event) {
-        /* Crear nota vacia y ponerla al inicio de la lista, si globales es true meterla en notas del usuario, si no en las del proyecto o la tarea */
+    void meter(MouseEvent event) throws IOException {
+        LocalDate hoy = LocalDate.now();
+        this.notasRecorrer.add(new Nota("","","",Date.from(hoy.atStartOfDay(ZoneId.systemDefault()).toInstant()), this.data.getCurrentUser()));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/notas.fxml"), CambiarIdioma.getInstance().getBundle());
+        Parent root = fxmlLoader.load();
+        ControllerNotas controllerNotas = fxmlLoader.getController();
+        controllerNotas.recibirData(this.data,this.notasRecorrer);
+        this.data.getListaControladores().getControllerContenedor().rellenarContenido(root);
     }
     @FXML
     void guardarNota(MouseEvent event) {
-        LocalDate hoy = LocalDate.now();
-        this.notasRecorrer.add(new Nota("","","",Date.from(hoy.atStartOfDay(ZoneId.systemDefault()).toInstant())
-        ));
+        this.notaSeleccionada.setRutaImagen(rutaImagenElegida);
+        this.notaSeleccionada.setTitulo(this.tituloNota.getText());
+        this.notaSeleccionada.setDescripcion(this.descripcion.getText());
     }
     public void inicializar() throws IOException {
         /* Recorrer notas y meter en scrolleable */
@@ -89,12 +102,27 @@ public class ControllerNotas {
             controllerCadaNota.recibirData(this.data,nota,this.notasRecorrer);
             anchorPane.getChildren().setAll(root);
             vBox.getChildren().add(anchorPane);
-            VBox.setMargin(anchorPane, new Insets(10, 0, 20, 10));
+            VBox.setMargin(anchorPane, new Insets(10, 0, 20, 20));
         }
         this.scroll.setContent(vBox);
         if (!this.notasRecorrer.isEmpty()){
             this.cargarNota(this.notasRecorrer.get(0));
         }
+
+        final int maxLength = 15; // Máximo número de caracteres
+        UnaryOperator<TextFormatter.Change> textFormatterFilter = change -> {
+            String newText = change.getControlNewText();
+            if (newText.length() > maxLength) {
+                return null; // Ignora este cambio
+            } else {
+                return change; // Permite este cambio
+            }
+        };
+
+        TextFormatter<String> textFormatter = new TextFormatter<>(textFormatterFilter);
+        this.tituloNota.setTextFormatter(textFormatter);
+
+
 
 
     }
@@ -110,6 +138,7 @@ public class ControllerNotas {
         this.creadorTexto.setVisible(true);
         this.descripcion.setVisible(true);
         this.btnGuardarCambios.setVisible(true);
+        this.img.setImage(null);
         this.calendario.setVisible(true);
         this.tituloNota.setText(this.notaSeleccionada.getTitulo());
 
@@ -138,8 +167,28 @@ public class ControllerNotas {
         this.fecha.setText(mostrarCreacion);
         this.creador.setText(this.notaSeleccionada.getUsuario().getNombre()+" "+this.notaSeleccionada.getUsuario().getApellidos());
 
+        if (!this.data.getCurrentUser().getCorreo().equalsIgnoreCase(this.notaSeleccionada.getUsuario().getCorreo())){
+            this.imgEditar.setVisible(false);
+            this.imgEditar.setDisable(true);
+            this.tituloNota.setEditable(false);
+            this.descripcion.setEditable(false);
+        }
 
+    }
+    @FXML
+    void editarImagen(MouseEvent event) {
+        System.out.println("entre");
+        FileChooser filechooser = new FileChooser();
+        filechooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("image files", "*.png","*.jpg","*.jpeg"));
+        File selectedFile = filechooser.showOpenDialog(null);
 
+        if(selectedFile != null){
+            String imagePath = selectedFile.getAbsolutePath();
+            this.rutaImagenElegida = imagePath;
+
+            this.img.setImage(new Image("file:"+rutaImagenElegida));
+
+        }
     }
 
 

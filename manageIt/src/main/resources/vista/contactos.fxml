@@ -3,9 +3,8 @@
 <?import io.github.palexdev.materialfx.controls.MFXScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="801.0" prefWidth="1106.0" styleClass="fondo" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerContactos">
    <children>
-      <MFXScrollPane fx:id="scroll" layoutX="33.0" layoutY="29.0" prefHeight="746.0" prefWidth="1056.0" styleClass="scrollProyectos" />
+      <MFXScrollPane fx:id="scroll" layoutX="94.0" layoutY="29.0" prefHeight="746.0" prefWidth="995.0" styleClass="scrollProyectos" />
    </children>
 </AnchorPane>

@@ -27,7 +27,7 @@ public class Data {
                 "Hola me llamo Carlos Morais","Informático","src/main/resources/images/usuarios/persona.png",new ArrayList<>(),new ArrayList<>(),new ArrayList<>());
 
         Usuario usuario = new Usuario("carlosmoraisblanco@gmail.com","Carlos","Morais","12q12q12",
-                "Hola me llamo Carlos Morais","Informático","src/main/resources/images/usuarios/persona.png",new ArrayList<>(List.of(usuario2)),new ArrayList<>(),new ArrayList<>());
+                "Hola me llamo Carlos Morais","Informático","src/main/resources/images/usuarios/persona.png",new ArrayList<>(List.of(usuario2,usuario2,usuario2,usuario2,usuario2,usuario2,usuario2,usuario2,usuario2,usuario2,usuario2,usuario2,usuario2,usuario2,usuario2)),new ArrayList<>(),new ArrayList<>());
 
 
         Tarea tarea = new Tarea("Tarea de prueba","Prueba","Descripcion de tarea de prueba",
