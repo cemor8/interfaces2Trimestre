@@ -62,6 +62,11 @@ public class ControllerVistaCadaTarea {
 
     }
 
+    /**
+     * Método que se encarga de volver a la vista anterior
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void volver(MouseEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/tareas.fxml"), CambiarIdioma.getInstance().getBundle());
@@ -71,12 +76,22 @@ public class ControllerVistaCadaTarea {
         this.data.getListaControladores().getControllerContenedor().rellenarContenido(root);
     }
 
+    /**
+     * Método que se encarga de recibir la informacion
+     * @param data  clase con informacion
+     * @param tarea tarea seleccionada
+     * @param tareas    lista de tareas
+     */
     public void recibirData(Data data,Tarea tarea, ArrayList<Tarea> tareas){
         this.tarea = tarea;
         this.data = data;
         this.tareas = tareas;
         this.inicializar();
     }
+
+    /**
+     * Método que se encarga de inicializar la tarea
+     */
     public void inicializar(){
         this.btnAtras.setText("");
         this.labelDescripcion.setText(this.tarea.getDescripcion());

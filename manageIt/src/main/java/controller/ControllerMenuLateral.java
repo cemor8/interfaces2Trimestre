@@ -108,7 +108,7 @@ public class ControllerMenuLateral {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/contactos.fxml"), CambiarIdioma.getInstance().getBundle());
         Parent root = fxmlLoader.load();
         ControllerContactos controllerContactos = fxmlLoader.getController();
-        controllerContactos.recibirData(this.data,this.data.getCurrentUser().getContactos());
+        controllerContactos.recibirData(this.data,this.data.getCurrentUser().getContactos(),false,null);
         this.data.getListaControladores().getControllerContenedor().rellenarContenido(root);
     }
 
