@@ -177,6 +177,18 @@ public class ControllerContactos {
      */
     private void verContacto(MouseEvent event) {
         ImageView img = (ImageView) event.getSource();
+        int posicion = Integer.parseInt(img.getId());
+        Usuario contacto = this.contactos.get(posicion);
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/vistaCadaContacto.fxml"), CambiarIdioma.getInstance().getBundle());
+            Parent root = fxmlLoader.load();
+            ControllerVistaCadaContacto controllerVistaCadaContacto = fxmlLoader.getController();
+            controllerVistaCadaContacto.recibirData(this.data,contacto,this.añadir,this.contactos,this.contactosAsignados);
+            this.data.getListaControladores().getControllerContenedor().rellenarContenido(root);
+        }catch (IOException err){
+            System.out.println(err.getMessage());
+        }
+
 
     }
 

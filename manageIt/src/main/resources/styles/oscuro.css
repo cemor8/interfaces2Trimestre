@@ -324,6 +324,7 @@ Estilos panel de notas
 
 .fondoNota{
     -fx-background-color : #1F1F1F;
+    -fx-background-radius : 10px;
 }
 
 .tituloVerNota{
@@ -425,7 +426,7 @@ Estilos Contactos
 .nombreContacto{
      -fx-text-fill:"white";
      -fx-font-size: 16px;
-     -fx-max-width: 105;
+     -fx-max-width: 125;
      -fx-font-family : "Roboto";
      -fx-border-color: none;
 }
@@ -442,6 +443,72 @@ Estilos Contactos
      -fx-background-radius: 5;
 }
 
+/*
+Estilos vista cada contacto
+*/
+
+.nombreContacto{
+    -fx-text-fill:"white";
+    -fx-font-size: 18px;
+    -fx-font-family : "Roboto Mono";
+    -fx-font-weight : bold;
+}
+.puestoVistaCadaContacto{
+    -fx-text-fill:"white";
+    -fx-font-size: 14px;
+    -fx-font-family : "Roboto Mono";
+}
+
+.correoVistaCadaContacto{
+    -fx-text-fill:"white";
+    -fx-font-size: 12px;
+    -fx-font-family : "Roboto Mono";
+}
+.descripcionVistaCadaContacto{
+    -fx-text-fill:"white";
+    -fx-font-size: 16px;
+    -fx-font-family : "Roboto Mono";
+}
+
+.btnVistaCadaContacto{
+
+}
+
+/*
+Configuracion
+*/
+
+.labelCadaConfiguracion{
+
+}
+
+.btnGuardarConfiguracion{
+
+}
+
+.btnOpciones{
+
+}
+.areaBio{
+
+}
+.imgEditar{
+
+}
+.imgPersona{
+
+}
+.cadaHboxConfig{
+    -fx-background-color : #1F1F1F;
+    -fx-background-radius : 10px;
+}
+
+.introducirContenido{
+     -fx-min-height: 40;
+     -fx-max-height: 40;
+     -fx-font-size : 16px;
+     -fx-font-family : "Roboto";
+}
 
 
 /*
