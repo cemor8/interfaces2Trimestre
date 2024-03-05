@@ -59,7 +59,7 @@ public class ControllerMenuSuperior {
         this.perfil.setClip(clip);
     }
     @FXML
-    void verCalendario(MouseEvent event) {
+    void verCalendario(MouseEvent event) throws IOException {
         this.data.getListaControladores().getControllerMenuLateral().mostrarCalendario(null);
     }
 

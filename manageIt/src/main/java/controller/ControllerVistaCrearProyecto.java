@@ -3,6 +3,7 @@ package controller;
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
@@ -13,6 +14,9 @@ public class ControllerVistaCrearProyecto {
 
     @FXML
     private ImageView imagenProyecto;
+    @FXML
+    private DatePicker datePicker;
+
 
     @FXML
     private ImageView imagenProyecto1;
@@ -44,6 +48,7 @@ public class ControllerVistaCrearProyecto {
     }
     public void recibirData(Data data){
         this.data = data;
+        this.datePicker.setShowWeekNumbers(false);
     }
 
 }

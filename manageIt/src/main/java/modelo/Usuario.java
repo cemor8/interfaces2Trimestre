@@ -11,10 +11,9 @@ public class Usuario {
     private String puesto;
     private String rutaImagen;
     private ArrayList<Usuario> contactos;
-    private ArrayList<Tarea> tareas;
     private ArrayList<Nota> notas;
 
-    public Usuario(String correo, String nombre, String apellidos, String contraseña, String descripcion, String puesto, String rutaImagen, ArrayList<Usuario> contactos, ArrayList<Tarea> tareas, ArrayList<Nota> notas) {
+    public Usuario(String correo, String nombre, String apellidos, String contraseña, String descripcion, String puesto, String rutaImagen, ArrayList<Usuario> contactos, ArrayList<Nota> notas) {
         this.correo = correo;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -23,7 +22,6 @@ public class Usuario {
         this.puesto = puesto;
         this.rutaImagen = rutaImagen;
         this.contactos = contactos;
-        this.tareas = tareas;
         this.notas = notas;
     }
 
@@ -33,14 +31,6 @@ public class Usuario {
 
     public ArrayList<Usuario> getContactos() {
         return contactos;
-    }
-
-    public ArrayList<Tarea> getTareas() {
-        return tareas;
-    }
-
-    public void setTareas(ArrayList<Tarea> tareas) {
-        this.tareas = tareas;
     }
 
     public String getCorreo() {

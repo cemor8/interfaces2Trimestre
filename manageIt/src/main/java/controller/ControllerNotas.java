@@ -93,6 +93,9 @@ public class ControllerNotas {
         this.descripcion.setVisible(false);
         this.btnGuardarCambios.setVisible(false);
         this.calendario.setVisible(false);
+
+        this.imgEditar.setVisible(false);
+        this.tituloNota.setEditable(false);
         VBox vBox = new VBox();
         for (Nota nota : notasRecorrer){
             AnchorPane anchorPane = new AnchorPane();
@@ -135,6 +138,8 @@ public class ControllerNotas {
     }
     public void cargarNota(Nota nota){
         this.notaSeleccionada = nota;
+        this.imgEditar.setVisible(true);
+        this.tituloNota.setEditable(true);
         this.creadorTexto.setVisible(true);
         this.descripcion.setVisible(true);
         this.btnGuardarCambios.setVisible(true);

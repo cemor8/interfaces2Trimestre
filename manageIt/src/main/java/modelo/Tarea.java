@@ -6,6 +6,7 @@ import java.util.Date;
 public class Tarea {
     private String nombre;
     private String estado;
+    private String campo;
     private String descripcion;
     private Date fechaCreacion;
     private Date fechaEntrega;
@@ -14,9 +15,10 @@ public class Tarea {
     private ArrayList<Usuario> personasAsignadas;
     private Usuario creador;
 
-    public Tarea(String nombre, String estado, String descripcion, Date fechaCreacion, Date fechaEntrega, String rutaimagen, ArrayList<Nota> notas, ArrayList<Usuario> personasAsignadas, Usuario creador) {
+    public Tarea(String nombre, String estado, String campo, String descripcion, Date fechaCreacion, Date fechaEntrega, String rutaimagen, ArrayList<Nota> notas, ArrayList<Usuario> personasAsignadas, Usuario creador) {
         this.nombre = nombre;
         this.estado = estado;
+        this.campo = campo;
         this.descripcion = descripcion;
         this.fechaCreacion = fechaCreacion;
         this.fechaEntrega = fechaEntrega;
@@ -36,6 +38,14 @@ public class Tarea {
 
     public Usuario getCreador() {
         return creador;
+    }
+
+    public String getCampo() {
+        return campo;
+    }
+
+    public void setCampo(String campo) {
+        this.campo = campo;
     }
 
     public void setCreador(Usuario creador) {

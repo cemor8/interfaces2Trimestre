@@ -1,5 +1,6 @@
 package controller;
 
+import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXScrollPane;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,11 +24,14 @@ import java.util.ArrayList;
 public class ControllerContactos {
     @FXML
     private MFXScrollPane scroll;
+    @FXML
+    private MFXButton btnMeter;
     private Data data;
+    public boolean verBoton;
     private ArrayList<Usuario> contactos;
     private HBox hBoxMeter = new HBox();
     private boolean añadir;
-    private ArrayList<Usuario> contactosAsignados;
+    private ArrayList<Usuario> contactosMeter;
 
     /**
      * Método que se encarga de inicializar la lista de contactos cuando accedes a
@@ -69,6 +73,8 @@ public class ControllerContactos {
             HBox.setMargin(nameLabel,new Insets(0,50,0,65));
             HBox.setMargin(imgVer,new Insets(0,10,0,0));
             hBox.getChildren().addAll(imageView,nameLabel,imgVer,imgBorrar);
+
+
             i++;
             if (i % 2 == 0){
                 vBox.getChildren().add(hBox);
@@ -95,7 +101,7 @@ public class ControllerContactos {
         vBox2.getStyleClass().add("vboxContactos");
         int i = 1;
         HBox hBox = new HBox(10);
-        for (Usuario contacto : contactos){
+        for (Usuario contacto : contactosMeter){
             hBox.getStyleClass().add("cartaContacto");
 
             Image image = new Image("file:"+contacto.getRutaImagen());
@@ -107,33 +113,30 @@ public class ControllerContactos {
             Label nameLabel = new Label(contacto.getNombre()+" "+contacto.getApellidos());
             nameLabel.getStyleClass().add("nombreContacto");
 
-            ImageView imgBorrar = new ImageView();
-            imgBorrar.getStyleClass().add("papeleraVistaCadaProyecto");
-            imgBorrar.setOnMouseClicked(this::quitarContacto);
-            imgBorrar.setFitHeight(30);
-            imgBorrar.setFitWidth(30);
-            imgBorrar.setId(String.valueOf(this.contactos.indexOf(contacto)));
-
 
             ImageView imgVer = new ImageView();
             imgVer.getStyleClass().add("ojoVistaCadaProyecto");
             imgVer.setFitHeight(30);
             imgVer.setFitWidth(30);
             imgVer.setOnMouseClicked(this::verContacto);
-            imgVer.setId(String.valueOf(this.contactos.indexOf(contacto)));
+            imgVer.setId(String.valueOf(this.contactosMeter.indexOf(contacto)));
             HBox.setMargin(nameLabel,new Insets(0,50,0,65));
             HBox.setMargin(imgVer,new Insets(0,10,0,0));
 
-
             ImageView imgAñadir = new ImageView();
-            imgAñadir.getStyleClass().add("añadirCadaProyecto");
+            imgAñadir.getStyleClass().add("plusCadaProyectoVista");
             imgAñadir.setFitHeight(30);
             imgAñadir.setFitWidth(30);
             imgAñadir.setOnMouseClicked(this::añadirContacto);
-            imgAñadir.setId(String.valueOf(this.contactos.indexOf(contacto)));
+            imgAñadir.setId(String.valueOf(this.contactosMeter.indexOf(contacto)));
+            System.out.println(contacto);
+            if (this.contactos.contains(contacto)){
+                imgAñadir.setDisable(true);
+            }
+
             HBox.setMargin(nameLabel,new Insets(0,50,0,65));
             HBox.setMargin(imgAñadir,new Insets(0,10,0,0));
-            hBox.getChildren().addAll(imageView,nameLabel,imgVer,imgAñadir,imgBorrar);
+            hBox.getChildren().addAll(imageView,nameLabel,imgVer,imgAñadir);
 
             i++;
             if (i % 2 == 0){
@@ -150,24 +153,13 @@ public class ControllerContactos {
     }
 
     /**
-     * Método que se encarga de eliminar un contacto de un proyecto o tarea
-     * @param mouseEvent
-     */
-    private void quitarContacto(MouseEvent mouseEvent) {
-        ImageView img = (ImageView) mouseEvent.getSource();
-        int posicion = Integer.parseInt(img.getId());
-        this.contactosAsignados.remove(this.contactos.get(posicion));
-        img.setDisable(false);
-    }
-
-    /**
      * Método que se encarga de añadir un contacto a la lista de contactos
      * @param mouseEvent
      */
     private void añadirContacto(MouseEvent mouseEvent) {
         ImageView img = (ImageView) mouseEvent.getSource();
         int posicion = Integer.parseInt(img.getId());
-        this.contactosAsignados.add(this.contactos.get(posicion));
+        this.contactos.add(this.contactosMeter.get(posicion));
         img.setDisable(true);
     }
 
@@ -178,12 +170,18 @@ public class ControllerContactos {
     private void verContacto(MouseEvent event) {
         ImageView img = (ImageView) event.getSource();
         int posicion = Integer.parseInt(img.getId());
-        Usuario contacto = this.contactos.get(posicion);
+        Usuario contacto;
+        try {
+            contacto = this.contactos.get(posicion);
+        }catch (Exception err){
+            contacto = this.contactosMeter.get(posicion);
+        }
+
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/vistaCadaContacto.fxml"), CambiarIdioma.getInstance().getBundle());
             Parent root = fxmlLoader.load();
             ControllerVistaCadaContacto controllerVistaCadaContacto = fxmlLoader.getController();
-            controllerVistaCadaContacto.recibirData(this.data,contacto,this.añadir,this.contactos,this.contactosAsignados);
+            controllerVistaCadaContacto.recibirData(this.data,contacto,this.añadir,this.contactos,this.contactosMeter);
             this.data.getListaControladores().getControllerContenedor().rellenarContenido(root);
         }catch (IOException err){
             System.out.println(err.getMessage());
@@ -204,7 +202,7 @@ public class ControllerContactos {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/contactos.fxml"), CambiarIdioma.getInstance().getBundle());
             Parent root = fxmlLoader.load();
             ControllerContactos controllerContactos = fxmlLoader.getController();
-            controllerContactos.recibirData(this.data,this.contactos,this.añadir,this.contactosAsignados);
+            controllerContactos.recibirData(this.data,this.contactos,this.añadir,this.contactosMeter,this.verBoton);
             this.data.getListaControladores().getControllerContenedor().rellenarContenido(root);
 
         }catch (IOException err){
@@ -216,20 +214,38 @@ public class ControllerContactos {
     /**
      * Método que se encarga de recibir informacion
      * @param data  clase con informacion
-     * @param contactos  lista de contactos
+     * @param contactos  lista de contactos asignados
      * @param añadir    si es para añadir a un proyecto o tarea
-     * @param contactosAsignados    lista de contactos del proyecto o tarea
+     * @param contactosMeter    lista de contactos que se pueden meter
      */
-    public void recibirData(Data data, ArrayList<Usuario> contactos, boolean añadir,ArrayList<Usuario> contactosAsignados){
+    public void recibirData(Data data, ArrayList<Usuario> contactos, boolean añadir,ArrayList<Usuario> contactosMeter,boolean verBoton){
         this.contactos = contactos;
-        this.contactosAsignados = contactosAsignados;
+        this.contactosMeter = contactosMeter;
+        this.btnMeter.setText("");
         this.data = data;
+        this.verBoton = verBoton;
         this.añadir = añadir;
         if (this.añadir){
             this.inicializarAñadir();
         }else {
             this.inicializar();
         }
+        if (verBoton){
+            btnMeter.setVisible(true);
+        }else {
+            btnMeter.setVisible(false);
+        }
 
+
+    }
+    @FXML
+    void meter(MouseEvent event) throws IOException {
+        this.añadir = true;
+        this.verBoton = false;
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/contactos.fxml"), CambiarIdioma.getInstance().getBundle());
+        Parent root = fxmlLoader.load();
+        ControllerContactos controllerContactos = fxmlLoader.getController();
+        controllerContactos.recibirData(this.data,this.contactos,this.añadir,this.contactosMeter,this.verBoton);
+        this.data.getListaControladores().getControllerContenedor().rellenarContenido(root);
     }
 }

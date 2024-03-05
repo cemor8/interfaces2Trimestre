@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -25,8 +26,10 @@ public class ControllerVistaCadaProyecto {
     private MFXButton btnAtras;
 
     @FXML
-    private Label labelDescripcion;
+    private TextArea labelDescripcion;
 
+    @FXML
+    private ImageView imgGuardarDesc;
     @FXML
     private Label labelNombreJefe;
 
@@ -55,22 +58,44 @@ public class ControllerVistaCadaProyecto {
 
     @FXML
     void btnGuardarEstado(MouseEvent event) {
-        /* Cambiar el estado del proyecto */
+        this.proyecto.setEstado(this.opcionesEstado.getSelectionModel().getSelectedItem());
+        if (this.proyecto.getEstado().equalsIgnoreCase("Completado")){
+            this.btnGuardar.setDisable(true);
+            this.imgGuardarDesc.setDisable(true);
+            this.labelDescripcion.setEditable(false);
+        }
     }
 
     @FXML
-    void verAsignados(MouseEvent event) {
-        /* Enviar vista de contactos con lista del proyecto */
+    void verAsignados(MouseEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/contactos.fxml"), CambiarIdioma.getInstance().getBundle());
+        Parent root = fxmlLoader.load();
+        ControllerContactos controllerContactos = fxmlLoader.getController();
+        controllerContactos.recibirData(this.data,this.proyecto.getPersonasAsignadas(),false,this.data.getCurrentUser().getContactos(),true);
+        this.data.getListaControladores().getControllerContenedor().rellenarContenido(root);
     }
 
     @FXML
-    void verNotas(MouseEvent event) {
-        /* Enviar vista notas con lista del proyecto */
+    void verNotas(MouseEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/notas.fxml"), CambiarIdioma.getInstance().getBundle());
+        Parent root = fxmlLoader.load();
+        ControllerNotas controllerNotas = fxmlLoader.getController();
+        controllerNotas.recibirData(this.data,this.proyecto.getNotas());
+        this.data.getListaControladores().getControllerContenedor().rellenarContenido(root);
     }
 
+    /**
+     * Método que carga la vista de las tareas con la lista de tareas del proyecto
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    void verTareas(MouseEvent event) {
-        /* Enviar vista de tareas con la lista del proyecto */
+    void verTareas(MouseEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/tareas.fxml"), CambiarIdioma.getInstance().getBundle());
+        Parent root = fxmlLoader.load();
+        ControllerTareas controllerTareas = fxmlLoader.getController();
+        controllerTareas.recibirData(this.data,this.proyecto.getTareas());
+        this.data.getListaControladores().getControllerContenedor().rellenarContenido(root);
     }
 
     @FXML
@@ -127,6 +152,8 @@ public class ControllerVistaCadaProyecto {
 
         if (!this.proyecto.getJefeProyecto().getCorreo().equalsIgnoreCase(this.data.getCurrentUser().getCorreo())){
             this.btnGuardar.setDisable(true);
+            this.imgGuardarDesc.setDisable(true);
+            this.labelDescripcion.setEditable(false);
         }
     }
     public void recibirData(Data data,Proyecto proyecto, ArrayList<Proyecto> listaDeProyecto){

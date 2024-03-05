@@ -493,6 +493,15 @@ Estilos cada vista
      -fx-background-color: #00C87B;
      -fx-font-size: 14px;
      -fx-font-family : "Roboto Mono";
+     -fx-font-weight : bold;
+
+
+}
+.btnCada:hover{
+     -fx-scale-x: 1.1;
+     -fx-scale-y: 1.1;
+     -fx-cursor: hand;
+
 }
 
 .labelVistaDescripcion{
@@ -500,10 +509,13 @@ Estilos cada vista
     -fx-font-size: 16px;
     -fx-font-family : "Roboto Mono";
 }
-.descripcion{
+.areaDescripcion{
     -fx-text-fill:"white";
     -fx-font-size: 14px;
     -fx-font-family : "Roboto Mono";
+    -fx-background-color: #1F1F1F;
+    -fx-background-radius : 10px;
+     -fx-padding: 10px;
 }
 .labelTituloCadaVista{
     -fx-text-fill:"white";
@@ -649,6 +661,30 @@ Imagenes
     -fx-scale-x: 1.1;
     -fx-scale-y: 1.1;
 }
+.guardar{
+    -fx-image: url(../images/global/SaveV.png);
+}
+.guardar:hover{
+    -fx-image: url(../images/global/Save.png);
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-cursor: hand;
+}
+
+.plusCadaProyectoVista{
+    -fx-image: url(../images/global/PlusMathB.png);
+}
+.plusCadaProyectoVista:hover{
+    -fx-image: url(../images/global/PlusV.png);
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-cursor: hand;
+}
+.plusCadaProyectoVista:disabled{
+    -fx-image: url(../images/global/Done.png);
+}
+
+
 
 /*
 Estados y clientes
@@ -660,5 +696,186 @@ Estados y clientes
      -fx-font-family : "Roboto Mono";
      -fx-text-size : 16px;
      -fx-background-radius : 5px;
+}
+
+
+
+
+
+
+/*
+Calendario y datepicker
+*/
+
+.calendar-grid {
+    -fx-background-color: #1F1F1F;
+    -fx-padding: 10;
+    -fx-hgap: 5;
+    -fx-vgap: 5;
+    -fx-background-radius: 5;
+}
+.calendar-grid > .date-cell {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-alignment: BASELINE_CENTER;
+    -fx-opacity: 1.0;
+    -fx-text-fill: #000000;
+    -fx-cell-size: 40;
+    -fx-font-size: 12;
+}
+.calendar-grid > .day-cell {
+    -fx-padding: 2 5 2 5;
+    -fx-background-color: #1F1F1F;
+    -fx-text-fill: white;
+    -fx-border-width: 0;
+    -fx-border-color: transparent;
+    -fx-background-radius: 10;
+}
+.calendar-grid > .hijrah-day-cell {
+    -fx-alignment: TOP_LEFT;
+    -fx-padding: 2;
+    -fx-cell-size: 30;
+}
+
+.calendar-grid > .today {
+    -fx-background-color: #00C87B70;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+
+.date-picker-popup>.calendar-grid>.day-cell:hover {
+    -fx-background-color: #59BA9580;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-scale-x: 1.2;
+        -fx-cursor: hand;
+        -fx-scale-y: 1.2;
+}
+
+.date-picker-popup>.calendar-grid>.previous-month{
+    -fx-text-fill: gray;
+    -fx-fill: white;
+    -fx-font-weight: normal;
+}
+.date-picker-popup>.calendar-grid>.next-month{
+    -fx-text-fill: gray;
+    -fx-font-weight: normal;
+}
+
+
+
+.date-picker-popup {
+    -fx-background-color: #1F1F1F;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 4px;
+    -fx-alignment: CENTER;
+    -fx-spacing: 0;
+    -fx-padding: 1;
+}
+
+.date-picker-popup > .month-year-pane {
+    -fx-padding: 10 5 10 5;
+    -fx-background-color: #1F1F1F;
+    -fx-background-insets: 0;
+    -fx-text-fill: white;
+    -fx-background-radius: 5px;
+}
+
+.date-picker-popup > .month-year-pane > .spinner {
+    -fx-spacing: 4;
+    -fx-alignment: CENTER;
+    -fx-fill-height: false;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-font-size: 12;
+}
+
+.date-picker-popup > .month-year-pane > .spinner > .button {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-cursor: hand;
+}
+
+.date-picker-popup > .month-year-pane > .spinner > .button > .left-arrow,
+.date-picker-popup > .month-year-pane > .spinner > .button > .right-arrow {
+    -fx-background-color: #333333;
+}
+
+.date-picker-popup > .month-year-pane > .label {
+    -fx-alignment: CENTER;
+    -fx-font-size : 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-padding: 8;
+}
+
+
+.date-picker-popup > .month-year-pane > .secondary-label {
+    -fx-alignment: BASELINE_CENTER;
+    -fx-padding: 5 0 0 0;
+    -fx-text-fill: white;
+}
+
+
+
+
+
+.back-button {
+  -fx-background-image: url(../images/menuLateral/ChevronLeft.png);
+  -fx-background-size: cover;
+  -fx-background-repeat: no-repeat;
+  -fx-background-color: #1F1F1F;
+  -fx-pref-width: 50px;
+  -fx-background-position: center center;
+  -fx-pref-height: 50px;
+  -fx-translate-x: -20px;
+}
+
+.forward-button {
+  -fx-background-image: url(../images/global/ChevronRight.png);
+  -fx-background-size: cover;
+  -fx-background-position: center center;
+  -fx-background-color: #1F1F1F;
+  -fx-background-repeat: no-repeat;
+
+  -fx-pref-width: 50px;
+  -fx-pref-height: 50px;
+}
+
+.back-button:hover {
+    -fx-scale-x: 1.2;
+    -fx-background-image: url(../images/menuLateral/ChevronLeftV.png);
+     -fx-cursor: hand;
+    -fx-scale-y: 1.2;
+}
+
+.forward-button:hover {
+    -fx-scale-x: 1.2;
+    -fx-cursor: hand;
+    -fx-scale-y: 1.2;
+    -fx-background-image: url(../images/global/ChevronRight.png);
+}
+
+.calendar-grid .day-name-cell{
+     -fx-text-fill: white;
+     -fx-font-weight: bold;
+}
+
+/*
+Seleccionar dia
+*/
+
+.date-picker-popup>.calendar-grid>.selected,
+.date-picker-popup>.calendar-grid>.selected>.secondary-text,
+.date-picker-popup>.calendar-grid>.previous-month.selected,
+.date-picker-popup>.calendar-grid>.previous-month.today.selected,
+.date-picker-popup>.calendar-grid>.next-month.today.selected,
+.date-picker-popup>.calendar-grid>.next-month.selected {
+    -fx-background-color: #3CA57C;
+    -fx-text-fill: white;
+    -fx-fill: -color-date-day-fg-selected;
+    -fx-font-weight: normal;
 }
 

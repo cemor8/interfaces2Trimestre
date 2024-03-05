@@ -3,6 +3,7 @@
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.ImageView?>
@@ -16,10 +17,10 @@
             <MFXTextField fx:id="introducirNombre" layoutX="14.0" layoutY="94.0" prefHeight="49.0" prefWidth="460.0" />
             <Label layoutX="14.0" layoutY="171.0" prefHeight="49.0" prefWidth="277.0" styleClass="labelCrear" text="%crearProyecto.descripcion" />
             <Label layoutX="14.0" layoutY="400.0" prefHeight="49.0" prefWidth="231.0" styleClass="labelCrear" text="%crearProyecto.fecha" />
-            <MFXTextField fx:id="introducirFecha" layoutX="20.0" layoutY="476.0" prefHeight="49.0" prefWidth="192.0" />
             <Label layoutX="363.0" layoutY="400.0" prefHeight="49.0" prefWidth="95.0" styleClass="labelCrear" text="%crearProyecto.cliente" />
             <ComboBox fx:id="seleccionarCliente" layoutX="336.0" layoutY="488.0" prefWidth="150.0" />
             <TextArea fx:id="introducirDescripcion" layoutX="20.0" layoutY="238.0" prefHeight="148.0" prefWidth="460.0" />
+            <DatePicker fx:id="datePicker" layoutX="14.0" layoutY="488.0" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="742.0" layoutY="136.0" prefHeight="548.0" prefWidth="330.0" styleClass="contenedor">

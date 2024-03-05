@@ -30,7 +30,7 @@ public class Data {
                 "Hola me llamo Carlos Morais","Informático","src/main/resources/images/usuarios/persona.png",new ArrayList<>(List.of(usuario2,usuario2,usuario2,usuario2,usuario2,usuario2,usuario2,usuario2,usuario2,usuario2,usuario2,usuario2,usuario2,usuario2,usuario2)),new ArrayList<>(),new ArrayList<>());
 
 
-        Tarea tarea = new Tarea("Tarea de prueba","Prueba","Descripcion de tarea de prueba",
+        Tarea tarea = new Tarea("Tarea de prueba","Prueba","BBDD","Descripcion de tarea de prueba",
                 Date.from(hoy.atStartOfDay(ZoneId.systemDefault()).toInstant()),Date.from(manana.atStartOfDay(ZoneId.systemDefault()).toInstant()),
                 "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",new ArrayList<>(),new ArrayList<>(List.of(usuario)),usuario);
         Nota nota = new Nota("Nota de prueba","Descdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddripcion de nota de prueba", "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",Date.from(hoy.atStartOfDay(ZoneId.systemDefault()).toInstant()),
@@ -56,6 +56,7 @@ public class Data {
         this.tareas.add(tarea);
         this.usuarios.add(usuario);
         usuario.getTareas().add(tarea);
+        proyecto.getTareas().add(tarea);
 
 
     }
