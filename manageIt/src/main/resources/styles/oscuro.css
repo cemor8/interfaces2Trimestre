@@ -475,6 +475,62 @@ Estilos vista cada contacto
 }
 
 /*
+Estilos cada vista
+*/
+.labelNombreJefe{
+    -fx-text-fill:"white";
+    -fx-font-size: 16px;
+    -fx-font-family : "Roboto Mono";
+}
+.labelJefeProyecto{
+    -fx-text-fill:"white";
+    -fx-font-size: 22px;
+    -fx-font-weight : bold;
+    -fx-font-family : "Roboto Mono";
+}
+
+.btnCada{
+     -fx-background-color: #00C87B;
+     -fx-font-size: 14px;
+     -fx-font-family : "Roboto Mono";
+}
+
+.labelVistaDescripcion{
+    -fx-text-fill:"white";
+    -fx-font-size: 16px;
+    -fx-font-family : "Roboto Mono";
+}
+.descripcion{
+    -fx-text-fill:"white";
+    -fx-font-size: 14px;
+    -fx-font-family : "Roboto Mono";
+}
+.labelTituloCadaVista{
+    -fx-text-fill:"white";
+    -fx-font-size: 26px;
+    -fx-font-family : "Roboto Mono";
+     -fx-font-weight : bold;
+}
+.labelEstadoCadaVista{
+    -fx-text-fill:"white";
+    -fx-font-size: 16px;
+    -fx-font-family : "Roboto Mono";
+}
+.combo{
+
+}
+.imgVistaCada{
+
+}
+
+.fechasVistaCada{
+    -fx-text-fill:"white";
+    -fx-font-size: 20px;
+    -fx-font-family : "Roboto Mono";
+}
+
+
+/*
 Configuracion
 */
 
@@ -592,5 +648,17 @@ Imagenes
     -fx-cursor: hand;
     -fx-scale-x: 1.1;
     -fx-scale-y: 1.1;
+}
+
+/*
+Estados y clientes
+*/
+
+.pendiente{
+     -fx-background-color : #FCF5F4;
+     -fx-text-fill : #7A5651;
+     -fx-font-family : "Roboto Mono";
+     -fx-text-size : 16px;
+     -fx-background-radius : 5px;
 }
 

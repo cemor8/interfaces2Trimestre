@@ -16,6 +16,7 @@ import modelo.Data;
 import modelo.Proyecto;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class ControllerVistaCadaProyecto {
@@ -32,10 +33,17 @@ public class ControllerVistaCadaProyecto {
     @FXML
     private Label labelNombreProyecto;
     @FXML
+    private Label cliente;
+    @FXML
     private ImageView imagenJefe;
 
     @FXML
     private ImageView imagenProyecto;
+    @FXML
+    private Label creacion;
+
+    @FXML
+    private Label entrega;
 
     @FXML
     private ComboBox<String> opcionesEstado;
@@ -82,8 +90,8 @@ public class ControllerVistaCadaProyecto {
         this.imagenJefe.setImage(new Image("file:"+this.proyecto.getJefeProyecto().getRutaImagen()));
         this.imagenProyecto.setImage(new Image("file:"+this.proyecto.getRutaImagen()));
 
-        this.imagenJefe.setFitWidth(40);
-        this.imagenJefe.setFitHeight(40);
+        this.imagenJefe.setFitWidth(55);
+        this.imagenJefe.setFitHeight(55);
         this.imagenJefe.setPreserveRatio(true);
         Circle clip = new Circle(this.imagenJefe.getFitWidth() / 2, this.imagenJefe.getFitHeight() / 2, this.imagenJefe.getFitWidth() / 2);
         this.imagenJefe.setClip(clip);
@@ -98,6 +106,26 @@ public class ControllerVistaCadaProyecto {
         this.opcionesEstado.getItems().addAll("En Proceso","Completado","Bloqueado");
         this.opcionesEstado.setValue(this.proyecto.getEstado());
         if(this.proyecto.getEstado().equalsIgnoreCase("Completado") || !this.data.getCurrentUser().getCorreo().equalsIgnoreCase(this.proyecto.getJefeProyecto().getCorreo())){
+            this.btnGuardar.setDisable(true);
+        }
+        this.cliente.setText(this.proyecto.getCliente());
+        if (this.proyecto.getCliente().equalsIgnoreCase("netflix")){
+            this.cliente.getStyleClass().clear();
+            this.cliente.getStyleClass().add("pendiente");
+        }else{
+            this.cliente.getStyleClass().clear();
+            this.cliente.getStyleClass().add("pendiente");
+        }
+        SimpleDateFormat fechaCreacion = new SimpleDateFormat("dd-MM-yyyy");
+        String mostrarCreacion = fechaCreacion.format(this.proyecto.getFechaCreacion());
+        this.creacion.setText(mostrarCreacion);
+
+        SimpleDateFormat fechaEntrega = new SimpleDateFormat("dd-MM-yyyy");
+        String mostrarEntrega = fechaEntrega.format(this.proyecto.getFechaEntrega());
+        this.entrega.setText(mostrarEntrega);
+
+
+        if (!this.proyecto.getJefeProyecto().getCorreo().equalsIgnoreCase(this.data.getCurrentUser().getCorreo())){
             this.btnGuardar.setDisable(true);
         }
     }
