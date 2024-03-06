@@ -29,6 +29,11 @@ public class ControllerCalendario {
 
     @FXML
     private MFXScrollPane scroll;
+
+    /**
+     * Método que se encarga de recibir informacion y comprobar las entregas
+     * @param data clase con informacion
+     */
     public void recibirData(Data data){
         this.data = data;
         calendario.setValue(LocalDate.now());
@@ -41,6 +46,11 @@ public class ControllerCalendario {
 
 
     }
+
+    /**
+     * Método que se encarga de comprobar las entregas y creaciones que han sucedido en un día,
+     * si el día esta marcado en el calendario, se indica, las entregas en color rojo y las creaciones en color azul.
+     */
     public void comprobarEntregas(){
         calendario.setDayCellFactory(new Callback<Calendar, DateCell>() {
             @Override
@@ -54,14 +64,14 @@ public class ControllerCalendario {
                             if (proyecto.getFechaEntrega().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().equals(item)){
                                 this.setStyle("-fx-background-color: #C1402E;");
                             }else if(proyecto.getFechaCreacion().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().equals(item)){
-                                this.setStyle("-fx-background-color: blue");
+                                this.setStyle("-fx-background-color: #28939A;");
                             } else {
                                 for (Tarea tarea : proyecto.getTareas()){
                                     if (tarea.getFechaEntrega().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().equals(item)){
                                         this.setStyle("-fx-background-color: #C1402E;");
                                         break;
                                     }else if(tarea.getFechaCreacion().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().equals(item)){
-                                        this.setStyle("-fx-background-color: blue");
+                                        this.setStyle("-fx-background-color: #28939A;");
                                         break;
                                     }
                                 }
@@ -72,6 +82,12 @@ public class ControllerCalendario {
             }
         });
     }
+
+    /**
+     * Método que se encarga de cargar el contenido seleccionado para un día determinado
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void mostrarContenidoDia(MouseEvent event) throws IOException {
         this.scroll.setContent(null);
