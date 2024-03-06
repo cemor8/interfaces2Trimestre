@@ -74,6 +74,15 @@ public class ControllerVistaCadaContacto {
         this.img.setClip(clip);
 
     }
+
+    /**
+     * Método que se encarga de recibir informacion
+     * @param data  clase con informacion
+     * @param usuario   contacto
+     * @param añadir    si hay que añadir o no
+     * @param contactos lista de contactos a la que meter
+     * @param contactosAñadir   lista de contactos para meter
+     */
     public void recibirData(Data data, Usuario usuario,boolean añadir, ArrayList<Usuario> contactos,ArrayList<Usuario> contactosAñadir){
         this.data = data;
         this.contacto = usuario;

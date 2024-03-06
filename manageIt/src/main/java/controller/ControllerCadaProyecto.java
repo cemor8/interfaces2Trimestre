@@ -139,6 +139,10 @@ public class ControllerCadaProyecto {
         Circle circulo = new Circle(this.imagenCreador.getFitWidth() / 2, this.imagenCreador.getFitHeight() / 2, this.imagenCreador.getFitWidth() / 2);
         this.imagenCreador.setClip(circulo);
 
+        if (!this.data.getCurrentUser().getCorreo().equalsIgnoreCase(this.proyecto.getJefeProyecto().getCorreo())){
+            imagenBasura.setDisable(true);
+        }
+
 
     }
 

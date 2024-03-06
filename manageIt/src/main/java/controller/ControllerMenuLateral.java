@@ -260,11 +260,19 @@ public class ControllerMenuLateral {
         this.imagenNotas.getStyleClass().add("notas");
         this.imagenAjustes.getStyleClass().add("config");
     }
+
+    /**
+     * Método que inicia el panel principal como clickado
+     */
     public void iniciarPanel(){
         this.hboxPanel.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),true);
         this.imagenPanel.getStyleClass().add("panelPresionado");
 
     }
+
+    /**
+     * Método que limpia las clases de la imagenes
+     */
     public void limpiarClasesImagenes(){
         this.imagenPanel.getStyleClass().clear();
         this.imagenCalendario.getStyleClass().clear();

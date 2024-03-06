@@ -61,6 +61,10 @@ public class ControllerVistaCadaTarea {
     private Tarea tarea;
     private ArrayList<Tarea> tareas;
 
+    /**
+     * Método que guarda el estado de la tarea
+     * @param event
+     */
     @FXML
     void btnGuardarEstado(MouseEvent event) {
         this.tarea.setEstado(this.opcionesEstado.getSelectionModel().getSelectedItem());
@@ -71,6 +75,11 @@ public class ControllerVistaCadaTarea {
         }
     }
 
+    /**
+     * Método que se encarga de ver las personas asignadas de la tarea
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void verAsignados(MouseEvent event) throws IOException {
         Proyecto proyectoEncontrado = null;
@@ -89,6 +98,11 @@ public class ControllerVistaCadaTarea {
         this.data.getListaControladores().getControllerContenedor().rellenarContenido(root);
     }
 
+    /**
+     * Método que se encarga de ver las notas de la tarea
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void verNotas(MouseEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/notas.fxml"), CambiarIdioma.getInstance().getBundle());

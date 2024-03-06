@@ -96,6 +96,7 @@ public class ControllerNotas {
 
         this.imgEditar.setVisible(false);
         this.tituloNota.setEditable(false);
+
         VBox vBox = new VBox();
         for (Nota nota : notasRecorrer){
             AnchorPane anchorPane = new AnchorPane();
@@ -177,6 +178,11 @@ public class ControllerNotas {
             this.imgEditar.setDisable(true);
             this.tituloNota.setEditable(false);
             this.descripcion.setEditable(false);
+        }else {
+            this.imgEditar.setVisible(true);
+            this.imgEditar.setDisable(false);
+            this.tituloNota.setEditable(true);
+            this.descripcion.setEditable(true);
         }
 
     }

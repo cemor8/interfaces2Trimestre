@@ -56,6 +56,10 @@ public class ControllerVistaCadaProyecto {
     private Proyecto proyecto;
     private ArrayList<Proyecto> listaDeProyecto;
 
+    /**
+     * Método que se encarga de guardar el estado del proyecto
+     * @param event
+     */
     @FXML
     void btnGuardarEstado(MouseEvent event) {
         this.proyecto.setEstado(this.opcionesEstado.getSelectionModel().getSelectedItem());
@@ -66,6 +70,11 @@ public class ControllerVistaCadaProyecto {
         }
     }
 
+    /**
+     * Método que se encarga de ver la lista de contactos asignados
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void verAsignados(MouseEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/contactos.fxml"), CambiarIdioma.getInstance().getBundle());
@@ -75,6 +84,11 @@ public class ControllerVistaCadaProyecto {
         this.data.getListaControladores().getControllerContenedor().rellenarContenido(root);
     }
 
+    /**
+     * Método que se encarga de ver las notas del proyeto
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void verNotas(MouseEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/notas.fxml"), CambiarIdioma.getInstance().getBundle());
@@ -98,6 +112,11 @@ public class ControllerVistaCadaProyecto {
         this.data.getListaControladores().getControllerContenedor().rellenarContenido(root);
     }
 
+    /**
+     * Método que se encarga de volver a la vista de proyectos
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void volver(MouseEvent event) throws IOException {
         /* Volver a vista de todos los proyectos */
@@ -107,6 +126,10 @@ public class ControllerVistaCadaProyecto {
         controllerProyectos.recibirData(this.data,this.listaDeProyecto);
         this.data.getListaControladores().getControllerContenedor().rellenarContenido(root);
     }
+
+    /**
+     * Método que se encarga de cargar la informacion del proyecto en la vista
+     */
     public void inicializar(){
         this.btnAtras.setText("");
         this.labelDescripcion.setText(this.proyecto.getDescripcion());
@@ -156,6 +179,13 @@ public class ControllerVistaCadaProyecto {
             this.labelDescripcion.setEditable(false);
         }
     }
+
+    /**
+     * Método que se encarga de recibir informacin
+     * @param data  clase con informacion
+     * @param proyecto  proyecto del que cargar la vista
+     * @param listaDeProyecto   lista de proyectos
+     */
     public void recibirData(Data data,Proyecto proyecto, ArrayList<Proyecto> listaDeProyecto){
         this.data = data;
         this.proyecto = proyecto;

@@ -37,15 +37,28 @@ public class ControllerVistaCrearProyecto {
     private ComboBox<String> seleccionarCliente;
     private Data data;
 
+    /**
+     * Método que se encarga de crear el proyecto
+     * @param event
+     */
     @FXML
     void crear(MouseEvent event) {
 
     }
 
+    /**
+     * Método que pide la imagen al usuario para el proyecto
+     * @param event
+     */
     @FXML
     void elegirImagen(MouseEvent event) {
 
     }
+
+    /**
+     * Método que recibe informacion
+     * @param data
+     */
     public void recibirData(Data data){
         this.data = data;
         this.datePicker.setShowWeekNumbers(false);

@@ -28,11 +28,19 @@ public class ControllerTareas {
     private Data data;
     private ArrayList<Tarea> tareas;
 
+    /**
+     * Método que se encarga de meter una tarea nueva
+     * @param event
+     */
     @FXML
     void meter(MouseEvent event) {
 
     }
 
+    /**
+     * Método que se encarga de inicializar la vista de tareas con las tareas correspondientes
+     * @throws IOException
+     */
     public void inicializar() throws IOException {
         int i = 0;
         HBox hBox = new HBox();
@@ -68,6 +76,12 @@ public class ControllerTareas {
 
     }
 
+    /**
+     * Método que se encarga de recibir informacion
+     * @param data  clase con informacion
+     * @param tareas    lista de tareas
+     * @throws IOException
+     */
     public void recibirData(Data data, ArrayList<Tarea> tareas) throws IOException {
         this.data = data;
         this.tareas = tareas;

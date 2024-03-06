@@ -38,7 +38,6 @@ public class ControllerCalendario {
             System.out.println(err.getMessage());
         }
         this.comprobarEntregas();
-        this.comprobarCreacion();
 
 
     }
@@ -54,36 +53,15 @@ public class ControllerCalendario {
                         for (Proyecto proyecto : proyectosRecorrer){
                             if (proyecto.getFechaEntrega().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().equals(item)){
                                 this.setStyle("-fx-background-color: #C1402E;");
-                            }else {
+                            }else if(proyecto.getFechaCreacion().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().equals(item)){
+                                this.setStyle("-fx-background-color: blue");
+                            } else {
                                 for (Tarea tarea : proyecto.getTareas()){
                                     if (tarea.getFechaEntrega().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().equals(item)){
                                         this.setStyle("-fx-background-color: #C1402E;");
                                         break;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                };
-            }
-        });
-    }
-    public void comprobarCreacion(){
-        calendario.setDayCellFactory(new Callback<Calendar, DateCell>() {
-            @Override
-            public DateCell call(Calendar param) {
-                return new DateCell() {
-                    @Override
-                    public void updateItem(LocalDate item, boolean empty) {
-                        super.updateItem(item, empty);
-                        // Marca la fecha de mañana de rojo
-                        for (Proyecto proyecto : proyectosRecorrer){
-                            if (proyecto.getFechaCreacion().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().equals(item)){
-                                this.setStyle("-fx-background-color: blue;");
-                            }else {
-                                for (Tarea tarea : proyecto.getTareas()){
-                                    if (tarea.getFechaCreacion().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().equals(item)){
-                                        this.setStyle("-fx-background-color: blue;");
+                                    }else if(tarea.getFechaCreacion().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().equals(item)){
+                                        this.setStyle("-fx-background-color: blue");
                                         break;
                                     }
                                 }

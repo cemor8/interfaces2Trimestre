@@ -64,6 +64,7 @@ public class Data {
 
         proyecto.getTareas().add(this.tareas.get(0));
         proyecto.getNotas().add(this.notas.get(0));
+        proyecto.getNotas().add(this.notas.get(4));
 
         this.proyectos.add(proyecto);
 
@@ -71,8 +72,8 @@ public class Data {
                 "Completado", "Descripcion de proyecto de prueba",  Date.from(LocalDate.of(2024, 4, 6).atStartOfDay(ZoneId.systemDefault()).toInstant()),
                 Date.from(LocalDate.of(2024, 4, 8).atStartOfDay(ZoneId.systemDefault()).toInstant()), usuario, new ArrayList<>(), new ArrayList<>(), new ArrayList<>(List.of(usuario)));
 
-        proyecto.getTareas().add(this.tareas.get(1));
-        proyecto.getNotas().add(this.notas.get(1));
+        proyecto2.getTareas().add(this.tareas.get(1));
+        proyecto2.getNotas().add(this.notas.get(1));
 
         this.proyectos.add(proyecto2);
 
@@ -80,8 +81,8 @@ public class Data {
                 "En proceso", "Descripcion de proyecto de prueba",  Date.from(LocalDate.of(2024, 4, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()),
                 Date.from(LocalDate.of(2024, 4, 8).atStartOfDay(ZoneId.systemDefault()).toInstant()), usuario, new ArrayList<>(), new ArrayList<>(), new ArrayList<>(List.of(usuario)));
 
-        proyecto.getTareas().add(this.tareas.get(2));
-        proyecto.getNotas().add(this.notas.get(2));
+        proyecto3.getTareas().add(this.tareas.get(2));
+        proyecto3.getNotas().add(this.notas.get(2));
 
         this.proyectos.add(proyecto3);
 
@@ -89,8 +90,8 @@ public class Data {
                 "Pendiente", "Descripcion de proyecto de prueba",  Date.from(LocalDate.of(2024, 3, 3).atStartOfDay(ZoneId.systemDefault()).toInstant()),
                 Date.from(LocalDate.of(2024, 3, 29).atStartOfDay(ZoneId.systemDefault()).toInstant()), usuario, new ArrayList<>(), new ArrayList<>(), new ArrayList<>(List.of(usuario)));
 
-        proyecto.getTareas().add(this.tareas.get(3));
-        proyecto.getNotas().add(this.notas.get(3));
+        proyecto4.getTareas().add(this.tareas.get(3));
+        proyecto4.getNotas().add(this.notas.get(3));
 
         this.proyectos.add(proyecto4);
 
@@ -159,6 +160,10 @@ public class Data {
         Nota nota4 = new Nota("Nota de prueba global 4 ", "Descripcion de nota de prueba", "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
                 Date.from(LocalDate.of(2024, 3, 28).atStartOfDay(ZoneId.systemDefault()).toInstant()), usuario);
         this.notas.add(nota4);
+
+        Nota nota5 = new Nota("Nota de prueba global 4 ", "Descripcion de nota de prueba", "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
+                Date.from(LocalDate.of(2024, 1, 24).atStartOfDay(ZoneId.systemDefault()).toInstant()), usuarios.get(1));
+        this.notas.add(nota5);
     }
 
     public ArrayList<Usuario> getUsuarios() {

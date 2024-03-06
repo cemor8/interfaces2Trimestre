@@ -58,16 +58,32 @@ public class ControllerMenuSuperior {
         Circle clip = new Circle(this.perfil.getFitWidth() / 2, this.perfil.getFitHeight() / 2, this.perfil.getFitWidth() / 2);
         this.perfil.setClip(clip);
     }
+
+    /**
+     * Método que carga la vista del calendario
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void verCalendario(MouseEvent event) throws IOException {
         this.data.getListaControladores().getControllerMenuLateral().mostrarCalendario(null);
     }
 
+    /**
+     * Método que carga la vista de configuracion del perfil
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void verPerfil(MouseEvent event) throws IOException {
         this.data.getListaControladores().getControllerMenuLateral().mostrarConfig(null);
     }
 
+    /**
+     * Método que carga la vista de los proyectos
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void verProyectos(MouseEvent event) throws IOException {
 

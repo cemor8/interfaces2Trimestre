@@ -89,9 +89,19 @@ public class ControllerContenedor {
         this.rellenarContenido(root);
 
     }
+
+    /**
+     * Método que carga el contenido en el contenedor
+     * @param root
+     */
     public void rellenarContenido(Parent root){
         this.rellenar.getChildren().setAll(root);
     }
+
+    /**
+     * Método que mete el estilo de la app
+     * @param ruta
+     */
     public void meterEstilo(String ruta){
         this.padre.getStylesheets().add(Objects.requireNonNull(getClass().getResource(ruta)).toExternalForm());
     }
