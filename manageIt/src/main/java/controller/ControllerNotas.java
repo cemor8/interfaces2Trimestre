@@ -152,7 +152,7 @@ public class ControllerNotas {
         this.imgCreador.setImage(new Image("file:"+this.notaSeleccionada.getUsuario().getRutaImagen()));
         this.imgCreador.setFitWidth(60);
         this.imgCreador.setFitHeight(60);
-        this.imgCreador.setPreserveRatio(true);
+        this.imgCreador.setPreserveRatio(false);
 
         Circle circulo = new Circle(this.imgCreador.getFitWidth() / 2, this.imgCreador.getFitHeight() / 2, this.imgCreador.getFitWidth() / 2);
         this.imgCreador.setClip(circulo);

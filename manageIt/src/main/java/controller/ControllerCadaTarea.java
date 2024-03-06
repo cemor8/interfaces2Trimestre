@@ -103,7 +103,7 @@ public class ControllerCadaTarea {
         this.imagenCreador.setImage(new Image("file:"+this.tarea.getCreador().getRutaImagen()));
         this.imagenCreador.setFitWidth(70);
         this.imagenCreador.setFitHeight(70);
-        this.imagenCreador.setPreserveRatio(true);
+        this.imagenCreador.setPreserveRatio(false);
 
         Circle circulo = new Circle(this.imagenCreador.getFitWidth() / 2, this.imagenCreador.getFitHeight() / 2, this.imagenCreador.getFitWidth() / 2);
         this.imagenCreador.setClip(circulo);

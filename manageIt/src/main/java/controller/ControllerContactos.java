@@ -54,7 +54,7 @@ public class ControllerContactos {
             imageView.getStyleClass().add("imagenContacto");
 
             Label nameLabel = new Label(contacto.getNombre()+" "+contacto.getApellidos());
-            nameLabel.getStyleClass().add("nombreContacto");
+            nameLabel.getStyleClass().add("nombreContactoCarta");
 
             ImageView imgBorrar = new ImageView();
             imgBorrar.getStyleClass().add("papeleraVistaCadaProyecto");

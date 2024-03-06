@@ -54,7 +54,7 @@ public class ControllerMenuSuperior {
         this.perfil.setImage(new Image("file:"+this.data.getCurrentUser().getRutaImagen()));
         this.perfil.setFitWidth(60);
         this.perfil.setFitHeight(60);
-        this.perfil.setPreserveRatio(true);
+        this.perfil.setPreserveRatio(false);
         Circle clip = new Circle(this.perfil.getFitWidth() / 2, this.perfil.getFitHeight() / 2, this.perfil.getFitWidth() / 2);
         this.perfil.setClip(clip);
     }

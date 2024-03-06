@@ -21,44 +21,144 @@ public class Data {
         this.usuarios = new ArrayList<>();
         this.tareas = new ArrayList<>();
         this.listaControladores = new ListaControladores();
-        LocalDate hoy = LocalDate.now();
-        LocalDate manana = hoy.plusDays(1);
-        Usuario usuario2 =  new Usuario("carldsadaosmoraisblanco@gmail.com","Carlos","Morais","12q12q12",
-                "Hola me llamo Carlos Morais","Informático","src/main/resources/images/usuarios/persona.png",new ArrayList<>(),new ArrayList<>(),new ArrayList<>());
+        this.crearUsuarios();
+        this.crearTareas();
+        this.crearNotas();
+        this.crearNotasProyectos();
+        this.crearProyectos();
 
+
+
+
+    }
+    private void crearUsuarios(){
+        Usuario usuario2 =  new Usuario("gonzalo@gmail.com","Gonzalo","Morais","12q12q12",
+                "Hola","Informático","src/main/resources/images/usuarios/persona.png",new ArrayList<>(),new ArrayList<>());
+        /*"src/main/resources/images/usuarios/persona.png"*/
         Usuario usuario = new Usuario("carlosmoraisblanco@gmail.com","Carlos","Morais","12q12q12",
-                "Hola me llamo Carlos Morais","Informático","src/main/resources/images/usuarios/persona.png",new ArrayList<>(List.of(usuario2,usuario2,usuario2,usuario2,usuario2,usuario2,usuario2,usuario2,usuario2,usuario2,usuario2,usuario2,usuario2,usuario2,usuario2)),new ArrayList<>(),new ArrayList<>());
+                "Hola me llamo Carlos Morais","Informático","src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",new ArrayList<>(List.of()),new ArrayList<>());
+        Usuario usuario3 = new Usuario("javier@gmail.com","Javier","Rodriguez","12q12q12","Hola, soy Javier, un entusiasta de la tecnología y profesional de la informática con 5 de experiencia en el corazón del mundo digital. Especializado en programacion, mi carrera está dedicada a diseñar, implementar y mejorar sistemas que hacen nuestra vida más fácil y segura.",
+                "Informático","src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",new ArrayList<>(List.of(usuario)),new ArrayList<>());
+        Usuario usuario4 = new Usuario("roberto@gmail.com","Roberto","Castro","12q12q12","Hola, soy Roberto, un entusiasta de la tecnología y profesional de la informática con 5 de experiencia en el corazón del mundo digital. Especializado en programacion, mi carrera está dedicada a diseñar, implementar y mejorar sistemas que hacen nuestra vida más fácil y segura.",
+                "Informático","src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",new ArrayList<>(List.of(usuario3)),new ArrayList<>());
+        Usuario usuario5 = new Usuario("alberto@gmail.com","Alberto","Rodriguez","12q12q12","Hola, soy Javier, un entusiasta de la tecnología y profesional de la informática con 5 de experiencia en el corazón del mundo digital. Especializado en programacion, mi carrera está dedicada a diseñar, implementar y mejorar sistemas que hacen nuestra vida más fácil y segura.",
+                "Informático","src/main/resources/images/usuarios/persona.png",new ArrayList<>(),new ArrayList<>());
 
-
-        Tarea tarea = new Tarea("Tarea de prueba","Prueba","BBDD","Descripcion de tarea de prueba",
-                Date.from(hoy.atStartOfDay(ZoneId.systemDefault()).toInstant()),Date.from(manana.atStartOfDay(ZoneId.systemDefault()).toInstant()),
-                "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",new ArrayList<>(),new ArrayList<>(List.of(usuario)),usuario);
-        Nota nota = new Nota("Nota de prueba","Descdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddripcion de nota de prueba", "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",Date.from(hoy.atStartOfDay(ZoneId.systemDefault()).toInstant()),
-                usuario);
-        Proyecto proyecto = new Proyecto("Proyecto de prueba","Cliente de prueba","src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
-                "Estado de prueba","Descripcion de proyecto de prueba",Date.from(hoy.atStartOfDay(ZoneId.systemDefault()).toInstant()),
-                Date.from(manana.atStartOfDay(ZoneId.systemDefault()).toInstant()),usuario,new ArrayList<>(),new ArrayList<>(),new ArrayList<>(List.of(usuario)));
-        Proyecto proyecto2 = new Proyecto("Proyecto de prueba","Cliente de prueba","src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
-                "Estado de prueba","Descripcion de proyecto de prueba",Date.from(hoy.atStartOfDay(ZoneId.systemDefault()).toInstant()),
-                Date.from(manana.atStartOfDay(ZoneId.systemDefault()).toInstant()),usuario,new ArrayList<>(),new ArrayList<>(),new ArrayList<>(List.of(usuario)));
-        Proyecto proyecto3 = new Proyecto("Proyecto de prueba","Cliente de prueba","src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
-                "Estado de prueba","Descripcion de proyecto de prueba",Date.from(hoy.atStartOfDay(ZoneId.systemDefault()).toInstant()),
-                Date.from(manana.atStartOfDay(ZoneId.systemDefault()).toInstant()),usuario,new ArrayList<>(),new ArrayList<>(),new ArrayList<>(List.of(usuario)));
-        Proyecto proyecto4 = new Proyecto("Proyecto de prueba","Cliente de prueba","src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
-                "Estado de prueba","Descripcion de proyecto de prueba",Date.from(hoy.atStartOfDay(ZoneId.systemDefault()).toInstant()),
-                Date.from(manana.atStartOfDay(ZoneId.systemDefault()).toInstant()),usuario,new ArrayList<>(),new ArrayList<>(),new ArrayList<>(List.of(usuario)));
-        usuario.getNotas().add(nota);
-        this.proyectos.add(proyecto);
-        this.proyectos.add(proyecto2);
-        this.proyectos.add(proyecto3);
-        this.proyectos.add(proyecto4);
-        this.notas.add(nota);
-        this.tareas.add(tarea);
+        usuario.getContactos().add(usuario5);
+        usuario.getContactos().add(usuario4);
+        usuario.getContactos().add(usuario2);
         this.usuarios.add(usuario);
-        usuario.getTareas().add(tarea);
-        proyecto.getTareas().add(tarea);
+        this.usuarios.add(usuario2);
+        this.usuarios.add(usuario3);
+        this.usuarios.add(usuario4);
+        this.usuarios.add(usuario5);
+    }
+    public void crearProyectos(){
+
+        Usuario usuario = this.usuarios.get(0);
 
 
+        Proyecto proyecto = new Proyecto("Proyecto App Netflix", "Netflix", "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
+                "Completado", "Descripcion de proyecto de prueba", Date.from(LocalDate.of(2024, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()),
+                Date.from(LocalDate.of(2024, 1, 25).atStartOfDay(ZoneId.systemDefault()).toInstant()), usuario, new ArrayList<>(), new ArrayList<>(), new ArrayList<>(List.of(usuario,usuarios.get(1),usuarios.get(2))));
+
+        proyecto.getTareas().add(this.tareas.get(0));
+        proyecto.getNotas().add(this.notas.get(0));
+
+        this.proyectos.add(proyecto);
+
+        Proyecto proyecto2 = new Proyecto("Proyecto App Uber", "Uber", "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
+                "Completado", "Descripcion de proyecto de prueba",  Date.from(LocalDate.of(2024, 4, 6).atStartOfDay(ZoneId.systemDefault()).toInstant()),
+                Date.from(LocalDate.of(2024, 4, 8).atStartOfDay(ZoneId.systemDefault()).toInstant()), usuario, new ArrayList<>(), new ArrayList<>(), new ArrayList<>(List.of(usuario)));
+
+        proyecto.getTareas().add(this.tareas.get(1));
+        proyecto.getNotas().add(this.notas.get(1));
+
+        this.proyectos.add(proyecto2);
+
+        Proyecto proyecto3 = new Proyecto("Proyecto App Discord", "Discord", "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
+                "En proceso", "Descripcion de proyecto de prueba",  Date.from(LocalDate.of(2024, 4, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()),
+                Date.from(LocalDate.of(2024, 4, 8).atStartOfDay(ZoneId.systemDefault()).toInstant()), usuario, new ArrayList<>(), new ArrayList<>(), new ArrayList<>(List.of(usuario)));
+
+        proyecto.getTareas().add(this.tareas.get(2));
+        proyecto.getNotas().add(this.notas.get(2));
+
+        this.proyectos.add(proyecto3);
+
+        Proyecto proyecto4 = new Proyecto("Proyecto App Movistar", "Movistar", "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
+                "Pendiente", "Descripcion de proyecto de prueba",  Date.from(LocalDate.of(2024, 3, 3).atStartOfDay(ZoneId.systemDefault()).toInstant()),
+                Date.from(LocalDate.of(2024, 3, 29).atStartOfDay(ZoneId.systemDefault()).toInstant()), usuario, new ArrayList<>(), new ArrayList<>(), new ArrayList<>(List.of(usuario)));
+
+        proyecto.getTareas().add(this.tareas.get(3));
+        proyecto.getNotas().add(this.notas.get(3));
+
+        this.proyectos.add(proyecto4);
+
+
+
+    }
+    public void crearTareas(){
+
+        Usuario usuario = this.usuarios.get(0);
+
+        Tarea tarea = new Tarea("Tarea de prueba", "En proceso", "BBDD", "Descripcion de tarea de prueba",
+                Date.from(LocalDate.of(2024, 1, 10).atStartOfDay(ZoneId.systemDefault()).toInstant()), Date.from(LocalDate.of(2024, 1, 12).atStartOfDay(ZoneId.systemDefault()).toInstant()),
+                "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png", new ArrayList<>(), new ArrayList<>(List.of(usuario)), usuario);
+        this.tareas.add(tarea);
+
+        Nota nota = new Nota("Nota de prueba", "Descripcion de nota de prueba", "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
+                Date.from(LocalDate.of(2024, 1, 10).atStartOfDay(ZoneId.systemDefault()).toInstant()), usuario);
+
+        tarea.getNotas().add(nota);
+
+        Tarea tarea2 = new Tarea("Tarea de prueba 2", "En proceso", "Programacion", "Descripcion de tarea de prueba",
+                Date.from(LocalDate.of(2024, 4, 8).atStartOfDay(ZoneId.systemDefault()).toInstant()),  Date.from(LocalDate.of(2024, 4, 8).atStartOfDay(ZoneId.systemDefault()).toInstant()),
+                "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png", new ArrayList<>(), new ArrayList<>(List.of(usuario)), usuario);
+
+        this.tareas.add(tarea2);
+
+        Tarea tarea3 = new Tarea("Tarea de prueba 3", "Pendiente", "Web", "Descripcion de tarea de prueba",
+                Date.from(LocalDate.of(2024, 4, 2).atStartOfDay(ZoneId.systemDefault()).toInstant()), Date.from(LocalDate.of(2024, 4, 7).atStartOfDay(ZoneId.systemDefault()).toInstant()),
+                "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png", new ArrayList<>(), new ArrayList<>(List.of(usuario)), usuario);
+
+        this.tareas.add(tarea3);
+        Tarea tarea4 = new Tarea("Tarea de prueba 4", "En proceso", "Programacion", "Descripcion de tarea de prueba",
+                Date.from(LocalDate.of(2024, 3, 24).atStartOfDay(ZoneId.systemDefault()).toInstant()),  Date.from(LocalDate.of(2024, 3, 28).atStartOfDay(ZoneId.systemDefault()).toInstant()),
+                "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png", new ArrayList<>(), new ArrayList<>(List.of(usuario)), usuario);
+
+        this.tareas.add(tarea4);
+
+
+
+    }
+    public void crearNotas(){
+        Usuario usuario = this.usuarios.get(0);
+
+        Nota nota = new Nota("Nota de prueba personal", "Descripcion de nota de prueba", "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
+                Date.from(LocalDate.of(2024, 2, 12).atStartOfDay(ZoneId.systemDefault()).toInstant()), usuario);
+        usuario.getNotas().add(nota);
+    }
+    public void crearNotasProyectos(){
+        Usuario usuario = this.usuarios.get(0);
+
+        Nota nota = new Nota("Nota de prueba global", "Descripcion de nota de prueba", "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
+                Date.from(LocalDate.of(2024, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()), usuario);
+        this.notas.add(nota);
+
+
+        Nota nota2 = new Nota("Nota de prueba global 2 ", "Descripcion de nota de prueba", "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
+                Date.from(LocalDate.of(2024, 4, 5).atStartOfDay(ZoneId.systemDefault()).toInstant()), usuario);
+        this.notas.add(nota2);
+
+
+        Nota nota3 = new Nota("Nota de prueba global 3 ", "Descripcion de nota de prueba", "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
+                Date.from(LocalDate.of(2024, 4, 7).atStartOfDay(ZoneId.systemDefault()).toInstant()), usuario);
+        this.notas.add(nota3);
+
+
+        Nota nota4 = new Nota("Nota de prueba global 4 ", "Descripcion de nota de prueba", "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
+                Date.from(LocalDate.of(2024, 3, 28).atStartOfDay(ZoneId.systemDefault()).toInstant()), usuario);
+        this.notas.add(nota4);
     }
 
     public ArrayList<Usuario> getUsuarios() {
@@ -68,10 +168,12 @@ public class Data {
     public void setUsuarios(ArrayList<Usuario> usuarios) {
         this.usuarios = usuarios;
     }
-
+    /*
     public ArrayList<Nota> getNotas() {
         return notas;
     }
+
+     */
 
     public ArrayList<Proyecto> getProyectos() {
         return proyectos;

@@ -423,7 +423,7 @@ Estilos Contactos
 }
 .cartaContacto{
 }
-.nombreContacto{
+.nombreContactoCarta{
      -fx-text-fill:"white";
      -fx-font-size: 16px;
      -fx-max-width: 125;
@@ -471,7 +471,11 @@ Estilos vista cada contacto
 }
 
 .btnVistaCadaContacto{
-
+     -fx-background-color: #00C87B;
+     -fx-font-size: 14px;
+     -fx-font-family : "Roboto Mono";
+     -fx-font-weight : bold;
+     -fx-border-radius:5;
 }
 
 /*

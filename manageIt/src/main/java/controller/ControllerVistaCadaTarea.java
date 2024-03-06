@@ -138,7 +138,7 @@ public class ControllerVistaCadaTarea {
 
         this.imagenJefe.setFitWidth(55);
         this.imagenJefe.setFitHeight(55);
-        this.imagenJefe.setPreserveRatio(true);
+        this.imagenJefe.setPreserveRatio(false);
         Circle clip = new Circle(this.imagenJefe.getFitWidth() / 2, this.imagenJefe.getFitHeight() / 2, this.imagenJefe.getFitWidth() / 2);
         this.imagenJefe.setClip(clip);
 
