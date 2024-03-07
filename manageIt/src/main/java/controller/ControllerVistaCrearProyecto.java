@@ -2,10 +2,7 @@ package controller;
 
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -13,6 +10,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.FileChooser;
+import javafx.util.converter.DefaultStringConverter;
 import modelo.Data;
 import modelo.Proyecto;
 
@@ -56,7 +54,7 @@ public class ControllerVistaCrearProyecto {
     private ComboBox<String> seleccionarCliente;
     private Data data;
     private String imagenSeleccionada;
-    private String videoSeleccionado;
+    private String videoSeleccionado = "";
 
     /**
      * Método que se encarga de crear el proyecto
@@ -74,7 +72,7 @@ public class ControllerVistaCrearProyecto {
 
         this.data.getProyectos().add(new Proyecto(this.introducirNombre.getText(),
                 this.seleccionarCliente.getValue(),this.imagenSeleccionada,"En proceso",this.introducirDescripcion.getText(),dateHoy,dateCrear,this.data.getCurrentUser(),
-                new ArrayList<>(),new ArrayList<>(),new ArrayList<>(List.of(this.data.getCurrentUser()))));
+                new ArrayList<>(),new ArrayList<>(),new ArrayList<>(List.of(this.data.getCurrentUser())),this.videoSeleccionado));
         try {
             this.data.getListaControladores().getControllerMenuLateral().mostrarProyectos(null);
         }catch (IOException err){
@@ -134,6 +132,8 @@ public class ControllerVistaCrearProyecto {
         this.seleccionarCliente.getItems().addAll("Netflix","Uber", "Discord", "Movistar");
         this.datePicker.setShowWeekNumbers(false);
         this.datePicker.getValue();
+
+
     }
 
 }

@@ -286,7 +286,13 @@ Vista Crear Proyecto
 
 .introducirNombreCrear{
     -fx-max-width: 250px;
-    -fx-max-height: 40px;
+    -fx-max-height: 30px;
+    -fx-min-width: 250px;
+    -fx-min-height: 30px;
+    -fx-border-color: none;
+}
+.introducirNombreCrear:pressed, .introducirNombreCrear:hover{
+    -fx-border-color: #00E18A;
 }
 .btnCrear{
     -fx-background-color : #00E18A;
@@ -298,6 +304,7 @@ Vista Crear Proyecto
 .placeholderImagen{
     -fx-image: url(../images/global/placeholder.jpg);
 }
+
 
 /*
 Vista Cada Proyecto
@@ -534,7 +541,7 @@ Estilos cada vista
     -fx-font-family : "Roboto Mono";
     -fx-background-color: #1F1F1F;
     -fx-background-radius : 10px;
-     -fx-padding: 10px;
+    -fx-padding: 10px;
 }
 .labelTituloCadaVista{
     -fx-text-fill:"white";
@@ -897,4 +904,11 @@ Seleccionar dia
     -fx-fill: -color-date-day-fg-selected;
     -fx-font-weight: normal;
 }
-
+.areaDescripcionCrear{
+    -fx-text-fill:"white";
+    -fx-font-size: 14px;
+    -fx-font-family : "Roboto Mono";
+    -fx-background-color: #131313;
+    -fx-background-radius : 10px;
+    -fx-padding: 10px;
+}

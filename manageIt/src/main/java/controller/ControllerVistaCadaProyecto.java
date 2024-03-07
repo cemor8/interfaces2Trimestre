@@ -10,6 +10,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import modelo.CambiarIdioma;
@@ -27,6 +30,8 @@ public class ControllerVistaCadaProyecto {
 
     @FXML
     private TextArea labelDescripcion;
+    @FXML
+    private MediaView video;
 
     @FXML
     private ImageView imgGuardarDesc;
@@ -178,6 +183,13 @@ public class ControllerVistaCadaProyecto {
             this.imgGuardarDesc.setDisable(true);
             this.labelDescripcion.setEditable(false);
         }
+
+        Media media2 = new Media(this.proyecto.getRutaVideo());
+        MediaPlayer mediaPlayer = new MediaPlayer(media2);
+        this.video.setMediaPlayer(mediaPlayer);
+        mediaPlayer.play();
+
+
     }
 
     /**

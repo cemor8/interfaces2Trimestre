@@ -15,8 +15,9 @@ public class Proyecto {
     private ArrayList<Tarea> tareas;
     private ArrayList<Nota> notas;
     private ArrayList<Usuario> personasAsignadas;
+    private String rutaVideo;
 
-    public Proyecto(String nombre, String cliente, String rutaImagen, String estado, String descripcion, Date fechaCreacion, Date fechaEntrega, Usuario jefeProyecto, ArrayList<Tarea> tareas, ArrayList<Nota> notas, ArrayList<Usuario> personasAsignadas) {
+    public Proyecto(String nombre, String cliente, String rutaImagen, String estado, String descripcion, Date fechaCreacion, Date fechaEntrega, Usuario jefeProyecto, ArrayList<Tarea> tareas, ArrayList<Nota> notas, ArrayList<Usuario> personasAsignadas, String rutaVideo) {
         this.nombre = nombre;
         this.cliente = cliente;
         this.rutaImagen = rutaImagen;
@@ -28,6 +29,7 @@ public class Proyecto {
         this.tareas = tareas;
         this.notas = notas;
         this.personasAsignadas = personasAsignadas;
+        this.rutaVideo = rutaVideo;
     }
 
     public ArrayList<Tarea> getTareas() {
@@ -44,6 +46,14 @@ public class Proyecto {
 
     public String getNombre() {
         return nombre;
+    }
+
+    public String getRutaVideo() {
+        return rutaVideo;
+    }
+
+    public void setRutaVideo(String rutaVideo) {
+        this.rutaVideo = rutaVideo;
     }
 
     public String getCliente() {

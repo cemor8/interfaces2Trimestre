@@ -60,7 +60,7 @@ public class Data {
 
         Proyecto proyecto = new Proyecto("Proyecto App Netflix", "Netflix", "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
                 "Completado", "Descripcion de proyecto de prueba", Date.from(LocalDate.of(2024, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()),
-                Date.from(LocalDate.of(2024, 1, 25).atStartOfDay(ZoneId.systemDefault()).toInstant()), usuario, new ArrayList<>(), new ArrayList<>(), new ArrayList<>(List.of(usuario,usuarios.get(1),usuarios.get(2))));
+                Date.from(LocalDate.of(2024, 1, 25).atStartOfDay(ZoneId.systemDefault()).toInstant()), usuario, new ArrayList<>(), new ArrayList<>(), new ArrayList<>(List.of(usuario,usuarios.get(1),usuarios.get(2))),"");
 
         proyecto.getTareas().add(this.tareas.get(0));
         proyecto.getNotas().add(this.notas.get(0));
@@ -70,7 +70,7 @@ public class Data {
 
         Proyecto proyecto2 = new Proyecto("Proyecto App Uber", "Uber", "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
                 "Completado", "Descripcion de proyecto de prueba",  Date.from(LocalDate.of(2024, 4, 6).atStartOfDay(ZoneId.systemDefault()).toInstant()),
-                Date.from(LocalDate.of(2024, 4, 8).atStartOfDay(ZoneId.systemDefault()).toInstant()), usuario, new ArrayList<>(), new ArrayList<>(), new ArrayList<>(List.of(usuario)));
+                Date.from(LocalDate.of(2024, 4, 8).atStartOfDay(ZoneId.systemDefault()).toInstant()), usuario, new ArrayList<>(), new ArrayList<>(), new ArrayList<>(List.of(usuario)),"");
 
         proyecto2.getTareas().add(this.tareas.get(1));
         proyecto2.getNotas().add(this.notas.get(1));
@@ -79,7 +79,7 @@ public class Data {
 
         Proyecto proyecto3 = new Proyecto("Proyecto App Discord", "Discord", "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
                 "En proceso", "Descripcion de proyecto de prueba",  Date.from(LocalDate.of(2024, 4, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()),
-                Date.from(LocalDate.of(2024, 4, 8).atStartOfDay(ZoneId.systemDefault()).toInstant()), usuario, new ArrayList<>(), new ArrayList<>(), new ArrayList<>(List.of(usuario)));
+                Date.from(LocalDate.of(2024, 4, 8).atStartOfDay(ZoneId.systemDefault()).toInstant()), usuario, new ArrayList<>(), new ArrayList<>(), new ArrayList<>(List.of(usuario)),"");
 
         proyecto3.getTareas().add(this.tareas.get(2));
         proyecto3.getNotas().add(this.notas.get(2));
@@ -88,7 +88,7 @@ public class Data {
 
         Proyecto proyecto4 = new Proyecto("Proyecto App Movistar", "Movistar", "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
                 "Pendiente", "Descripcion de proyecto de prueba",  Date.from(LocalDate.of(2024, 3, 3).atStartOfDay(ZoneId.systemDefault()).toInstant()),
-                Date.from(LocalDate.of(2024, 3, 29).atStartOfDay(ZoneId.systemDefault()).toInstant()), usuario, new ArrayList<>(), new ArrayList<>(), new ArrayList<>(List.of(usuario)));
+                Date.from(LocalDate.of(2024, 3, 29).atStartOfDay(ZoneId.systemDefault()).toInstant()), usuario, new ArrayList<>(), new ArrayList<>(), new ArrayList<>(List.of(usuario)),"");
 
         proyecto4.getTareas().add(this.tareas.get(3));
         proyecto4.getNotas().add(this.notas.get(3));
