@@ -17,6 +17,7 @@ import modelo.Data;
 import modelo.Proyecto;
 
 import java.io.File;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -74,8 +75,21 @@ public class ControllerVistaCrearProyecto {
         this.data.getProyectos().add(new Proyecto(this.introducirNombre.getText(),
                 this.seleccionarCliente.getValue(),this.imagenSeleccionada,"En proceso",this.introducirDescripcion.getText(),dateHoy,dateCrear,this.data.getCurrentUser(),
                 new ArrayList<>(),new ArrayList<>(),new ArrayList<>(List.of(this.data.getCurrentUser()))));
+        try {
+            this.data.getListaControladores().getControllerMenuLateral().mostrarProyectos(null);
+        }catch (IOException err){
+            System.out.println(err.getMessage());
+        }
+
+
+
+
     }
 
+    /**
+     * Método que se encarga de elegir la imagen para el proyecto
+     * @param event
+     */
     @FXML
     void imagen(MouseEvent event) {
         FileChooser filechooser = new FileChooser();
@@ -91,6 +105,10 @@ public class ControllerVistaCrearProyecto {
         }
     }
 
+    /**
+     * Método que selecciona el vídeo para el proyecto
+     * @param event
+     */
     @FXML
     void video(MouseEvent event) {
         FileChooser fileChooser = new FileChooser();
