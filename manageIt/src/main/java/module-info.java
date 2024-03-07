@@ -1,6 +1,7 @@
 module com.example.manageit {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.media;
     requires MaterialFX;
     requires atlantafx.base;
 

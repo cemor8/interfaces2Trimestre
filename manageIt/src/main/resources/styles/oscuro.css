@@ -271,7 +271,7 @@ Vista Crear Proyecto
 */
 .contenedor{
     -fx-background-color : #1F1F1F;
-    -fx-border-radius : 34px
+    -fx-background-radius : 10px
 }
 .labelCrear{
     -fx-text-fill: "white";
@@ -282,6 +282,21 @@ Vista Crear Proyecto
     -fx-text-fill: "white";
     -fx-font-family:"Roboto";
     -fx-font-size: 30px;
+}
+
+.introducirNombreCrear{
+    -fx-max-width: 250px;
+    -fx-max-height: 40px;
+}
+.btnCrear{
+    -fx-background-color : #00E18A;
+    -fx-text-fill : "black";
+    -fx-background-radius : 5px;
+    -fx-font-family : "Roboto";
+    -fx-text-size : 18px;
+}
+.placeholderImagen{
+    -fx-image: url(../images/global/placeholder.jpg);
 }
 
 /*
