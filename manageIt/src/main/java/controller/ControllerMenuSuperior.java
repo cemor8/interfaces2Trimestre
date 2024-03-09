@@ -1,5 +1,6 @@
 package controller;
 
+import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -28,6 +29,8 @@ public class ControllerMenuSuperior {
     private Label nombre;
 
     @FXML
+    private MFXButton btnBuscar;
+    @FXML
     private AnchorPane menuSuperior;
     private Data data;
     @FXML
@@ -39,6 +42,7 @@ public class ControllerMenuSuperior {
      */
     public void recibirData(Data data){
         this.data = data;
+        this.btnBuscar.setText("");
         this.ponerImagen();
         Platform.runLater(() -> {
             this.menuSuperior.requestFocus();
@@ -86,8 +90,40 @@ public class ControllerMenuSuperior {
      */
     @FXML
     void verProyectos(MouseEvent event) throws IOException {
-
         this.data.getListaControladores().getControllerMenuLateral().mostrarProyectos(null);
+    }
+
+    /**
+     * Método que busca proyectos que tengan el texto de la barra de búsqueda
+     * @param event
+     * @throws IOException
+     */
+    @FXML
+    void buscar(MouseEvent event) throws IOException {
+        if (this.barraBusqueda.getText().isEmpty()){
+            return;
+        }
+        String texto = this.barraBusqueda.getText();
+        ArrayList<Proyecto> proyectos = new ArrayList<>();
+        for (Proyecto proyecto : this.data.getProyectos()) {
+            if (proyecto.getJefeProyecto().getCorreo().equalsIgnoreCase(this.data.getCurrentUser().getCorreo()) && proyecto.getNombre().toLowerCase().contains(texto.toLowerCase())){
+                proyectos.add(proyecto);
+                continue;
+            }
+            for (Usuario usuario : proyecto.getPersonasAsignadas()) {
+                if (usuario.getCorreo().equals(this.data.getCurrentUser().getCorreo()) && proyecto.getNombre().toLowerCase().contains(texto.toLowerCase()) ) {
+                    proyectos.add(proyecto);
+                    break;
+                }
+            }
+        }
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/proyectos.fxml"), CambiarIdioma.getInstance().getBundle());
+        Parent root = fxmlLoader.load();
+        ControllerProyectos controllerProyectos = fxmlLoader.getController();
+        controllerProyectos.recibirData(this.data,proyectos);
+        this.data.getListaControladores().getControllerContenedor().rellenarContenido(root);
+
     }
 
 }
