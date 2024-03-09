@@ -95,6 +95,9 @@ public class ControllerVistaCadaContacto {
             this.btn.setText(CambiarIdioma.getInstance().getBundle().getString("contactoVista.meter"));
         }
         this.cargarContacto();
+        if(this.data.getCurrentUser().getCorreo().equalsIgnoreCase(contacto.getCorreo())){
+            this.btn.setVisible(false);
+        }
     }
 
 }

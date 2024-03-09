@@ -18,9 +18,9 @@ import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ControllerVistaCrearProyecto {
 
@@ -53,8 +53,29 @@ public class ControllerVistaCrearProyecto {
     @FXML
     private ComboBox<String> seleccionarCliente;
     private Data data;
+    @FXML
+    private Label errorCliente;
+
+    @FXML
+    private Label errorDescrip;
+
+    @FXML
+    private Label errorFecha;
+
+    @FXML
+    private Label errorImagen;
+
+    @FXML
+    private Label errorNombre;
     private String imagenSeleccionada;
     private String videoSeleccionado = "";
+    Map<String, String> columnasExpresiones = new HashMap<String, String>() {
+        {
+            put("descripcion", "^.{15,100}$");
+            put("nombre", "^^.{5,25}$");
+        }
+
+    };
 
     /**
      * Método que se encarga de crear el proyecto
@@ -62,10 +83,40 @@ public class ControllerVistaCrearProyecto {
      */
     @FXML
     void crear(MouseEvent event) {
-        if (this.imagenSeleccionada == null || this.introducirDescripcion.getText() == null || this.introducirNombre.getText() == null
-        || this.seleccionarCliente.getValue() == null || this.datePicker.getValue() == null){
+        errorFecha.setText("");
+        errorCliente.setText("");
+        errorDescrip.setText("");
+        errorNombre.setText("");
+        errorImagen.setText("");
+
+        boolean error = false;
+        if (imagenSeleccionada == null) {
+            errorImagen.setText("Selecciona imagen");
+            error = true;
+        }
+        if (!validarContenido(this.columnasExpresiones.get("descripcion"), this.introducirDescripcion.getText())) {
+            errorDescrip.setText("Descripcion de 15 - 100 caracteres");
+            error = true;
+        }
+        if (!validarContenido(this.columnasExpresiones.get("nombre"), this.introducirNombre.getText())) {
+            errorNombre.setText("Nombre de 5 - 25 caracteres");
+            error = true;
+        }
+        if(seleccionarCliente.getValue() == null){
+            errorCliente.setText("Introduce un cliente");
+            error = true;
+        }
+        if(this.datePicker.getValue() == null){
+            errorFecha.setText("Introduce una fecha de entrega");
+            error = true;
+        }
+
+
+        if (error){
             return;
         }
+
+
         LocalDate today = LocalDate.now();
         Date dateHoy = Date.from(today.atStartOfDay(ZoneId.systemDefault()).toInstant());
         Date dateCrear = Date.from(this.datePicker.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
@@ -134,6 +185,17 @@ public class ControllerVistaCrearProyecto {
         this.datePicker.getValue();
 
 
+    }
+    /**
+     * Método que devuelve true si se cumple una expresion regular en una string
+     *
+     * @param patron       expresion regular
+     * @param texto_buscar texto donde buscar el patron
+     */
+    public boolean validarContenido(String patron, String texto_buscar) {
+        Pattern patronValidar = Pattern.compile(patron);
+        Matcher matcher = patronValidar.matcher(texto_buscar);
+        return matcher.matches();
     }
 
 }

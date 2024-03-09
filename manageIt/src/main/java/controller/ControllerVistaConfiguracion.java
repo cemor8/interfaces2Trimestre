@@ -1,6 +1,8 @@
 package controller;
 
+import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXTextField;
+import javafx.css.PseudoClass;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
@@ -15,6 +17,17 @@ public class ControllerVistaConfiguracion {
 
     @FXML
     private ImageView imgPersona;
+    @FXML
+    private MFXButton btnClaro;
+
+    @FXML
+    private MFXButton btnEspañol;
+
+    @FXML
+    private MFXButton btnIngles;
+
+    @FXML
+    private MFXButton btnOscuro;
 
     @FXML
     private MFXTextField introducirApellido;
@@ -76,6 +89,24 @@ public class ControllerVistaConfiguracion {
     }
     public void inicializar(){
         this.imgPersona.setImage(new Image("file:"+this.data.getCurrentUser().getRutaImagen()));
+        this.introducirBio.setText(this.data.getCurrentUser().getDescripcion());
+        this.introducirNombre.setPromptText(this.data.getCurrentUser().getNombre());
+        this.introducirApellido.setPromptText(this.data.getCurrentUser().getApellidos());
+
+        if (this.data.isEspañol()){
+            this.btnEspañol.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),true);
+            this.btnIngles.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),false);
+        }else {
+            this.btnEspañol.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),false);
+            this.btnIngles.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),true);
+        }
+        if (this.data.isOscuro()){
+            this.btnOscuro.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),true);
+            this.btnClaro.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),false);
+        }else{
+            this.btnOscuro.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),false);
+            this.btnClaro.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),true);
+        }
     }
 
 }

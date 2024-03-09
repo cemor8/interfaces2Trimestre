@@ -62,7 +62,9 @@ public class ControllerContactos {
             imgBorrar.setFitHeight(30);
             imgBorrar.setFitWidth(30);
             imgBorrar.setId(String.valueOf(this.contactos.indexOf(contacto)));
-
+            if(this.data.getCurrentUser().getCorreo().equalsIgnoreCase(contacto.getCorreo())){
+                imgBorrar.setDisable(true);
+            }
 
             ImageView imgVer = new ImageView();
             imgVer.getStyleClass().add("ojoVistaCadaProyecto");
@@ -134,6 +136,9 @@ public class ControllerContactos {
                 imgAñadir.setDisable(true);
             }
 
+            if(this.data.getCurrentUser().getCorreo().equalsIgnoreCase(contacto.getCorreo())){
+                imgAñadir.setDisable(true);
+            }
             HBox.setMargin(nameLabel,new Insets(0,50,0,65));
             HBox.setMargin(imgAñadir,new Insets(0,10,0,0));
             hBox.getChildren().addAll(imageView,nameLabel,imgVer,imgAñadir);

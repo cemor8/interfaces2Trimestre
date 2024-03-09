@@ -33,8 +33,12 @@ public class ControllerTareas {
      * @param event
      */
     @FXML
-    void meter(MouseEvent event) {
-
+    void meter(MouseEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/vistaCrearTarea.fxml"), CambiarIdioma.getInstance().getBundle());
+        Parent root = fxmlLoader.load();
+        ControllerVistaCrearTarea controllerVistaCrearTarea = fxmlLoader.getController();
+        controllerVistaCrearTarea.recibirData(this.data,this.tareas);
+        this.data.getListaControladores().getControllerContenedor().rellenarContenido(root);
     }
 
     /**

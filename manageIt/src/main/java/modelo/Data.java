@@ -14,6 +14,7 @@ public class Data {
     private Usuario currentUser;
     private ListaControladores listaControladores;
     private boolean oscuro = true;
+    private boolean español = true;
 
     public Data() {
         this.notas = new ArrayList<>();
@@ -104,7 +105,7 @@ public class Data {
 
         Tarea tarea = new Tarea("Tarea de prueba", "En proceso", "BBDD", "Descripcion de tarea de prueba",
                 Date.from(LocalDate.of(2024, 1, 10).atStartOfDay(ZoneId.systemDefault()).toInstant()), Date.from(LocalDate.of(2024, 1, 12).atStartOfDay(ZoneId.systemDefault()).toInstant()),
-                "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png", new ArrayList<>(), new ArrayList<>(List.of(usuario)), usuario);
+                "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png", new ArrayList<>(), new ArrayList<>(List.of(usuario)), usuario,"");
         this.tareas.add(tarea);
 
         Nota nota = new Nota("Nota de prueba", "Descripcion de nota de prueba", "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
@@ -114,18 +115,18 @@ public class Data {
 
         Tarea tarea2 = new Tarea("Tarea de prueba 2", "En proceso", "Programacion", "Descripcion de tarea de prueba",
                 Date.from(LocalDate.of(2024, 4, 8).atStartOfDay(ZoneId.systemDefault()).toInstant()),  Date.from(LocalDate.of(2024, 4, 8).atStartOfDay(ZoneId.systemDefault()).toInstant()),
-                "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png", new ArrayList<>(), new ArrayList<>(List.of(usuario)), usuario);
+                "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png", new ArrayList<>(), new ArrayList<>(List.of(usuario)), usuario,"");
 
         this.tareas.add(tarea2);
 
         Tarea tarea3 = new Tarea("Tarea de prueba 3", "Pendiente", "Web", "Descripcion de tarea de prueba",
                 Date.from(LocalDate.of(2024, 4, 2).atStartOfDay(ZoneId.systemDefault()).toInstant()), Date.from(LocalDate.of(2024, 4, 7).atStartOfDay(ZoneId.systemDefault()).toInstant()),
-                "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png", new ArrayList<>(), new ArrayList<>(List.of(usuario)), usuario);
+                "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png", new ArrayList<>(), new ArrayList<>(List.of(usuario)), usuario,"");
 
         this.tareas.add(tarea3);
         Tarea tarea4 = new Tarea("Tarea de prueba 4", "En proceso", "Programacion", "Descripcion de tarea de prueba",
                 Date.from(LocalDate.of(2024, 3, 24).atStartOfDay(ZoneId.systemDefault()).toInstant()),  Date.from(LocalDate.of(2024, 3, 28).atStartOfDay(ZoneId.systemDefault()).toInstant()),
-                "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png", new ArrayList<>(), new ArrayList<>(List.of(usuario)), usuario);
+                "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png", new ArrayList<>(), new ArrayList<>(List.of(usuario)), usuario,"");
 
         this.tareas.add(tarea4);
 
@@ -210,6 +211,18 @@ public class Data {
 
     public ListaControladores getListaControladores() {
         return listaControladores;
+    }
+
+    public ArrayList<Nota> getNotas() {
+        return notas;
+    }
+
+    public void setEspañol(boolean español) {
+        this.español = español;
+    }
+
+    public boolean isEspañol() {
+        return español;
     }
 
     public void setListaControladores(ListaControladores listaControladores) {

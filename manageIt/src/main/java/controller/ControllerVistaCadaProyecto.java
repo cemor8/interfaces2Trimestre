@@ -183,11 +183,13 @@ public class ControllerVistaCadaProyecto {
             this.imgGuardarDesc.setDisable(true);
             this.labelDescripcion.setEditable(false);
         }
+        if (this.proyecto.getRutaVideo() != null && !this.proyecto.getRutaVideo().equalsIgnoreCase("")){
+            Media media2 = new Media(this.proyecto.getRutaVideo());
+            MediaPlayer mediaPlayer = new MediaPlayer(media2);
+            this.video.setMediaPlayer(mediaPlayer);
+            mediaPlayer.play();
+        }
 
-        Media media2 = new Media(this.proyecto.getRutaVideo());
-        MediaPlayer mediaPlayer = new MediaPlayer(media2);
-        this.video.setMediaPlayer(mediaPlayer);
-        mediaPlayer.play();
 
 
     }
