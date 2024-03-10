@@ -5,10 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
-import modelo.CambiarIdioma;
-import modelo.Data;
-import modelo.Proyecto;
-import modelo.Usuario;
+import modelo.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -81,10 +78,27 @@ public class ControllerContenedor {
                 }
             }
         }
+        ArrayList<Tarea> tareas = new ArrayList<>();
+        for (Proyecto proyecto : this.data.getProyectos()){
+            for (Tarea tarea : proyecto.getTareas()){
+                if (tarea.getCreador().getCorreo().equalsIgnoreCase(this.data.getCurrentUser().getCorreo())){
+                    tareas.add(tarea);
+                    continue;
+                }
+                for (Usuario usuario : tarea.getPersonasAsignadas()){
+                    if (usuario.getCorreo().equalsIgnoreCase(this.data.getCurrentUser().getCorreo())){
+                        tareas.add(tarea);
+                        break;
+                    }
+                }
+            }
+        }
+
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/panel.fxml"), CambiarIdioma.getInstance().getBundle());
         Parent root = fxmlLoader.load();
         ControllerPanel controllerPanel = fxmlLoader.getController();
-        controllerPanel.recibirData(this.data,proyectos);
+        controllerPanel.recibirData(this.data,proyectos,tareas);
         this.data.getListaControladores().getControllerMenuLateral().iniciarPanel();
         this.rellenarContenido(root);
 

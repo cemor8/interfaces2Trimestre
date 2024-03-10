@@ -34,10 +34,10 @@ public class ControllerMenuLateral {
     private HBox hboxPanel;
 
     @FXML
-    private HBox hboxProyectos;
+    public HBox hboxProyectos;
 
     @FXML
-    private HBox hboxTareas;
+    public HBox hboxTareas;
     @FXML
     private ImageView imagenContactos;
     @FXML
@@ -53,13 +53,13 @@ public class ControllerMenuLateral {
     private ImageView imagenPanel;
 
     @FXML
-    private ImageView imagenProyectos;
+    public ImageView imagenProyectos;
 
     @FXML
     private ImageView imagenSalir;
 
     @FXML
-    private ImageView imagenTareas;
+    public ImageView imagenTareas;
     private Data data;
 
     /**
@@ -154,10 +154,28 @@ public class ControllerMenuLateral {
                 }
             }
         }
+        ArrayList<Tarea> tareas = new ArrayList<>();
+        for (Proyecto proyecto : this.data.getProyectos()){
+            for (Tarea tarea : proyecto.getTareas()){
+                if (tarea.getCreador().getCorreo().equalsIgnoreCase(this.data.getCurrentUser().getCorreo())){
+                    tareas.add(tarea);
+                    continue;
+                }
+                for (Usuario usuario : tarea.getPersonasAsignadas()){
+                    if (usuario.getCorreo().equalsIgnoreCase(this.data.getCurrentUser().getCorreo())){
+                        tareas.add(tarea);
+                        break;
+                    }
+                }
+            }
+        }
+
+
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/panel.fxml"), CambiarIdioma.getInstance().getBundle());
         Parent root = fxmlLoader.load();
         ControllerPanel controllerPanel = fxmlLoader.getController();
-        controllerPanel.recibirData(this.data,proyectos);
+        controllerPanel.recibirData(this.data,proyectos,tareas);
         this.data.getListaControladores().getControllerContenedor().rellenarContenido(root);
 
         this.reiniciarHbox();
