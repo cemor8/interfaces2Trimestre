@@ -136,33 +136,33 @@ public class Data {
     public void crearNotas(){
         Usuario usuario = this.usuarios.get(0);
 
-        Nota nota = new Nota("Nota de prueba personal", "Descripcion de nota de prueba", "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
+        Nota nota = new Nota("Nota de pruebaP", "Descripcion de nota de prueba", "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
                 Date.from(LocalDate.of(2024, 2, 12).atStartOfDay(ZoneId.systemDefault()).toInstant()), usuario);
         usuario.getNotas().add(nota);
     }
     public void crearNotasProyectos(){
         Usuario usuario = this.usuarios.get(0);
 
-        Nota nota = new Nota("Nota de prueba global", "Descripcion de nota de prueba", "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
+        Nota nota = new Nota("Nota de prueba", "Descripcion de nota de prueba", "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
                 Date.from(LocalDate.of(2024, 1, 1).atStartOfDay(ZoneId.systemDefault()).toInstant()), usuario);
         this.notas.add(nota);
 
 
-        Nota nota2 = new Nota("Nota de prueba global 2 ", "Descripcion de nota de prueba", "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
+        Nota nota2 = new Nota("Nota de prueba2 ", "Descripcion de nota de prueba", "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
                 Date.from(LocalDate.of(2024, 4, 5).atStartOfDay(ZoneId.systemDefault()).toInstant()), usuario);
         this.notas.add(nota2);
 
 
-        Nota nota3 = new Nota("Nota de prueba global 3 ", "Descripcion de nota de prueba", "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
+        Nota nota3 = new Nota("Nota de prueba3 ", "Descripcion de nota de prueba", "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
                 Date.from(LocalDate.of(2024, 4, 7).atStartOfDay(ZoneId.systemDefault()).toInstant()), usuario);
         this.notas.add(nota3);
 
 
-        Nota nota4 = new Nota("Nota de prueba global 4 ", "Descripcion de nota de prueba", "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
+        Nota nota4 = new Nota("Nota de prueba4 ", "Descripcion de nota de prueba", "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
                 Date.from(LocalDate.of(2024, 3, 28).atStartOfDay(ZoneId.systemDefault()).toInstant()), usuario);
         this.notas.add(nota4);
 
-        Nota nota5 = new Nota("Nota de prueba global 4 ", "Descripcion de nota de prueba", "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
+        Nota nota5 = new Nota("Nota de prueba4 ", "Descripcion de nota de prueba", "src/main/resources/images/proyectos/vistaCadaProyecto/fondoProyectoPrueba.png",
                 Date.from(LocalDate.of(2024, 1, 24).atStartOfDay(ZoneId.systemDefault()).toInstant()), usuarios.get(1));
         this.notas.add(nota5);
     }

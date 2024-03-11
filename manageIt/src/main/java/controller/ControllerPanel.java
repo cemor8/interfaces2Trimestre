@@ -228,6 +228,11 @@ public class ControllerPanel {
         this.labelProyectosTotales.setText(String.valueOf(this.proyectosAsignados.size()));
         this.labelTareasTotales.setText(String.valueOf(this.tareasAsignadas.size()));
 
+        int cantidadTareas = (int) this.tareasAsignadas.stream().filter(tarea -> tarea.getEstado().equalsIgnoreCase("Completado")).count();
+        int cantidadProyectos = (int) this.proyectosAsignados.stream().filter(proyecto -> proyecto.getEstado().equalsIgnoreCase("Completado")).count();
+
+        this.labelTareasTerminados.setText(String.valueOf(cantidadTareas));
+        this.labelProyectosTerminados.setText(String.valueOf(cantidadProyectos));
 
 
 

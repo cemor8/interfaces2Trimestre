@@ -82,7 +82,10 @@ public class ControllerNotas {
     }
     @FXML
     void guardarNota(MouseEvent event) {
-        this.notaSeleccionada.setRutaImagen(rutaImagenElegida);
+        System.out.println(this.notaSeleccionada);
+        if (rutaImagenElegida != null && !rutaImagenElegida.isEmpty()){
+            this.notaSeleccionada.setRutaImagen(rutaImagenElegida);
+        }
         this.notaSeleccionada.setTitulo(this.tituloNota.getText());
         this.notaSeleccionada.setDescripcion(this.descripcion.getText());
     }
@@ -113,7 +116,7 @@ public class ControllerNotas {
             this.cargarNota(this.notasRecorrer.get(0));
         }
 
-        final int maxLength = 15; // Máximo número de caracteres
+        final int maxLength = 25; // Máximo número de caracteres
         UnaryOperator<TextFormatter.Change> textFormatterFilter = change -> {
             String newText = change.getControlNewText();
             if (newText.length() > maxLength) {
@@ -139,6 +142,7 @@ public class ControllerNotas {
     }
     public void cargarNota(Nota nota){
         this.notaSeleccionada = nota;
+
         this.imgEditar.setVisible(true);
         this.tituloNota.setEditable(true);
         this.creadorTexto.setVisible(true);
@@ -146,7 +150,11 @@ public class ControllerNotas {
         this.btnGuardarCambios.setVisible(true);
         this.img.setImage(null);
         this.calendario.setVisible(true);
+        System.out.println(this.notaSeleccionada.getTitulo());
+        this.tituloNota.setText("");
         this.tituloNota.setText(this.notaSeleccionada.getTitulo());
+        System.out.println("obtenido");
+        System.out.println(this.tituloNota.getText());
 
         this.descripcion.setText(this.notaSeleccionada.getDescripcion());
 
@@ -162,7 +170,7 @@ public class ControllerNotas {
         );
         clip.setArcWidth(10);
         clip.setArcHeight(10);
-        if(!this.notaSeleccionada.getRutaImagen().isEmpty()){
+        if(this.notaSeleccionada.getRutaImagen()!=null && !this.notaSeleccionada.getRutaImagen().isEmpty()){
             this.img.setImage(new Image("file:"+this.notaSeleccionada.getRutaImagen()));
         }
 

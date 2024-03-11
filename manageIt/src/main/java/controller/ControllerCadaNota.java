@@ -58,6 +58,7 @@ public class ControllerCadaNota {
     @FXML
     void ver(MouseEvent event) {
         /* Cambiar el contenido del anterior controlador */
+        System.out.println(this.nota);
         this.data.getListaControladores().getControllerNotas().cargarNota(this.nota);
 
     }

@@ -56,4 +56,15 @@ public class Nota {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
+
+    @Override
+    public String toString() {
+        return "Nota{" +
+                "titulo='" + titulo + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", rutaImagen='" + rutaImagen + '\'' +
+                ", fechaCreacion=" + fechaCreacion +
+                ", usuario=" + usuario +
+                '}';
+    }
 }
