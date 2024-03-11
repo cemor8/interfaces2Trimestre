@@ -73,6 +73,10 @@ public class ControllerVistaConfiguracion {
 
     };
 
+    /**
+     * Método que se encarga de cambiar a modo claro
+     * @param event
+     */
     @FXML
     void cambiarClaro(MouseEvent event) {
         if (!this.data.isOscuro()){
@@ -178,6 +182,10 @@ public class ControllerVistaConfiguracion {
 
     }
 
+    /**
+     * Método que se encarga de cambiar a modo oscuro
+     * @param event
+     */
     @FXML
     void cambiarOscuro(MouseEvent event) {
         if (this.data.isOscuro()){
@@ -188,6 +196,10 @@ public class ControllerVistaConfiguracion {
         this.data.setOscuro(true);
     }
 
+    /**
+     * Método que se encarga de cambiar la imagen
+     * @param event
+     */
     @FXML
     void editarImagen(MouseEvent event) {
         FileChooser filechooser = new FileChooser();
@@ -203,6 +215,10 @@ public class ControllerVistaConfiguracion {
         }
     }
 
+    /**
+     * Método que se encarga de cambiar el apellido
+     * @param event
+     */
     @FXML
     void guardarApellido(MouseEvent event) {
         if (!validarContenido(this.columnasExpresiones.get("apellido"), this.introducirApellido.getText())) {
@@ -212,6 +228,10 @@ public class ControllerVistaConfiguracion {
         this.data.getCurrentUser().setApellidos(this.introducirApellido.getText());
     }
 
+    /**
+     * Método que se encarga de guardar la bio
+     * @param event
+     */
     @FXML
     void guardarBio(MouseEvent event) {
         if (!validarContenido(this.columnasExpresiones.get("descripcion"), this.introducirBio.getText())) {
@@ -221,6 +241,11 @@ public class ControllerVistaConfiguracion {
         this.data.getCurrentUser().setDescripcion(this.introducirBio.getText());
     }
 
+    /**
+     * Método que se encarga de guardar la imagen
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void guardarImagen(MouseEvent event) throws IOException {
         if (this.rutaImagen!= null && !this.rutaImagen.equalsIgnoreCase("")){
@@ -229,6 +254,11 @@ public class ControllerVistaConfiguracion {
         }
     }
 
+    /**
+     * Método que se encarga de guardar el nombre
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void guardarNombre(MouseEvent event) throws IOException {
         if (!validarContenido(this.columnasExpresiones.get("nombre"), this.introducirNombre.getText())) {
@@ -239,6 +269,11 @@ public class ControllerVistaConfiguracion {
         this.data.getListaControladores().getControllerContenedor().cargarSuperior();
 
     }
+
+    /**
+     * Método que se encarga de recibir informacion
+     * @param data
+     */
     public void recibirData(Data data){
         this.data = data;
         this.inicializar();
