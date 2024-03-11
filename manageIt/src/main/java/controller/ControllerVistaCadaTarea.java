@@ -11,6 +11,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import modelo.CambiarIdioma;
@@ -18,15 +21,22 @@ import modelo.Data;
 import modelo.Proyecto;
 import modelo.Tarea;
 
+import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ControllerVistaCadaTarea {
 
     @FXML
     private MFXButton btnAtras;
+    @FXML
+    private MediaView video;
     @FXML
     private Label cliente;
 
@@ -34,6 +44,7 @@ public class ControllerVistaCadaTarea {
     private MFXButton btnGuardar;
     @FXML
     private ImageView imgGuardarDesc;
+    private boolean meter;
     @FXML
     private Label creacion;
 
@@ -60,6 +71,13 @@ public class ControllerVistaCadaTarea {
     private Data data;
     private Tarea tarea;
     private ArrayList<Tarea> tareas;
+    Map<String, String> columnasExpresiones = new HashMap<String, String>() {
+        {
+            put("descripcion", "^.{15,100}$");
+            put("nombre", "^^.{5,25}$");
+        }
+
+    };
 
     /**
      * Método que guarda el estado de la tarea
@@ -122,7 +140,7 @@ public class ControllerVistaCadaTarea {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/tareas.fxml"), CambiarIdioma.getInstance().getBundle());
         Parent root = fxmlLoader.load();
         ControllerTareas controllerTareas = fxmlLoader.getController();
-        controllerTareas.recibirData(this.data,this.tareas);
+        controllerTareas.recibirData(this.data,this.tareas,this.meter);
         this.data.getListaControladores().getControllerContenedor().rellenarContenido(root);
     }
 
@@ -132,9 +150,10 @@ public class ControllerVistaCadaTarea {
      * @param tarea tarea seleccionada
      * @param tareas    lista de tareas
      */
-    public void recibirData(Data data,Tarea tarea, ArrayList<Tarea> tareas){
+    public void recibirData(Data data,Tarea tarea, ArrayList<Tarea> tareas,boolean meter){
         this.tarea = tarea;
         this.data = data;
+        this.meter = meter;
         this.tareas = tareas;
         this.inicializar();
     }
@@ -194,8 +213,43 @@ public class ControllerVistaCadaTarea {
             this.imgGuardarDesc.setDisable(true);
             this.labelDescripcion.setEditable(false);
         }
+        if (this.tarea.getRutaVideo() != null && !this.tarea.getRutaVideo().equalsIgnoreCase("")){
+            File file = new File(this.tarea.getRutaVideo());
+            String mediaUrl = file.toURI().toString();
+            Media media2 = new Media(mediaUrl);
+            MediaPlayer mediaPlayer = new MediaPlayer(media2);
+            this.video.setMediaPlayer(mediaPlayer);
+            mediaPlayer.setOnEndOfMedia(() -> {
+                mediaPlayer.stop();
+                mediaPlayer.play();
+            });
 
+            mediaPlayer.play();
+        }
 
+    }
+
+    /**
+     * Método que guarda la descripcion de cada tarea
+     * @param event
+     */
+    @FXML
+    void guardarDesc(MouseEvent event) {
+        if (!validarContenido(this.columnasExpresiones.get("descripcion"), this.labelDescripcion.getText())) {
+            return;
+        }
+        this.tarea.setDescripcion(this.labelDescripcion.getText());
+    }
+    /**
+     * Método que devuelve true si se cumple una expresion regular en una string
+     *
+     * @param patron       expresion regular
+     * @param texto_buscar texto donde buscar el patron
+     */
+    public boolean validarContenido(String patron, String texto_buscar) {
+        Pattern patronValidar = Pattern.compile(patron);
+        Matcher matcher = patronValidar.matcher(texto_buscar);
+        return matcher.matches();
     }
 
 }

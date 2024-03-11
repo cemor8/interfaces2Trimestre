@@ -5,6 +5,7 @@ import javafx.css.PseudoClass;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -93,8 +94,9 @@ public class ControllerPanel {
             titulo.setMaxHeight(40);
 
 
+
             Label estado = new Label(proyectosAsignados.get(i).getEstado());
-            estado.getStyleClass().add("estadoTarjetaProyecto");
+
             estado.setMinWidth(100);
             estado.setPrefWidth(100);
             estado.setMinWidth(100);
@@ -102,15 +104,24 @@ public class ControllerPanel {
             estado.setMinHeight(40);
             estado.setMaxHeight(40);
 
+            if (proyectosAsignados.get(i).getEstado().equalsIgnoreCase("pendiente")){
+                estado.getStyleClass().add("pendiente");
+            }else if(proyectosAsignados.get(i).getEstado().equalsIgnoreCase("completado")){
+                estado.getStyleClass().add("completado");
+            }else if(proyectosAsignados.get(i).getEstado().equalsIgnoreCase("en proceso")){
+                estado.getStyleClass().add("proceso");
+            }
+            estado.setAlignment(Pos.CENTER);
 
             MFXButton btnver = new MFXButton();
             btnver.getStyleClass().add("btnTarjetaProyecto");
             btnver.setOnMouseClicked(this::cargarProyecto);
+            btnver.setText("Ver");
             btnver.setId(String.valueOf(i));
-
+            HBox.setMargin(estado,new Insets(0,0,0,30));
             HBox.setMargin(btnver,new Insets(0,0,0,40));
             hBox.getChildren().addAll(titulo,estado,btnver);
-
+            VBox.setMargin(hBox,new Insets(10,5,10,5));
             this.contenedorCadaProyecto.getChildren().add(hBox);
 
 
@@ -152,7 +163,7 @@ public class ControllerPanel {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/vistaCadaTarea.fxml"), CambiarIdioma.getInstance().getBundle());
             Parent root = fxmlLoader.load();
             ControllerVistaCadaTarea controllerVistaCadaTarea = fxmlLoader.getController();
-            controllerVistaCadaTarea.recibirData(this.data,tarea,this.tareasAsignadas);
+            controllerVistaCadaTarea.recibirData(this.data,tarea,this.tareasAsignadas,false);
             this.data.getListaControladores().getControllerContenedor().rellenarContenido(root);
             this.data.getListaControladores().getControllerMenuLateral().reiniciarHbox();
             this.data.getListaControladores().getControllerMenuLateral().hboxTareas.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),true);
@@ -191,7 +202,13 @@ public class ControllerPanel {
 
 
             Label estado = new Label(tareasAsignadas.get(i).getEstado());
-            estado.getStyleClass().add("estadoTarjetaProyecto");
+            if (proyectosAsignados.get(i).getEstado().equalsIgnoreCase("pendiente")){
+                estado.getStyleClass().add("pendiente");
+            }else if(proyectosAsignados.get(i).getEstado().equalsIgnoreCase("completado")){
+                estado.getStyleClass().add("completado");
+            }else if(proyectosAsignados.get(i).getEstado().equalsIgnoreCase("en proceso")){
+                estado.getStyleClass().add("proceso");
+            }
             estado.setMinWidth(100);
             estado.setPrefWidth(100);
             estado.setMinWidth(100);
@@ -202,12 +219,14 @@ public class ControllerPanel {
 
             MFXButton btnver = new MFXButton();
             btnver.getStyleClass().add("btnTarjetaProyecto");
+            HBox.setMargin(estado,new Insets(0,0,0,30));
             btnver.setOnMouseClicked(this::cargarTarea);
             btnver.setId(String.valueOf(i));
-
+            estado.setAlignment(Pos.CENTER);
+            btnver.setText("Ver");
             HBox.setMargin(btnver,new Insets(0,0,0,40));
             hBox.getChildren().addAll(titulo,estado,btnver);
-
+            VBox.setMargin(hBox,new Insets(10,5,10,5));
             this.contenedorCadaTarea.getChildren().add(hBox);
 
         }

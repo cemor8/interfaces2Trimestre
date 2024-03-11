@@ -12,6 +12,11 @@ Estilos generales
     -fx-font-family : "Roboto";
     -fx-text-size : 18px;
 }
+.btn:hover{
+    -fx-scale-x: 1.1;
+        -fx-scale-y: 1.1;
+        -fx-cursor: hand;
+}
 /*
 Estilos Login
 */
@@ -65,7 +70,13 @@ Estilos Menu Superior
 
 .barraBusqueda{
     -fx-min-height: 10;
-    -fx-max-height: 35;
+    -fx-max-height: 30;
+    -fx-border-color : none;
+    -fx-text-size : 14px;
+    -fx-font-family : "Roboto";
+}
+.barraBusqueda:pressed, .barraBusqueda:hover{
+    -fx-border-color: #00E18A;
 }
 .labelMenuSuperiorNombre{
     -fx-text-fill:"white";
@@ -85,8 +96,9 @@ Estilos Panel
 }
 .labelSecciones{
     -fx-text-fill: #FFFFFF;
-    -fx-font-size: 14px;
+    -fx-font-size: 16px;
     -fx-font-family: 'Roboto Mono';
+    -fx-font-weight: bold;
 }
 
 .labelTerminado{
@@ -113,32 +125,36 @@ Estilos Panel
     -fx-background-radius: 5px;
 }
 .hboxTarjetaProyecto{
-    -fx-padding: 10;
+    -fx-padding: 5;
     -fx-spacing: 5;
     -fx-alignment: center-left;
-    -fx-border-color: #d3d3d3;
-    -fx-border-width: 1;
-    -fx-background-color: #f7f7f7;
-    -fx-border-radius: 5;
+    -fx-background-color: #454545;
     -fx-background-radius: 5;
 }
 .nombreTarjetaProyecto{
-    -fx-border-color: black;
-        -fx-border-width: 2;
     -fx-font-size: 14px;
-        -fx-text-fill: #333;
+    -fx-text-fill: white;
+    -fx-font-family : "Roboto Mono";
+    -fx-min-width: 90;
 }
 .estadoTarjetaProyecto{
     -fx-border-color: black;
-        -fx-border-width: 2;
+    -fx-border-width: 2;
 }
 .btnTarjetaProyecto{
-    -fx-background-color: #76cd77;
-    -fx-text-fill: white;
-    -fx-cursor: hand;
-    -fx-padding: 5 15;
-    -fx-border-radius: 5;
+    -fx-background-color: #00C87B;
+    -fx-padding: 5 5;
     -fx-background-radius: 5;
+    -fx-min-width: 70;
+    -fx-min-height: 30;
+    -fx-font-weight : bold;
+    -fx-font-family : "Roboto Mono";
+    -fx-text-size : 14px;
+}
+.btnTarjetaProyecto:hover{
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-cursor: hand;
 }
 
 /*
@@ -473,6 +489,7 @@ Estilos Contactos
      -fx-text-fill:"white";
      -fx-font-size: 16px;
      -fx-max-width: 125;
+     -fx-min-width: 125;
      -fx-font-family : "Roboto";
      -fx-border-color: none;
 }
@@ -772,6 +789,20 @@ Estados y clientes
 .pendiente{
      -fx-background-color : #FCF5F4;
      -fx-text-fill : #7A5651;
+     -fx-font-family : "Roboto Mono";
+     -fx-text-size : 16px;
+     -fx-background-radius : 5px;
+}
+.completado{
+     -fx-background-color : #F8EDE3;
+     -fx-text-fill : #8A6A4F;
+     -fx-font-family : "Roboto Mono";
+     -fx-text-size : 16px;
+     -fx-background-radius : 5px;
+}
+.proceso{
+     -fx-background-color : #E6F3EB;
+     -fx-text-fill : #435743;
      -fx-font-family : "Roboto Mono";
      -fx-text-size : 16px;
      -fx-background-radius : 5px;

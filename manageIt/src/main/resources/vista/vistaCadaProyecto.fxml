@@ -29,8 +29,8 @@
       <MFXButton fx:id="btnGuardar" layoutX="950.0" layoutY="393.0" onMouseClicked="#btnGuardarEstado" prefHeight="31.0" prefWidth="80.0" styleClass="btnCada" text="%cadaProyecto.guardar" />
       <Label layoutX="99.0" layoutY="495.0" prefHeight="41.0" prefWidth="130.0" styleClass="labelVistaDescripcion" text="%cadaProyecto.descripcion" />
       <TextArea fx:id="labelDescripcion" layoutX="99.0" layoutY="562.0" prefHeight="200.0" prefWidth="463.0" styleClass="areaDescripcion" wrapText="true" />
-      <ImageView fx:id="imgGuardarDesc" fitHeight="31.0" fitWidth="39.0" layoutX="574.0" layoutY="731.0" pickOnBounds="true" preserveRatio="true" styleClass="guardar" />
+      <ImageView fx:id="imgGuardarDesc" fitHeight="31.0" fitWidth="39.0" layoutX="574.0" layoutY="731.0" onMouseClicked="#guardarDesc" pickOnBounds="true" preserveRatio="true" styleClass="guardar" />
       <MediaView fx:id="video" fitHeight="200.0" fitWidth="400.0" layoutX="677.0" layoutY="562.0" />
-      <Label layoutX="681.0" layoutY="495.0" prefHeight="41.0" prefWidth="130.0" styleClass="labelVistaDescripcion" text="%cadaProyecto.descripcion" />
+      <Label layoutX="681.0" layoutY="495.0" prefHeight="41.0" prefWidth="130.0" styleClass="labelVistaDescripcion" text="%cadaProyecto.video" />
    </children>
 </AnchorPane>

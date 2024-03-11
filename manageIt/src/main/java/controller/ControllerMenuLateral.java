@@ -240,7 +240,7 @@ public class ControllerMenuLateral {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/tareas.fxml"), CambiarIdioma.getInstance().getBundle());
         Parent root = fxmlLoader.load();
         ControllerTareas controllerTareas = fxmlLoader.getController();
-        controllerTareas.recibirData(this.data,tareas);
+        controllerTareas.recibirData(this.data,tareas,false);
         this.data.getListaControladores().getControllerContenedor().rellenarContenido(root);
     }
 

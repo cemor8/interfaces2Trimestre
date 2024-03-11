@@ -18,7 +18,11 @@ import modelo.Data;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ControllerVistaConfiguracion {
 
@@ -60,6 +64,14 @@ public class ControllerVistaConfiguracion {
     public MFXTextField introducirNombre;
     public String rutaImagen;
     private Data data;
+    Map<String, String> columnasExpresiones = new HashMap<String, String>() {
+        {
+            put("descripcion", "^.{15,100}$");
+            put("nombre", "^.{5,25}$");
+            put("apellido","^[A-Za-z]+$");
+        }
+
+    };
 
     @FXML
     void cambiarClaro(MouseEvent event) {
@@ -193,26 +205,38 @@ public class ControllerVistaConfiguracion {
 
     @FXML
     void guardarApellido(MouseEvent event) {
-
+        if (!validarContenido(this.columnasExpresiones.get("apellido"), this.introducirApellido.getText())) {
+            this.errorApellidos.setText("Datos inválidos");
+            return;
+        }
+        this.data.getCurrentUser().setApellidos(this.introducirApellido.getText());
     }
 
     @FXML
     void guardarBio(MouseEvent event) {
-
-    }
-
-    @FXML
-    void guardarImagen(MouseEvent event) {
-        if (this.rutaImagen!= null && !this.rutaImagen.equalsIgnoreCase("")){
-            this.data.getCurrentUser().setRutaImagen(this.rutaImagen);
-        }
-    }
-
-    @FXML
-    void guardarNombre(MouseEvent event) {
-        if (this.introducirNombre.getText().isEmpty()){
+        if (!validarContenido(this.columnasExpresiones.get("descripcion"), this.introducirBio.getText())) {
+            this.errorBio.setText("Bio de 15 - 100 caracteres");
             return;
         }
+        this.data.getCurrentUser().setDescripcion(this.introducirBio.getText());
+    }
+
+    @FXML
+    void guardarImagen(MouseEvent event) throws IOException {
+        if (this.rutaImagen!= null && !this.rutaImagen.equalsIgnoreCase("")){
+            this.data.getCurrentUser().setRutaImagen(this.rutaImagen);
+            this.data.getListaControladores().getControllerContenedor().cargarSuperior();
+        }
+    }
+
+    @FXML
+    void guardarNombre(MouseEvent event) throws IOException {
+        if (!validarContenido(this.columnasExpresiones.get("nombre"), this.introducirNombre.getText())) {
+            this.errorNombre.setText("Nombre incorrecto");
+            return;
+        }
+        this.data.getCurrentUser().setNombre(this.introducirNombre.getText());
+        this.data.getListaControladores().getControllerContenedor().cargarSuperior();
 
     }
     public void recibirData(Data data){
@@ -243,6 +267,17 @@ public class ControllerVistaConfiguracion {
             this.btnOscuro.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),false);
             this.btnClaro.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),true);
         }
+    }
+    /**
+     * Método que devuelve true si se cumple una expresion regular en una string
+     *
+     * @param patron       expresion regular
+     * @param texto_buscar texto donde buscar el patron
+     */
+    public boolean validarContenido(String patron, String texto_buscar) {
+        Pattern patronValidar = Pattern.compile(patron);
+        Matcher matcher = patronValidar.matcher(texto_buscar);
+        return matcher.matches();
     }
 
 }

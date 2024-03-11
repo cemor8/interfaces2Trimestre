@@ -50,6 +50,7 @@ public class ControllerCadaTarea {
     private Label nombre;
     private Data data;
     private Tarea tarea;
+    private boolean meter;
     private ArrayList<Tarea> tareas;
 
     @FXML
@@ -59,7 +60,7 @@ public class ControllerCadaTarea {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/tareas.fxml"), CambiarIdioma.getInstance().getBundle());
         Parent root = fxmlLoader.load();
         ControllerTareas controllerTareas = fxmlLoader.getController();
-        controllerTareas.recibirData(this.data,this.tareas);
+        controllerTareas.recibirData(this.data,this.tareas,this.meter);
         this.data.getListaControladores().getControllerContenedor().rellenarContenido(root);
 
     }
@@ -69,7 +70,7 @@ public class ControllerCadaTarea {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/vistaCadaTarea.fxml"), CambiarIdioma.getInstance().getBundle());
         Parent root = fxmlLoader.load();
         ControllerVistaCadaTarea controllerVistaCadaTarea = fxmlLoader.getController();
-        controllerVistaCadaTarea.recibirData(this.data,this.tarea,this.tareas);
+        controllerVistaCadaTarea.recibirData(this.data,this.tarea,this.tareas,this.meter);
         this.data.getListaControladores().getControllerContenedor().rellenarContenido(root);
     }
     public void inicializar()  {
@@ -108,10 +109,11 @@ public class ControllerCadaTarea {
         Circle circulo = new Circle(this.imagenCreador.getFitWidth() / 2, this.imagenCreador.getFitHeight() / 2, this.imagenCreador.getFitWidth() / 2);
         this.imagenCreador.setClip(circulo);
     }
-    public void recibirData(Data data, Tarea tarea, ArrayList<Tarea> tareas){
+    public void recibirData(Data data, Tarea tarea, ArrayList<Tarea> tareas, boolean meter){
         this.data = data;
         this.tarea = tarea;
         this.tareas =tareas;
+        this.meter = meter;
         this.inicializar();
     }
 

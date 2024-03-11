@@ -14,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Circle;
 import modelo.CambiarIdioma;
 import modelo.Data;
 import modelo.Usuario;
@@ -52,6 +53,12 @@ public class ControllerContactos {
             imageView.setFitWidth(50);
             imageView.setFitHeight(50);
             imageView.getStyleClass().add("imagenContacto");
+            imageView.setPreserveRatio(false);
+            Circle clip = new Circle(imageView.getFitWidth() / 2, imageView.getFitHeight() / 2, imageView.getFitWidth() / 2);
+            imageView.setClip(clip);
+
+
+
 
             Label nameLabel = new Label(contacto.getNombre()+" "+contacto.getApellidos());
             nameLabel.getStyleClass().add("nombreContactoCarta");
@@ -111,7 +118,9 @@ public class ControllerContactos {
             imageView.setFitWidth(50);
             imageView.setFitHeight(50);
             imageView.getStyleClass().add("imagenContacto");
-
+            imageView.setPreserveRatio(false);
+            Circle clip = new Circle(imageView.getFitWidth() / 2, imageView.getFitHeight() / 2, imageView.getFitWidth() / 2);
+            imageView.setClip(clip);
             Label nameLabel = new Label(contacto.getNombre()+" "+contacto.getApellidos());
             nameLabel.getStyleClass().add("nombreContacto");
 

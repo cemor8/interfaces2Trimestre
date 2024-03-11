@@ -7,6 +7,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import modelo.CambiarIdioma;
 import modelo.Data;
@@ -66,12 +67,9 @@ public class ControllerVistaCadaContacto {
         this.img.setImage(new Image("file:"+this.contacto.getRutaImagen()));
         img.setFitHeight(100);
         img.setFitWidth(100);
-        Rectangle clip = new Rectangle(
-                this.img.getFitWidth(), this.img.getFitHeight()
-        );
-        clip.setArcWidth(10);
-        clip.setArcHeight(10);
-        this.img.setClip(clip);
+        img.setPreserveRatio(false);
+        Circle clip = new Circle(img.getFitWidth() / 2, img.getFitHeight() / 2, img.getFitWidth() / 2);
+        img.setClip(clip);
 
     }
 

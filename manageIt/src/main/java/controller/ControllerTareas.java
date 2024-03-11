@@ -25,6 +25,7 @@ public class ControllerTareas {
 
     @FXML
     private MFXScrollPane scroll;
+    public boolean meter;
     private Data data;
     private ArrayList<Tarea> tareas;
 
@@ -61,7 +62,7 @@ public class ControllerTareas {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/cadaTarea.fxml"), CambiarIdioma.getInstance().getBundle());
             Parent root = fxmlLoader.load();
             ControllerCadaTarea controllerCadaTarea = fxmlLoader.getController();
-            controllerCadaTarea.recibirData(this.data, tarea, this.tareas);
+            controllerCadaTarea.recibirData(this.data, tarea, this.tareas,this.meter);
             anchorPane.getChildren().setAll(root);
 
             HBox.setMargin(anchorPane, new Insets(10, 0, 0, 10));
@@ -86,9 +87,13 @@ public class ControllerTareas {
      * @param tareas    lista de tareas
      * @throws IOException
      */
-    public void recibirData(Data data, ArrayList<Tarea> tareas) throws IOException {
+    public void recibirData(Data data, ArrayList<Tarea> tareas,boolean meter) throws IOException {
         this.data = data;
+        this.meter = meter;
         this.tareas = tareas;
+        if (!meter){
+            this.btnMeter.setVisible(false);
+        }
         this.inicializar();
     }
 

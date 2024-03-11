@@ -19,9 +19,14 @@ import modelo.CambiarIdioma;
 import modelo.Data;
 import modelo.Proyecto;
 
+import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ControllerVistaCadaProyecto {
 
@@ -60,6 +65,13 @@ public class ControllerVistaCadaProyecto {
     private Data data;
     private Proyecto proyecto;
     private ArrayList<Proyecto> listaDeProyecto;
+    Map<String, String> columnasExpresiones = new HashMap<String, String>() {
+        {
+            put("descripcion", "^.{15,100}$");
+            put("nombre", "^^.{5,25}$");
+        }
+
+    };
 
     /**
      * Método que se encarga de guardar el estado del proyecto
@@ -113,7 +125,7 @@ public class ControllerVistaCadaProyecto {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/tareas.fxml"), CambiarIdioma.getInstance().getBundle());
         Parent root = fxmlLoader.load();
         ControllerTareas controllerTareas = fxmlLoader.getController();
-        controllerTareas.recibirData(this.data,this.proyecto.getTareas());
+        controllerTareas.recibirData(this.data,this.proyecto.getTareas(),true);
         this.data.getListaControladores().getControllerContenedor().rellenarContenido(root);
     }
 
@@ -184,14 +196,28 @@ public class ControllerVistaCadaProyecto {
             this.labelDescripcion.setEditable(false);
         }
         if (this.proyecto.getRutaVideo() != null && !this.proyecto.getRutaVideo().equalsIgnoreCase("")){
-            Media media2 = new Media(this.proyecto.getRutaVideo());
+            File file = new File(this.proyecto.getRutaVideo());
+            String mediaUrl = file.toURI().toString();
+            Media media2 = new Media(mediaUrl);
             MediaPlayer mediaPlayer = new MediaPlayer(media2);
             this.video.setMediaPlayer(mediaPlayer);
+            mediaPlayer.setOnEndOfMedia(() -> {
+                mediaPlayer.stop();
+                mediaPlayer.play();
+            });
+
             mediaPlayer.play();
         }
 
 
 
+    }
+    @FXML
+    void guardarDesc(MouseEvent event) {
+        if (!validarContenido(this.columnasExpresiones.get("descripcion"), this.labelDescripcion.getText())) {
+            return;
+        }
+        this.proyecto.setDescripcion(this.labelDescripcion.getText());
     }
 
     /**
@@ -205,6 +231,17 @@ public class ControllerVistaCadaProyecto {
         this.proyecto = proyecto;
         this.listaDeProyecto = listaDeProyecto;
         this.inicializar();
+    }
+    /**
+     * Método que devuelve true si se cumple una expresion regular en una string
+     *
+     * @param patron       expresion regular
+     * @param texto_buscar texto donde buscar el patron
+     */
+    public boolean validarContenido(String patron, String texto_buscar) {
+        Pattern patronValidar = Pattern.compile(patron);
+        Matcher matcher = patronValidar.matcher(texto_buscar);
+        return matcher.matches();
     }
 
 }

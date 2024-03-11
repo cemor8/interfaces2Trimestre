@@ -47,8 +47,11 @@ public class ControllerMenuSuperior {
         Platform.runLater(() -> {
             this.menuSuperior.requestFocus();
         });
-        this.nombre.setText(this.data.getCurrentUser().getNombre()+" "+this.data.getCurrentUser().getApellidos());
+        this.ponerNombre();
 
+    }
+    public void ponerNombre(){
+        this.nombre.setText(this.data.getCurrentUser().getNombre()+" "+this.data.getCurrentUser().getApellidos());
     }
 
     /**
