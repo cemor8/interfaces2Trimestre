@@ -50,58 +50,7 @@
                   <Insets />
                </VBox.margin>
             </HBox>
-            <HBox fx:id="hboxDetallada" onMouseClicked="#verTabla" prefHeight="100.0" prefWidth="200.0" styleClass="seccion">
-               <children>
-                  <ImageView fx:id="imagenDetallada" fitHeight="27.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <HBox.margin>
-                        <Insets left="60.0" top="33.0" />
-                     </HBox.margin>
-                     <image>
-                        <Image url="@../../../images/listanegra.png" />
-                     </image>
-                  </ImageView>
-                  <Label fx:id="labelVista" prefHeight="61.0" prefWidth="200.0" styleClass="labelCadaPanel" text="%panel.vista">
-                     <HBox.margin>
-                        <Insets left="10.0" top="15.0" />
-                     </HBox.margin>
-                  </Label>
-               </children>
-            </HBox>
-            <HBox fx:id="hboxUsuario" onMouseClicked="#verUsuario" prefHeight="100.0" prefWidth="200.0" styleClass="seccion">
-               <children>
-                  <ImageView fx:id="imagenUsuario" fitHeight="27.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <HBox.margin>
-                        <Insets left="60.0" top="33.0" />
-                     </HBox.margin>
-                     <image>
-                        <Image url="@../../../images/usuarionegro.png" />
-                     </image>
-                  </ImageView>
-                  <Label fx:id="labelUsuario" prefHeight="61.0" prefWidth="142.0" styleClass="labelCadaPanel" text="%panel.usuario">
-                     <HBox.margin>
-                        <Insets left="10.0" top="15.0" />
-                     </HBox.margin>
-                  </Label>
-               </children>
-            </HBox>
          </children>
       </VBox>
-      <HBox fx:id="hboxConfig" layoutY="809.0" onMouseClicked="#verConfiguracion" prefHeight="91.0" prefWidth="307.0" styleClass="seccion">
-         <children>
-            <ImageView fx:id="imagenConfig" fitHeight="27.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-               <HBox.margin>
-                  <Insets left="60.0" top="33.0" />
-               </HBox.margin>
-               <image>
-                  <Image url="@../../../images/settingsnegro.png" />
-               </image>
-            </ImageView>
-            <Label fx:id="labelConfig" prefHeight="61.0" prefWidth="142.0" styleClass="labelCadaPanel" text="%panel.configuracion">
-               <HBox.margin>
-                  <Insets left="10.0" top="15.0" />
-               </HBox.margin>
-            </Label>
-         </children>
-      </HBox>
    </children>
 </AnchorPane>
