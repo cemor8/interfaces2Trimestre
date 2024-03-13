@@ -85,6 +85,7 @@ public class ControllerVistaConfiguracion {
         this.btnOscuro.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),false);
         this.btnClaro.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),true);
         this.data.setOscuro(false);
+        this.data.getListaControladores().getControllerContenedor().meterEstilo("/styles/claro.css");
     }
 
     /**
@@ -194,6 +195,7 @@ public class ControllerVistaConfiguracion {
         this.btnOscuro.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),true);
         this.btnClaro.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"),false);
         this.data.setOscuro(true);
+        this.data.getListaControladores().getControllerContenedor().meterEstilo("/styles/oscuro.css");
     }
 
     /**

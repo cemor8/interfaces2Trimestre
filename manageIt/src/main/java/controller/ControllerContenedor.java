@@ -117,6 +117,7 @@ public class ControllerContenedor {
      * @param ruta
      */
     public void meterEstilo(String ruta){
+        this.padre.getStylesheets().clear();
         this.padre.getStylesheets().add(Objects.requireNonNull(getClass().getResource(ruta)).toExternalForm());
     }
 
