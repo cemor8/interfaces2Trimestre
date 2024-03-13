@@ -86,9 +86,8 @@ public class ControllerPanel {
 
             Label titulo = new Label(proyectosAsignados.get(i).getNombre());
             titulo.getStyleClass().add("nombreTarjetaProyecto");
-            titulo.setMinWidth(120);
-            titulo.setPrefWidth(120);
-            titulo.setMinWidth(120);
+            titulo.setMinWidth(150);
+            titulo.setPrefWidth(150);
             titulo.setPrefHeight(40);
             titulo.setMinHeight(40);
             titulo.setMaxHeight(40);
@@ -107,9 +106,11 @@ public class ControllerPanel {
             if (proyectosAsignados.get(i).getEstado().equalsIgnoreCase("pendiente")){
                 estado.getStyleClass().add("pendiente");
             }else if(proyectosAsignados.get(i).getEstado().equalsIgnoreCase("completado")){
-                estado.getStyleClass().add("completado");
-            }else if(proyectosAsignados.get(i).getEstado().equalsIgnoreCase("en proceso")){
                 estado.getStyleClass().add("proceso");
+            }else if(proyectosAsignados.get(i).getEstado().equalsIgnoreCase("en proceso")){
+                estado.getStyleClass().add("completado");
+            }else {
+                estado.getStyleClass().add("completado");
             }
             estado.setAlignment(Pos.CENTER);
 
@@ -118,8 +119,8 @@ public class ControllerPanel {
             btnver.setOnMouseClicked(this::cargarProyecto);
             btnver.setText("Ver");
             btnver.setId(String.valueOf(i));
-            HBox.setMargin(estado,new Insets(0,0,0,30));
-            HBox.setMargin(btnver,new Insets(0,0,0,40));
+            HBox.setMargin(estado,new Insets(0,0,0,50));
+            HBox.setMargin(btnver,new Insets(0,0,0,70));
             hBox.getChildren().addAll(titulo,estado,btnver);
             VBox.setMargin(hBox,new Insets(10,5,10,5));
             this.contenedorCadaProyecto.getChildren().add(hBox);
@@ -193,9 +194,8 @@ public class ControllerPanel {
 
             Label titulo = new Label(tareasAsignadas.get(i).getNombre());
             titulo.getStyleClass().add("nombreTarjetaProyecto");
-            titulo.setMinWidth(120);
-            titulo.setPrefWidth(120);
-            titulo.setMinWidth(120);
+            titulo.setMinWidth(150);
+            titulo.setPrefWidth(150);
             titulo.setPrefHeight(40);
             titulo.setMinHeight(40);
             titulo.setMaxHeight(40);
@@ -203,12 +203,19 @@ public class ControllerPanel {
 
             Label estado = new Label(tareasAsignadas.get(i).getEstado());
             if (proyectosAsignados.get(i).getEstado().equalsIgnoreCase("pendiente")){
-                estado.getStyleClass().add("pendiente");
+                estado.getStyleClass().clear();
+                estado.getStyleClass().add("proceso");
             }else if(proyectosAsignados.get(i).getEstado().equalsIgnoreCase("completado")){
+                estado.getStyleClass().clear();
                 estado.getStyleClass().add("completado");
             }else if(proyectosAsignados.get(i).getEstado().equalsIgnoreCase("en proceso")){
-                estado.getStyleClass().add("proceso");
+                estado.getStyleClass().clear();
+                estado.getStyleClass().add("pendiente");
+            }else {
+                estado.getStyleClass().clear();
+                estado.getStyleClass().add("pendiente");
             }
+
             estado.setMinWidth(100);
             estado.setPrefWidth(100);
             estado.setMinWidth(100);
@@ -219,12 +226,12 @@ public class ControllerPanel {
 
             MFXButton btnver = new MFXButton();
             btnver.getStyleClass().add("btnTarjetaProyecto");
-            HBox.setMargin(estado,new Insets(0,0,0,30));
+            HBox.setMargin(estado,new Insets(0,0,0,50));
             btnver.setOnMouseClicked(this::cargarTarea);
             btnver.setId(String.valueOf(i));
             estado.setAlignment(Pos.CENTER);
             btnver.setText("Ver");
-            HBox.setMargin(btnver,new Insets(0,0,0,40));
+            HBox.setMargin(btnver,new Insets(0,0,0,70));
             hBox.getChildren().addAll(titulo,estado,btnver);
             VBox.setMargin(hBox,new Insets(10,5,10,5));
             this.contenedorCadaTarea.getChildren().add(hBox);

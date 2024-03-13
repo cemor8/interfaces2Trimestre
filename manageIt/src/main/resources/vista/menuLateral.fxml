@@ -208,11 +208,7 @@
             <Insets />
          </opaqueInsets>
       </VBox>
-      <ImageView fitHeight="105.0" fitWidth="129.0" layoutX="53.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/menuLateral/logo.png" />
-         </image>
-      </ImageView>
+      <ImageView fitHeight="105.0" fitWidth="129.0" layoutX="53.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" styleClass="imagenPrincipal" />
    </children>
    <opaqueInsets>
       <Insets />

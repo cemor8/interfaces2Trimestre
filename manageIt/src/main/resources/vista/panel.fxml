@@ -22,18 +22,18 @@
             <Label alignment="CENTER" layoutX="16.0" layoutY="184.0" prefHeight="42.0" prefWidth="283.0" styleClass="terminados" text="%panel.contenedorProyectosTerminados" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="contenedorProyectos" layoutX="122.0" layoutY="437.0" prefHeight="309.0" prefWidth="394.0" styleClass="contenedorProyectos">
+      <AnchorPane fx:id="contenedorProyectos" layoutX="80.0" layoutY="437.0" prefHeight="309.0" prefWidth="436.0" styleClass="contenedorProyectos">
          <children>
-            <VBox fx:id="contenedorCadaProyecto" layoutY="85.0" prefHeight="224.0" prefWidth="394.0" />
+            <VBox fx:id="contenedorCadaProyecto" layoutY="85.0" prefHeight="224.0" prefWidth="436.0" />
             <Label fx:id="labelProyectos" layoutX="14.0" layoutY="4.0" prefHeight="65.0" prefWidth="151.0" styleClass="labelSecciones" text="%panel.contenedorProyectos" />
-            <MFXButton fx:id="btnVerTodosProyectos" layoutX="275.0" layoutY="20.0" onMouseClicked="#verProyectos" prefHeight="34.0" prefWidth="88.0" styleClass="btn" text="%panel.botonVerTodos" />
+            <MFXButton fx:id="btnVerTodosProyectos" layoutX="334.0" layoutY="20.0" onMouseClicked="#verProyectos" prefHeight="34.0" prefWidth="88.0" styleClass="btn" text="%panel.botonVerTodos" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="contenedorTareas" layoutX="613.0" layoutY="437.0" prefHeight="309.0" prefWidth="394.0" styleClass="contenedorProyectos">
+      <AnchorPane fx:id="contenedorTareas" layoutX="613.0" layoutY="437.0" prefHeight="309.0" prefWidth="436.0" styleClass="contenedorProyectos">
          <children>
-            <VBox fx:id="contenedorCadaTarea" layoutY="85.0" prefHeight="224.0" prefWidth="394.0" />
+            <VBox fx:id="contenedorCadaTarea" layoutY="85.0" prefHeight="224.0" prefWidth="436.0" />
             <Label fx:id="labelProyectos1" layoutX="14.0" layoutY="4.0" prefHeight="65.0" prefWidth="151.0" styleClass="labelSecciones" text="%panel.contenedorTareas" />
-            <MFXButton fx:id="btnVerTodosProyectos1" layoutX="275.0" layoutY="20.0" onMouseClicked="#verTareas" prefHeight="34.0" prefWidth="88.0" styleClass="btn" text="%panel.botonVerTodos" />
+            <MFXButton fx:id="btnVerTodosProyectos1" layoutX="334.0" layoutY="20.0" onMouseClicked="#verTareas" prefHeight="34.0" prefWidth="88.0" styleClass="btn" text="%panel.botonVerTodos" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="656.0" layoutY="148.0" prefHeight="233.0" prefWidth="314.0" styleClass="seccionTerminado">

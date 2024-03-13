@@ -1016,3 +1016,10 @@ Seleccionar dia
       -fx-scale-x: 1.1;
       -fx-scale-y: 1.1;
 }
+.date-picker-popup .label{
+    -fx-text-fill : white;
+}
+
+.imagenPrincipal{
+    -fx-image: url(../images/menuLateral/logo.png);
+}
