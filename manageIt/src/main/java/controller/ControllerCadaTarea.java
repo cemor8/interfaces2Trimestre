@@ -48,6 +48,9 @@ public class ControllerCadaTarea {
 
     @FXML
     private Label nombre;
+    @FXML
+    private Label cliente;
+
     private Data data;
     private Tarea tarea;
     private boolean meter;
@@ -108,6 +111,20 @@ public class ControllerCadaTarea {
 
         Circle circulo = new Circle(this.imagenCreador.getFitWidth() / 2, this.imagenCreador.getFitHeight() / 2, this.imagenCreador.getFitWidth() / 2);
         this.imagenCreador.setClip(circulo);
+
+
+        this.cliente.setText(this.tarea.getCampo());
+        if (this.tarea.getCampo().equalsIgnoreCase("WEB")){
+            this.cliente.getStyleClass().add("pendiente");
+        }else if(this.tarea.getCampo().equalsIgnoreCase("BBDD")){
+            this.cliente.getStyleClass().add("completado");
+        }else if(this.tarea.getCampo().equalsIgnoreCase("UX")){
+            this.cliente.getStyleClass().add("proceso");
+        }else if(this.tarea.getCampo().equalsIgnoreCase("UI")){
+            this.cliente.getStyleClass().add("pendiente");
+        }else {
+            this.cliente.getStyleClass().add("pendiente");
+        }
     }
     public void recibirData(Data data, Tarea tarea, ArrayList<Tarea> tareas, boolean meter){
         this.data = data;

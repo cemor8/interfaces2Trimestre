@@ -45,6 +45,8 @@ public class ControllerCadaProyecto {
     @FXML
     private ImageView imagenVer;
     @FXML
+    private Label cliente;
+    @FXML
     private ImageView imagenCreador;
 
     @FXML
@@ -142,7 +144,18 @@ public class ControllerCadaProyecto {
         if (!this.data.getCurrentUser().getCorreo().equalsIgnoreCase(this.proyecto.getJefeProyecto().getCorreo())){
             imagenBasura.setDisable(true);
         }
-
+        this.cliente.setText(this.proyecto.getCliente());
+        if (this.proyecto.getCliente().equalsIgnoreCase("netflix")){
+            this.cliente.getStyleClass().add("pendiente");
+        }else if(this.proyecto.getCliente().equalsIgnoreCase("uber")){
+            this.cliente.getStyleClass().add("completado");
+        }else if(this.proyecto.getCliente().equalsIgnoreCase("movistar")){
+            this.cliente.getStyleClass().add("proceso");
+        }else if(this.proyecto.getCliente().equalsIgnoreCase("Discord")){
+            this.cliente.getStyleClass().add("pendiente");
+        }else {
+            this.cliente.getStyleClass().add("pendiente");
+        }
 
     }
 

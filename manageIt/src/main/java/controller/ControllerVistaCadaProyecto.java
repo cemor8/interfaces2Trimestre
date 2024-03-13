@@ -175,10 +175,14 @@ public class ControllerVistaCadaProyecto {
         }
         this.cliente.setText(this.proyecto.getCliente());
         if (this.proyecto.getCliente().equalsIgnoreCase("netflix")){
-            this.cliente.getStyleClass().clear();
             this.cliente.getStyleClass().add("pendiente");
-        }else{
-            this.cliente.getStyleClass().clear();
+        }else if(this.proyecto.getCliente().equalsIgnoreCase("uber")){
+            this.cliente.getStyleClass().add("completado");
+        }else if(this.proyecto.getCliente().equalsIgnoreCase("movistar")){
+            this.cliente.getStyleClass().add("proceso");
+        }else if(this.proyecto.getCliente().equalsIgnoreCase("Discord")){
+            this.cliente.getStyleClass().add("pendiente");
+        }else {
             this.cliente.getStyleClass().add("pendiente");
         }
         SimpleDateFormat fechaCreacion = new SimpleDateFormat("dd-MM-yyyy");
