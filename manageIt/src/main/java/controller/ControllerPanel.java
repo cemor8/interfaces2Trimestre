@@ -117,7 +117,7 @@ public class ControllerPanel {
             MFXButton btnver = new MFXButton();
             btnver.getStyleClass().add("btnTarjetaProyecto");
             btnver.setOnMouseClicked(this::cargarProyecto);
-            btnver.setText("Ver");
+            btnver.setText(CambiarIdioma.getInstance().getBundle().getString("panel.btn"));
             btnver.setId(String.valueOf(i));
             HBox.setMargin(estado,new Insets(0,0,0,50));
             HBox.setMargin(btnver,new Insets(0,0,0,70));
@@ -230,7 +230,7 @@ public class ControllerPanel {
             btnver.setOnMouseClicked(this::cargarTarea);
             btnver.setId(String.valueOf(i));
             estado.setAlignment(Pos.CENTER);
-            btnver.setText("Ver");
+            btnver.setText(CambiarIdioma.getInstance().getBundle().getString("panel.btn"));
             HBox.setMargin(btnver,new Insets(0,0,0,70));
             hBox.getChildren().addAll(titulo,estado,btnver);
             VBox.setMargin(hBox,new Insets(10,5,10,5));

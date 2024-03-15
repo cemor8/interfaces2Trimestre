@@ -6,7 +6,7 @@ Estilos generales
     -fx-background-color : #F7F7FB;
 }
 .btn{
-    -fx-background-color : #4F81FF;
+    -fx-background-color : #305A8C;
     -fx-text-fill : "white";
     -fx-background-radius : 10px;
     -fx-font-family : "Roboto";
@@ -49,7 +49,7 @@ Estilos Menu Lateral
 */
 
 #fondoMenuLateral{
-    -fx-background-color : #2C353B;
+    -fx-background-color : #507DBC;
 }
 .hboxLateral:selected, .hboxLateral:hover{
     -fx-background-color: #ACABBB;
@@ -118,11 +118,11 @@ Estilos Panel
 
 }
 .contenedorProyectos{
-    -fx-background-color : #2C353B;
+    -fx-background-color : #507DBC;
     -fx-background-radius: 10px;
 }
 .seccionTerminado{
-    -fx-background-color : #2C353B;
+    -fx-background-color : #507DBC;
     -fx-background-radius: 5px;
 }
 .hboxTarjetaProyecto{
@@ -149,6 +149,7 @@ Estilos Panel
     -fx-min-width: 70;
     -fx-min-height: 30;
     -fx-font-weight : bold;
+    -fx-text-fill : white;
     -fx-font-family : "Roboto Mono";
     -fx-text-size : 14px;
 }
@@ -163,7 +164,7 @@ Estilos cada Proyecto
 */
 .contenedorVistaCadaProyecto{
     -fx-background-radius: 10px;
-    -fx-background-color : #2C353B;
+    -fx-background-color : #507DBC;
     -fx-scale-x: 1;
     -fx-scale-y: 1;
     -fx-cursor: default;
@@ -311,7 +312,7 @@ Vista Proyectos
 Vista Crear Proyecto
 */
 .contenedor{
-    -fx-background-color : #2C353B;
+    -fx-background-color : #507DBC;
     -fx-background-radius : 10px
 }
 .labelCrear{
@@ -386,7 +387,7 @@ Estilos panel de notas
 */
 
 .fondoNota{
-    -fx-background-color : #2C353B;
+    -fx-background-color : #507DBC;
     -fx-background-radius : 10px;
 }
 
@@ -451,7 +452,7 @@ Estilos panel de notas
 Estilos cada Nota
 */
 .fondoCadaNota{
-    -fx-background-color : #2C353B;
+    -fx-background-color : #507DBC;
     -fx-background-radius : 10px;
 }
 .descripcionCadaNota{
@@ -481,11 +482,6 @@ Estilos Contactos
     -fx-spacing: 40;
     -fx-padding: 20;
 }
-
-.imagenContacto{
-}
-.cartaContacto{
-}
 .nombreContactoCarta{
      -fx-text-fill:"white";
      -fx-font-size: 16px;
@@ -497,11 +493,11 @@ Estilos Contactos
 
 .cartaContacto{
      -fx-pref-width: 400px;
-     -fx-background-color: #2C353B;
+     -fx-background-color: #A1C6EA;
      -fx-spacing: 5;
      -fx-padding: 10;
      -fx-alignment: center-left;
-     -fx-border-color: #2C353B;
+     -fx-border-color: #507DBC;
      -fx-border-width: 1;
      -fx-border-radius: 5;
      -fx-background-radius: 5;
@@ -583,7 +579,7 @@ Estilos cada vista
     -fx-text-fill:"white";
     -fx-font-size: 14px;
     -fx-font-family : "Roboto Mono";
-    -fx-background-color: #2C353B;
+    -fx-background-color: #507DBC;
     -fx-background-radius : 10px;
     -fx-padding: 10px;
 }
@@ -666,7 +662,7 @@ Configuracion
 
 }
 .cadaHboxConfig{
-    -fx-background-color : #2C353B;
+    -fx-background-color : #507DBC;
     -fx-background-radius : 10px;
 }
 
@@ -828,7 +824,7 @@ Calendario y datepicker
 */
 
 .calendar-grid {
-    -fx-background-color: #2C353B;
+    -fx-background-color: #507DBC;
     -fx-padding: 10;
     -fx-hgap: 5;
     -fx-vgap: 5;
@@ -845,7 +841,7 @@ Calendario y datepicker
 }
 .calendar-grid > .day-cell {
     -fx-padding: 2 5 2 5;
-    -fx-background-color: #2C353B;
+    -fx-background-color: #507DBC;
     -fx-text-fill: white;
     -fx-border-width: 0;
     -fx-border-color: transparent;
@@ -886,7 +882,7 @@ Calendario y datepicker
 
 
 .date-picker-popup {
-    -fx-background-color: #2C353B;
+    -fx-background-color: #507DBC;
     -fx-background-insets: 0, 1;
     -fx-background-radius: 4px;
     -fx-alignment: CENTER;
@@ -897,7 +893,7 @@ Calendario y datepicker
 
 .date-picker-popup > .month-year-pane {
     -fx-padding: 10 5 10 5;
-    -fx-background-color: #2C353B;
+    -fx-background-color: #507DBC;
     -fx-background-insets: 0;
     -fx-text-fill: white;
     -fx-background-radius: 5px;
@@ -950,7 +946,7 @@ Calendario y datepicker
   -fx-background-image: url(../images/menuLateral/ChevronLeft.png);
   -fx-background-size: cover;
   -fx-background-repeat: no-repeat;
-  -fx-background-color: #2C353B;
+  -fx-background-color: #507DBC;
   -fx-pref-width: 50px;
   -fx-background-position: center center;
   -fx-pref-height: 50px;
@@ -961,7 +957,7 @@ Calendario y datepicker
   -fx-background-image: url(../images/global/ChevronRight.png);
   -fx-background-size: cover;
   -fx-background-position: center center;
-  -fx-background-color: #2C353B;
+  -fx-background-color: #507DBC;
   -fx-background-repeat: no-repeat;
 
   -fx-pref-width: 50px;

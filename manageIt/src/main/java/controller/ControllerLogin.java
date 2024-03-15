@@ -34,19 +34,19 @@ public class ControllerLogin {
      */
     @FXML
     void iniciar(MouseEvent event) throws IOException {
-        /*
+
         Optional<Usuario> usuarioOptional = this.data.getUsuarios().stream().filter(usuario -> usuario.getCorreo().equalsIgnoreCase(introducirCorreo.getText()) &&
                 usuario.getContraseña().equals(this.introducirContraseña.getText())).findAny();
 
-         */
-        /*
+
+
         if(usuarioOptional.isPresent()){
             this.data.setCurrentUser(usuarioOptional.get());
         }else {
             return;
         }
-         */
-        this.data.setCurrentUser(this.data.getUsuarios().get(0));
+
+        this.data.setCurrentUser(usuarioOptional.get());
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/vista/contenedor.fxml"), CambiarIdioma.getInstance().getBundle());
         Parent root = fxmlLoader.load();
