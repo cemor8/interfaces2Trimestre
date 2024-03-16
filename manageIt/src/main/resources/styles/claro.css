@@ -342,10 +342,16 @@ Vista Crear Proyecto
 }
 .btnCrear{
     -fx-background-color : #305A8C;
-    -fx-text-fill : "black";
+    -fx-text-fill : "white";
     -fx-background-radius : 5px;
     -fx-font-family : "Roboto";
     -fx-text-size : 18px;
+}
+.btnCrear:hover{
+    -fx-cursor : hand;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+
 }
 .placeholderImagen{
     -fx-image: url(../images/global/placeholder.jpg);
@@ -587,7 +593,7 @@ Estilos cada vista
     -fx-text-fill:"white";
     -fx-font-size: 14px;
     -fx-font-family : "Roboto Mono";
-    -fx-background-color: #507DBC;
+    -fx-background-color: #305A8C;
     -fx-background-radius : 10px;
     -fx-padding: 10px;
 }
