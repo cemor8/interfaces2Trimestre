@@ -161,7 +161,7 @@ public class ControllerMenuLateral {
      */
     @FXML
     void mostrarPanel(MouseEvent event) throws IOException {
-        System.out.println("hola");
+
         ArrayList<Proyecto> proyectos = new ArrayList<>();
         for (Proyecto proyecto : this.data.getProyectos()) {
             for (Usuario usuario : proyecto.getPersonasAsignadas()) {

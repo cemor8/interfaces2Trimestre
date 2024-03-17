@@ -140,7 +140,7 @@ public class ControllerContactos {
             imgAñadir.setFitWidth(30);
             imgAñadir.setOnMouseClicked(this::añadirContacto);
             imgAñadir.setId(String.valueOf(this.contactosMeter.indexOf(contacto)));
-            System.out.println(contacto);
+
             if (this.contactos.contains(contacto)){
                 imgAñadir.setDisable(true);
             }

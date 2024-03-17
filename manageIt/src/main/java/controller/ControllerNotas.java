@@ -82,7 +82,7 @@ public class ControllerNotas {
     }
     @FXML
     void guardarNota(MouseEvent event) {
-        System.out.println(this.notaSeleccionada);
+
         if (rutaImagenElegida != null && !rutaImagenElegida.isEmpty()){
             this.notaSeleccionada.setRutaImagen(rutaImagenElegida);
         }
@@ -150,11 +150,10 @@ public class ControllerNotas {
         this.btnGuardarCambios.setVisible(true);
         this.img.setImage(null);
         this.calendario.setVisible(true);
-        System.out.println(this.notaSeleccionada.getTitulo());
+
         this.tituloNota.setText("");
         this.tituloNota.setText(this.notaSeleccionada.getTitulo());
-        System.out.println("obtenido");
-        System.out.println(this.tituloNota.getText());
+
 
         this.descripcion.setText(this.notaSeleccionada.getDescripcion());
 
@@ -196,7 +195,7 @@ public class ControllerNotas {
     }
     @FXML
     void editarImagen(MouseEvent event) {
-        System.out.println("entre");
+
         FileChooser filechooser = new FileChooser();
         filechooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("image files", "*.png","*.jpg","*.jpeg"));
         File selectedFile = filechooser.showOpenDialog(null);

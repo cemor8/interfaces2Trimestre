@@ -73,7 +73,7 @@ public class ControllerPanel {
      * usuario en la interfaz
      */
     public void cargarProyectos(){
-        System.out.println(proyectosAsignados);
+
         if (this.proyectosAsignados.isEmpty()){
             return;
         }
