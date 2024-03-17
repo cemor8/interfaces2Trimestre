@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import modelo.CambiarIdioma;
@@ -54,6 +55,7 @@ public class ControllerLogin {
         controllerContenedor.recibirData(this.data);
         Scene scene = new Scene(root);
         Stage stage = new Stage();
+        stage.getIcons().add(new Image("file:src/main/resources/images/menuLateral/logo.png"));
         stage.setTitle("Panel");
         stage.setScene(scene);
         stage.show();

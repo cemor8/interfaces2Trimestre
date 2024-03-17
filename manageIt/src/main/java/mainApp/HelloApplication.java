@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import modelo.CambiarIdioma;
 import modelo.Data;
@@ -21,6 +22,7 @@ public class HelloApplication extends Application {
         controllerLogin.recibirData(new Data());
         Scene scene = new Scene(root);
         stage.setTitle("Login");
+        stage.getIcons().add(new Image("file:src/main/resources/images/menuLateral/logo.png"));
         stage.setScene(scene);
         stage.show();
     }

@@ -81,6 +81,7 @@ public class ControllerMenuLateral {
         stage.setScene(scene);
         stage.setTitle("Login");
         stage.setScene(scene);
+        stage.getIcons().add(new Image("file:src/main/resources/images/menuLateral/logo.png"));
         stage.show();
         HBox hBox = (HBox) event.getSource();
         Stage stage1 = (Stage) hBox.getScene().getWindow();
